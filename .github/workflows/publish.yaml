@@ -1,0 +1,133 @@
+name: 'Build Windows Unsigned'
+
+env:
+  RUSTUP_TOOLCHAIN: stable
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        type: choice
+        required: true
+        description: channel
+        default: nightly
+        options:
+          - release
+          - nightly
+      bump:
+        type: choice
+        required: true
+        description: update type
+        default: patch
+        options:
+          - undefined
+          - patch
+          - minor
+          - major
+
+jobs:
+  build-sveltekit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.PAT_JUNON }}
+      
+      - name: Consume input variables
+        shell: bash
+        run: |
+          VITEMODE=nightly
+          if [[ "${{ github.event.inputs.channel }}" == "release" ]]; then
+            VITEMODE=production
+          fi
+          echo "vitemode=$VITEMODE" >> $GITHUB_ENV
+          echo "channel=${{ github.event.inputs.channel }}" >> $GITHUB_ENV
+          echo "bump=${{ github.event.inputs.bump }}" >> $GITHUB_ENV
+
+      - name: Calculate next version
+        shell: bash
+        run: |
+          CURRENT_VERSION="$(curl --silent "https://app.gitbutler.com/releases/${{ env.channel }}" | jq -r '.version')"
+          NEXT_VERSION=$(./scripts/next.sh "${CURRENT_VERSION}" "${{ env.bump }}")
+          echo "version=$NEXT_VERSION" >> $GITHUB_ENV
+          mkdir -p release && echo "$NEXT_VERSION" > release/version
+
+      - name: Init Node Environment
+        uses: ./.github/actions/init-env-node
+
+      - name: Build SvelteKit
+        run: pnpm build:desktop -- --mode ${{ env.vitemode }}
+
+      - uses: actions/upload-artifact@v6
+        name: Upload SvelteKit build output
+        with:
+          name: sveltekit-build
+          path: ./apps/desktop/build/
+          retention-days: 1
+          if-no-files-found: error
+
+  build-tauri:
+    needs: build-sveltekit
+    runs-on: windows-latest
+    env:
+      CARGO_TERM_COLOR: always
+    steps:
+      - name: Set git to use LF
+        run: |
+          git config --global core.autocrlf false
+          git config --global core.eol lf
+
+      - name: Set Perl environment variables
+        run: |
+          echo "PERL=$((where.exe perl)[0])" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          echo "OPENSSL_SRC_PERL=$((where.exe perl)[0])" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+
+      - uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.PAT_JUNON }}
+
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2.8.2
+        with:
+          shared-key: app-unsigned-build-${{ github.event.inputs.channel }}-${{ runner.os }}
+
+      - name: Init Node Environment
+        uses: ./.github/actions/init-env-node
+
+      - name: Consume input variables
+        shell: bash
+        run: |
+          echo "channel=${{ github.event.inputs.channel }}" >> $GITHUB_ENV
+          echo "bump=${{ github.event.inputs.bump }}" >> $GITHUB_ENV
+
+      - name: Calculate next version
+        shell: bash
+        run: |
+          CURRENT_VERSION="$(curl --silent "https://app.gitbutler.com/releases/${{ env.channel }}" | jq -r '.version')"
+          NEXT_VERSION=$(./scripts/next.sh "${CURRENT_VERSION}" "${{ env.bump }}")
+          echo "version=$NEXT_VERSION" >> $GITHUB_ENV
+          mkdir -p release && echo "$NEXT_VERSION" > release/version
+
+      - uses: actions/download-artifact@v7
+        name: Download SvelteKit build output
+        with:
+          name: sveltekit-build
+          path: ./apps/desktop/build/
+
+      - name: Build binary (Unsigned)
+        shell: bash
+        run: |
+          ./scripts/release.sh \
+            --channel "${{ env.channel }}" \
+            --dist    "./release" \
+            --version "${{ env.version }}"
+        env:
+          # 移除了所有签名相关的 Secrets
+          POSTHOG_API_KEY: ${{ secrets.POSTHOG_API_KEY }}
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v6
+        with:
+          name: 'unsigned-${{ env.channel }}-windows-${{ github.run_number }}'
+          path: release/
+          if-no-files-found: error
