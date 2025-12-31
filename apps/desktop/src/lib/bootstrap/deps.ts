@@ -57,7 +57,6 @@ import { ClientState, CLIENT_STATE } from '$lib/state/clientState.svelte';
 import { UiState, UI_STATE, uiStateSlice } from '$lib/state/uiState.svelte';
 import { TokenMemoryService } from '$lib/stores/tokenMemoryService';
 import DataSharingService, { DATA_SHARING_SERVICE } from '$lib/support/dataSharing';
-import { UPDATER_SERVICE, UpdaterService } from '$lib/updater/updater';
 import {
 	UpstreamIntegrationService,
 	UPSTREAM_INTEGRATION_SERVICE
@@ -296,7 +295,6 @@ export function initDependencies(args: {
 	const cliManager = new CLIManager(clientState['backendApi']);
 	const dataSharingService = new DataSharingService(clientState['backendApi']);
 	const promptService = new PromptService(backend);
-	const updaterService = new UpdaterService(backend, posthog, shortcutService);
 
 	// ============================================================================
 	// UTILITIES
@@ -371,7 +369,6 @@ export function initDependencies(args: {
 		[REORDER_DROPZONE_FACTORY, reorderDropzoneFactory],
 		[UI_STATE, uiState],
 		[UNCOMMITTED_SERVICE, uncommittedService],
-		[UPDATER_SERVICE, updaterService],
 		[UPLOADS_SERVICE, uploadsService],
 		[UPSTREAM_INTEGRATION_SERVICE, upstreamIntegrationService],
 		[URL_SERVICE, urlService],

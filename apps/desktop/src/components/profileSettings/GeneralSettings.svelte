@@ -8,7 +8,6 @@
 	import { showError } from '$lib/notifications/toasts';
 	import { PROJECTS_SERVICE } from '$lib/project/projectsService';
 	import { SETTINGS, type CodeEditorSettings } from '$lib/settings/userSettings';
-	import { UPDATER_SERVICE } from '$lib/updater/updater';
 	import { USER_SERVICE } from '$lib/user/userService';
 	import { inject } from '@gitbutler/core/context';
 	import {
@@ -20,7 +19,6 @@
 		SelectItem,
 		Spacer,
 		Textbox,
-		Toggle,
 		chipToasts
 	} from '@gitbutler/ui';
 	import type { User } from '$lib/user/user';
@@ -29,9 +27,6 @@
 	const settingsService = inject(SETTINGS_SERVICE);
 	const projectsService = inject(PROJECTS_SERVICE);
 	const user = userService.user;
-
-	const updaterService = inject(UPDATER_SERVICE);
-	const disableAutoChecks = updaterService.disableAutoChecks;
 
 	const cliManager = inject(CLI_MANAGER);
 	const [instalCLI, installingCLI] = cliManager.install;
@@ -208,25 +203,6 @@
 	</CardGroup.Item>
 </CardGroup>
 
-<CardGroup>
-	<CardGroup.Item labelFor="disable-auto-checks">
-		{#snippet title()}
-			自动检查更新
-		{/snippet}
-
-		{#snippet caption()}
-			自动检查更新。你仍可在需要时手动检查。
-		{/snippet}
-
-		{#snippet actions()}
-			<Toggle
-				id="disable-auto-checks"
-				checked={!$disableAutoChecks}
-				onclick={() => ($disableAutoChecks = !$disableAutoChecks)}
-			/>
-		{/snippet}
-	</CardGroup.Item>
-</CardGroup>
 
 <CardGroup>
 	<CardGroup.Item>

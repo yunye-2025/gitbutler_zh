@@ -5,7 +5,6 @@
 	import { browser, dev } from '$app/environment';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
 	import { page } from '$app/state';
-	import AppUpdater from '$components/AppUpdater.svelte';
 	import FocusCursor from '$components/FocusCursor.svelte';
 	import GlobalModal from '$components/GlobalModal.svelte';
 	import GlobalSettingsMenuAction from '$components/GlobalSettingsMenuAction.svelte';
@@ -182,7 +181,6 @@
 <ShareIssueModal />
 <ToastController />
 <ChipToastContainer />
-<AppUpdater />
 <PromptModal />
 <ZoomInOutMenuAction />
 <GlobalSettingsMenuAction />

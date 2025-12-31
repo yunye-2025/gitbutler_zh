@@ -20,22 +20,22 @@ jobs:
   test:
     name: e2e-blackbox
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/gitbutlerapp/ci-base-image:latest
     env:
       CARGO_TERM_COLOR: always
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
         with:
           persist-credentials: false
         if: ${{ github.event_name != 'workflow_dispatch' }}
         name: Checkout
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
         name: Checkout (specific commit from manual dispatch)
         if: ${{ github.event_name == 'workflow_dispatch' }}
         with:
           persist-credentials: false
           ref: ${{ github.event.inputs.sha }}
+      - name: Dependencies for Tauri
+        run: sudo ./scripts/install-tauri-debian-dependencies.sh
       # TODO: put these into the docker image
       - name: Install Webdriver dependencies
         run: apt update && apt install -y webkit2gtk-driver ffmpeg xvfb
@@ -66,7 +66,7 @@ jobs:
         if: ${{ github.ref != 'refs/heads/master' }}
         run: xvfb-run pnpm test:e2e:blackbox
 
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: WebdriverIO Artifacts
@@ -74,3 +74,4 @@ jobs:
           path: |
             ./e2e/blackbox/videos
             ~/.config/com.gitbutler.app*/logs
+

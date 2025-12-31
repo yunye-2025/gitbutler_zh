@@ -1,6 +1,8 @@
 import { initSentry } from '$lib/analytics/sentry';
-import { handleErrorWithSentry } from '@sentry/sveltekit';
+import type { HandleClientError } from '@sveltejs/kit';
 
 initSentry();
 
-export const handleError = handleErrorWithSentry();
+export const handleError: HandleClientError = ({ error }) => {
+	console.error(error);
+};

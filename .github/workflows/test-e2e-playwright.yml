@@ -16,8 +16,6 @@ jobs:
   test:
     name: e2e-playwright
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/gitbutlerapp/ci-base-image:latest
     timeout-minutes: 60
     env:
       DESKTOP_PORT: 3000
@@ -27,15 +25,17 @@ jobs:
       VITE_BUTLER_HOST: 'localhost'
       VITE_BUILD_TARGET: 'web'
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
         with:
           persist-credentials: false
         if: ${{ github.event_name != 'workflow_dispatch' }}
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
         if: ${{ github.event_name == 'workflow_dispatch' }}
         with:
           persist-credentials: false
           ref: ${{ github.event.inputs.sha }}
+      - name: Dependencies for 'keyring'
+        run: sudo ./scripts/install-minimal-debian-dependencies.sh
       - name: Rust Cache
         uses: Swatinem/rust-cache@v2.8.2
         with:
@@ -53,7 +53,7 @@ jobs:
         if: ${{ github.ref != 'refs/heads/master' }}
       - name: Cache playwright binaries
         if: ${{ github.ref != 'refs/heads/master' }}
-        uses: actions/cache@v5
+        uses: actions/cache@v4
         id: playwright-cache
         with:
           path: |
@@ -76,7 +76,7 @@ jobs:
       - name: Run Playwright tests
         run: pnpm exec turbo run test:e2e:playwright
         if: ${{ github.ref != 'refs/heads/master' }}
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
           name: playwright-report
@@ -84,3 +84,4 @@ jobs:
             ./e2e/playwright-report/
             ./e2e/test-results/
           retention-days: 30
+

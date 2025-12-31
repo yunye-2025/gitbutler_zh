@@ -29,9 +29,9 @@ jobs:
   build-sveltekit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.PAT_JUNON }}
+          persist-credentials: false
       
       - name: Consume input variables
         shell: bash
@@ -58,7 +58,7 @@ jobs:
       - name: Build SvelteKit
         run: pnpm build:desktop -- --mode ${{ env.vitemode }}
 
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v4
         name: Upload SvelteKit build output
         with:
           name: sveltekit-build
@@ -82,9 +82,9 @@ jobs:
           echo "PERL=$((where.exe perl)[0])" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
           echo "OPENSSL_SRC_PERL=$((where.exe perl)[0])" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.PAT_JUNON }}
+          persist-credentials: false
 
       - name: Rust Cache
         uses: Swatinem/rust-cache@v2.8.2
@@ -108,7 +108,7 @@ jobs:
           echo "version=$NEXT_VERSION" >> $GITHUB_ENV
           mkdir -p release && echo "$NEXT_VERSION" > release/version
 
-      - uses: actions/download-artifact@v7
+      - uses: actions/download-artifact@v4
         name: Download SvelteKit build output
         with:
           name: sveltekit-build
@@ -126,7 +126,7 @@ jobs:
           POSTHOG_API_KEY: ${{ secrets.POSTHOG_API_KEY }}
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v4
         with:
           name: 'unsigned-${{ env.channel }}-windows-${{ github.run_number }}'
           path: release/

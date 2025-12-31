@@ -3,7 +3,6 @@ import { SilentError } from '$lib/error/error';
 import { parseError } from '$lib/error/parser';
 import { showError } from '$lib/notifications/toasts';
 import { polyfillAbortSignalTimeout } from '$lib/polyfills/abortSignal';
-import { captureException } from '@sentry/sveltekit';
 import type { HandleClientError } from '@sveltejs/kit';
 
 // Apply polyfills before any code runs
@@ -71,13 +70,6 @@ function logError(error: unknown) {
 	}
 
 	try {
-		captureException(error, {
-			mechanism: {
-				type: 'sveltekit',
-				handled: false
-			}
-		});
-
 		// Unwrap error if it's an unhandled promise rejection.
 		if (error instanceof PromiseRejectionEvent) {
 			error = error.reason;

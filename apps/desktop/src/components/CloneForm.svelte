@@ -13,7 +13,6 @@
 	import { persisted } from '@gitbutler/shared/persisted';
 	import { Button, InfoMessage, type MessageStyle, Spacer, Textbox } from '@gitbutler/ui';
 
-	import * as Sentry from '@sentry/sveltekit';
 	import { onMount } from 'svelte';
 
 	const projectsService = inject(PROJECTS_SERVICE);
@@ -92,7 +91,6 @@
 
 			handleAddProjectOutcome(outcome, (project) => goto(projectPath(project.id)));
 		} catch (e) {
-			Sentry.captureException(e);
 			const errorMessage = getErrorMessage(e);
 			posthog.captureOnboarding(OnboardingEvent.ClonedProjectFailed, e);
 			errors.push({

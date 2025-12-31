@@ -1,5 +1,3 @@
-import { captureMessage } from '@sentry/sveltekit';
-
 export interface Build {
 	os: 'windows' | 'darwin' | 'linux';
 	arch: 'x86_64' | 'aarch64';
@@ -54,12 +52,7 @@ export function getValidReleases(something: unknown): Release[] {
 			continue;
 		}
 
-		captureMessage('Invalid release filtered out', {
-			level: 'warning',
-			extra: {
-				release: item
-			}
-		});
+		console.warn('Invalid release filtered out', item);
 	}
 	return result;
 }
