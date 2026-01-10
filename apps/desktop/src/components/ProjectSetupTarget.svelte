@@ -31,8 +31,8 @@
 	let loading = $state<boolean>(false);
 	let showMoreInfo = $state<boolean>(false);
 
-	// split all the branches by the first '/' and gather the unique remote names
-	// then turn remotes into an array of objects with a 'name' and 'value' key
+	// 按首个 '/' 拆分分支并收集唯一的远端名称
+	// 再将远端整理成包含 name/value 的对象列表
 	const remotes = $derived(
 		unique(remoteBranches.map((b) => getBranchRemoteFromRef(b.name))).filter(
 			(r): r is string => !!r
@@ -67,7 +67,7 @@
 <div class="project-setup">
 	<div class="stack-v gap-4">
 		<ProjectNameLabel {projectName} />
-		<h1 class="text-serif-42">Configure your <i>workspace</i></h1>
+		<h1 class="text-serif-42">配置你的<i>工作区</i></h1>
 	</div>
 
 	<div class="project-setup__fields">
@@ -79,7 +79,7 @@
 				onselect={(value) => {
 					selectedBranch = { name: value };
 				}}
-				label="Target branch"
+				label="目标分支"
 				searchable
 			>
 				{#snippet itemSnippet({ item, highlighted })}
@@ -90,10 +90,10 @@
 			</Select>
 
 			<p class="text-12 text-body project-setup__field-caption">
-				Your main "production" branch, typically <code class="code-string">origin/master</code> or
+				你的主“生产”分支，通常为 <code class="code-string">origin/master</code> 或
 				<code class="code-string">upstream/main</code>.
 				<br />
-				<Link href="https://docs.gitbutler.com/overview#target-branch">Learn more</Link>
+				<Link href="https://docs.gitbutler.com/overview#target-branch">了解更多</Link>
 			</p>
 		</div>
 
@@ -115,8 +115,7 @@
 				</Select>
 
 				<p class="text-12 text-body clr-text-2">
-					You have branches from multiple remotes. If you want to specify a remote for creating
-					branches that is different from the remote that your target branch is on, change it here.
+					你有来自多个远端的分支。如需指定一个不同于目标分支远端的创建来源，请在此修改。
 				</p>
 			</div>
 		{/if}
@@ -126,7 +125,7 @@
 			result={combineResults(itSmellsLikeGerrit.result, projectIsGerrit.result)}
 		>
 			{#snippet error()}
-				<!-- Fail silently to detect the gerritness of a project -->
+				<!-- 检测 Gerrit 项目失败时静默处理 -->
 				<div></div>
 			{/snippet}
 			{#snippet children([isGerrit])}
@@ -136,14 +135,14 @@
 							{@html gerritLogoSvg}
 						{/snippet}
 						{#snippet title()}
-							Enable Gerrit project
+							启用 Gerrit 项目
 						{/snippet}
 						{#snippet caption()}
-							It looks like this project might be a Gerrit project.
+							检测到此项目可能是 Gerrit 项目。
 							<br />
-							Do you want to enable Gerrit mode?
+							是否要启用 Gerrit 模式？
 							<br />
-							You can adjust this later in the project settings if needed.
+							如有需要，可在项目设置中稍后调整。
 						{/snippet}
 						{#snippet actions()}
 							<Toggle
@@ -192,18 +191,17 @@
 				</svg>
 
 				<h3 class="text-13 text-body text-semibold">
-					GitButler switches your repo to gitbutler/workspace
+					GitButler 会将仓库切换到 gitbutler/workspace
 				</h3>
 			</div>
 
 			{#if showMoreInfo}
 				<p class="text-12 text-body" transition:slide={{ duration: 200 }}>
-					In order to support working on multiple branches simultaneously, GitButler creates and
-					automatically manages a special branch <span class="text-bold">gitbutler/workspace</span>.
-					You can always switch back and forth as needed between normal git branches and the
-					Gitbutler workspace.
+					为了同时处理多个分支，GitButler 会创建并自动管理一个特殊分支
+					<span class="text-bold">gitbutler/workspace</span>。
+					你可以根据需要在普通 git 分支与 GitButler 工作区之间来回切换。
 					<Link href="https://docs.gitbutler.com/features/branch-management/integration-branch"
-						>Learn more</Link
+						>了解更多</Link
 					>
 				</p>
 			{/if}
@@ -211,7 +209,7 @@
 	</div>
 
 	<div class="action-buttons">
-		<Button kind="outline" onclick={deleteProjectAndGoBack}>Cancel</Button>
+		<Button kind="outline" onclick={deleteProjectAndGoBack}>取消</Button>
 		<Button
 			style="pop"
 			{loading}
@@ -220,7 +218,7 @@
 			testId={TestId.ProjectSetupPageTargetContinueButton}
 			id="set-base-branch"
 		>
-			Let's go
+			开始吧
 		</Button>
 	</div>
 </div>

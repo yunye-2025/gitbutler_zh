@@ -55,7 +55,7 @@
 <Modal
 	bind:this={modal}
 	width="small"
-	title="Git needs input"
+	title="Git 需要输入"
 	onClickOutside={cancel}
 	onSubmit={submit}
 >
@@ -70,9 +70,9 @@
 
 	{#snippet controls()}
 		<Button kind="outline" type="reset" disabled={loading} onclick={handleCancelButton}
-			>Cancel</Button
+			>取消</Button
 		>
-		<Button style="pop" type="submit" grow disabled={!!$error || loading} {loading}>Submit</Button>
+		<Button style="pop" type="submit" grow disabled={!!$error || loading} {loading}>提交</Button>
 	{/snippet}
 </Modal>
 

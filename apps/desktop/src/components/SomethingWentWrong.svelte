@@ -14,11 +14,11 @@
 
 <DecorativeSplitView img={loadErrorSvg}>
 	<div class="problem__container">
-		<h2 class="problem__title text-18 text-body text-bold">There was a problem loading the app</h2>
+		<h2 class="problem__title text-18 text-body text-bold">加载应用时发生问题</h2>
 
 		<InfoMessage filled outlined={false} style="danger" icon="info">
 			{#snippet content()}
-				{error ? error : 'An unknown error occurred'}
+				{error ? error : '发生了未知错误'}
 			{/snippet}
 		</InfoMessage>
 

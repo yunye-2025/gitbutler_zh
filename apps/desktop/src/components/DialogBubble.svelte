@@ -37,13 +37,13 @@
 		<div class="bubble__header text-13 text-bold">
 			{#if role === MessageRole.User}
 				<Icon name="profile" />
-				<span>User</span>
+				<span>用户</span>
 			{:else if role === MessageRole.System}
 				<Icon name="robot" />
-				<span>System</span>
+				<span>系统</span>
 			{:else}
 				<Icon name="robot" />
-				<span>Assistant</span>
+				<span>助手</span>
 			{/if}
 		</div>
 
@@ -74,10 +74,10 @@
 					style="danger"
 					onclick={() => onRemoveLastExample()}
 				>
-					Remove example
+					移除示例
 				</Button>
 			{/if}
-			<Button kind="outline" grow onclick={() => onAddExample()}>Add new example</Button>
+			<Button kind="outline" grow onclick={() => onAddExample()}>新增示例</Button>
 		</div>
 	{/if}
 </div>

@@ -80,7 +80,7 @@
 				checkAllFiles();
 				return true;
 			case 'selection':
-				// We only check the selected files.
+				// 仅检查已选择的文件
 				checkSelectedFilesForCommit();
 				return true;
 			case 'none':
@@ -103,7 +103,7 @@
 		<div class="unassigned-wrap">
 			<div role="presentation" class="unassigned-files-wrapper" onclick={unselectFiles}>
 				<WorktreeChanges
-					title="Unassigned"
+					title="未分配"
 					{projectId}
 					stackId={undefined}
 					mode="unassigned"
@@ -113,8 +113,8 @@
 						<div class="unassigned-empty">
 							{@html noChanges}
 							<p class="text-13 text-body unassigned-empty-text">
-								You're all caught up!<br />
-								No files need committing
+								你已全部处理完成！<br />
+								暂无需要提交的文件
 							</p>
 						</div>
 					{/snippet}
@@ -144,9 +144,9 @@
 						kind="outline"
 					>
 						{#if isCommitting}
-							Committing…
+							正在提交…
 						{:else}
-							Commit to new branch
+							提交到新分支
 						{/if}
 					</Button>
 				</div>
@@ -172,7 +172,7 @@
 			<span
 				bind:clientWidth={foldedContentWidth}
 				style="height: {foldedContentWidth}px;"
-				class="unassigned-folded-text text-14 text-semibold">Unassigned</span
+				class="unassigned-folded-text text-14 text-semibold">未分配</span
 			>
 		</div>
 	</div>

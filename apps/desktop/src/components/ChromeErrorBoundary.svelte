@@ -23,9 +23,9 @@
 
 	function apologiy(): string {
 		if (isMonday()) {
-			return 'Sorry about that. Mondays can be tough!';
+			return '抱歉让你遇到这种情况，周一总是更难。';
 		}
-		return 'We apologize for the inconvenience.';
+		return '给你带来不便，深感抱歉。';
 	}
 </script>
 
@@ -35,7 +35,7 @@
 	<DecorativeSplitView img={loadErrorSvg}>
 		<div class="container">
 			<div class="text-content">
-				<h2 class="title-text text-18 text-body text-bold">Something went wrong</h2>
+				<h2 class="title-text text-18 text-body text-bold">出现了一些问题</h2>
 
 				<p class="description-text text-13 text-body">
 					{apologiy()}
@@ -47,12 +47,12 @@
 					{parsedError.name}
 				{/snippet}
 				{#snippet content()}
-					An asynchronous operation failed.
+					某个异步操作失败了。
 				{/snippet}
 			</InfoMessage>
 
 			<div class="button-container">
-				<Button type="button" style="pop" onclick={async () => await goto('/')}>Go back</Button>
+				<Button type="button" style="pop" onclick={async () => await goto('/')}>返回</Button>
 			</div>
 		</div>
 	</DecorativeSplitView>

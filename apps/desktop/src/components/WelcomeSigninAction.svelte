@@ -19,10 +19,9 @@
 	<CardGroup>
 		<section class="welcome-signin-action">
 			<div class="stack-v gap-8">
-				<h3 class="text-18 text-bold">Log in or Sign up</h3>
+				<h3 class="text-18 text-bold">登录或注册</h3>
 				<p class="text-12 text-body clr-text-2">
-					Log in to access smart automation features, including intelligent branch creation and
-					commit message generation.
+					登录后可使用智能自动化功能，包括智能创建分支与生成提交信息。
 				</p>
 
 				<div class="flex gap-8 m-t-8">
@@ -35,16 +34,16 @@
 								cancelClicked = false;
 								showCancel = false;
 
-								// Show cancel button after 3 seconds
+								// 3 秒后显示取消按钮
 								setTimeout(() => {
 									if ($loading) {
 										showCancel = true;
 									}
 								}, 6000);
 
-								// TODO: Track login calls
+								// TODO: 追踪登录调用
 								await userService.login(aborted);
-							}}>Log in / Sign up</Button
+							}}>登录 / 注册</Button
 						>
 					{/if}
 
@@ -58,7 +57,7 @@
 								cancelClicked = true;
 								showCancel = false;
 								$aborted = true;
-							}}>Cancel</AsyncButton
+							}}>取消</AsyncButton
 						>
 					{/if}
 					<Button
@@ -70,7 +69,7 @@
 							cancelClicked = false;
 							showCancel = false;
 
-							// Show cancel button after 3 seconds
+							// 3 秒后显示取消按钮
 							setTimeout(() => {
 								if ($loading) {
 									showCancel = true;
@@ -78,7 +77,7 @@
 							}, 3000);
 
 							await userService.loginAndCopyLink(aborted);
-						}}>Copy login link</Button
+						}}>复制登录链接</Button
 					>
 				</div>
 			</div>

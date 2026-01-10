@@ -56,7 +56,7 @@
 </FloatingModal>
 
 <button class="exit-floating-mode" type="button" onclick={onExitFloatingModeClick}>
-	<span class="text-12 text-semibold underline-dotted">Exit floating mode</span>
+	<span class="text-12 text-semibold underline-dotted">退出悬浮模式</span>
 </button>
 
 <style>

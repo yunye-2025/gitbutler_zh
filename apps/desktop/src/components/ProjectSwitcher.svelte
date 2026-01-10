@@ -28,7 +28,7 @@
 	<Select
 		value={selectedId}
 		options={mappedProjects}
-		label="Switch to another project"
+		label="切换到其他项目"
 		wide
 		onselect={(value) => {
 			selectedId = value;
@@ -50,7 +50,7 @@
 					try {
 						const outcome = await projectsService.addProject();
 						if (!outcome) {
-							// User cancelled the project creation
+							// 用户已取消创建项目
 							newProjectLoading = false;
 							return;
 						}
@@ -60,7 +60,7 @@
 					}
 				}}
 			>
-				Add local repository
+				添加本地仓库
 			</SelectItem>
 			<SelectItem
 				icon="clone"
@@ -74,7 +74,7 @@
 					}
 				}}
 			>
-				Clone repository
+				克隆仓库
 			</SelectItem>
 		</OptionsGroup>
 	</Select>
@@ -87,7 +87,7 @@
 			if (selectedId) goto(projectPath(selectedId));
 		}}
 	>
-		Open project
+		打开项目
 	</Button>
 </div>
 

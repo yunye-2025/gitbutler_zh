@@ -20,17 +20,17 @@
 	const allPages = [
 		{
 			id: 'project',
-			label: 'Project',
+			label: '项目',
 			icon: 'profile' as keyof typeof iconsJson
 		},
 		{
 			id: 'git',
-			label: 'Git stuff',
+			label: 'Git 设置',
 			icon: 'git' as keyof typeof iconsJson
 		},
 		{
 			id: 'ai',
-			label: 'AI options',
+			label: 'AI 选项',
 			icon: 'ai' as keyof typeof iconsJson
 		},
 		{
@@ -41,7 +41,7 @@
 		},
 		{
 			id: 'experimental',
-			label: 'Experimental',
+			label: '实验性',
 			icon: 'idea' as keyof typeof iconsJson
 		}
 	];
@@ -56,7 +56,7 @@
 </script>
 
 <SettingsModalLayout
-	title="Project settings"
+	title="项目设置"
 	{pages}
 	selectedId={data.selectedId}
 	onSelectPage={selectPage}
@@ -74,10 +74,10 @@
 			{:else if currentPage.id === 'experimental'}
 				<PreferencesForm projectId={data.projectId} />
 			{:else}
-				Settings page {currentPage.id} not Found.
+				未找到设置页面：{currentPage.id}。
 			{/if}
 		{:else}
-			Settings page {currentSelectedId} not Found.
+			未找到设置页面：{currentSelectedId}。
 		{/if}
 	{/snippet}
 </SettingsModalLayout>

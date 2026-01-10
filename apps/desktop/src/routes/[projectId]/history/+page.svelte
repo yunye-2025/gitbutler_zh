@@ -121,8 +121,7 @@
 								isWithinRestore={withinRestoreItems.includes(entry.id)}
 								onRestoreClick={() => {
 									historyService.restoreSnapshot(projectId, entry.id);
-									// In some cases, restoring the snapshot doesn't update the UI correctly
-									// Until we have that figured out, we need to reload the page.
+									// 恢复快照后偶尔 UI 不会正确更新，需要先强制刷新页面
 									location.reload();
 								}}
 								onDiffClick={() => {
@@ -136,7 +135,7 @@
 				<!-- LOAD MORE -->
 				{#if $loading}
 					<div class="load-more">
-						<span class="text-13 text-body"> Loading more snapshots… </span>
+						<span class="text-13 text-body"> 正在加载更多快照… </span>
 					</div>
 				{/if}
 
@@ -147,10 +146,9 @@
 							<Icon name="finish" />
 						</div>
 						<div class="welcome-point__content">
-							<p class="text-13 text-semibold">Welcome to history!</p>
+							<p class="text-13 text-semibold">欢迎来到历史记录！</p>
 							<p class="welcome-point__caption text-12 text-body">
-								Gitbutler saves your work, including file changes, so your progress is always
-								secure. Adjust snapshot settings in project settings.
+								GitButler 会保存你的工作（包含文件更改），确保进度安全。可在项目设置中调整快照设置。
 							</p>
 						</div>
 					</div>
@@ -164,15 +162,15 @@
 	<div class="relative overflow-hidden radius-ml">
 		<div bind:this={sidebarEl} class="history-view__snapshots" use:focusable={{ vertical: true }}>
 			<div class="history-view__snapshots-header">
-				<h3 class="history-view__snapshots-header-title text-15 text-bold">Operations history</h3>
+				<h3 class="history-view__snapshots-header-title text-15 text-bold">操作历史</h3>
 				<Button
 					size="tag"
 					kind="outline"
 					icon="camera-small"
-					tooltip="Create a manual snapshot of your current state"
+					tooltip="为当前状态创建手动快照"
 					onclick={() => createSnapshotModal?.show()}
 				>
-					Create snapshot
+					创建快照
 				</Button>
 			</div>
 			{@render historyEntries()}

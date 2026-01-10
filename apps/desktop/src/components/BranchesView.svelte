@@ -150,7 +150,7 @@
 <Modal
 	testId={TestId.DeleteLocalBranchConfirmationModal}
 	bind:this={deleteLocalBranchModal}
-	title="Delete local branch"
+	title="删除本地分支"
 	width="small"
 	defaultItem={branchesSelection.current.branchName}
 	onSubmit={async (close, branchName: string | undefined) => {
@@ -161,7 +161,7 @@
 	}}
 >
 	{#snippet children(branchName)}
-		<p>Are you sure you want to delete the local changes inside the branch {branchName}?</p>
+		<p>确定要删除分支 {branchName} 中的本地更改吗？</p>
 	{/snippet}
 
 	{#snippet controls(close)}
@@ -169,13 +169,13 @@
 			testId={TestId.DeleteLocalBranchConfirmationModal_Cancel}
 			kind="outline"
 			type="reset"
-			onclick={close}>Cancel</Button
+			onclick={close}>取消</Button
 		>
 		<Button
 			testId={TestId.DeleteLocalBranchConfirmationModal_Delete}
 			style="danger"
 			type="submit"
-			icon="bin">Delete</Button
+			icon="bin">删除</Button
 		>
 	{/snippet}
 </Modal>
@@ -200,7 +200,7 @@
 					class="branches-view__left"
 					use:focusable={{ vertical: true }}
 				>
-					<BranchesListGroup title="Current workspace target">
+					<BranchesListGroup title="当前工作区目标">
 						<!-- TODO: We need an API for `commitsCount`! -->
 						<CurrentOriginCard
 							originName={baseBranch.branchName}

@@ -338,7 +338,7 @@
 		{#if base}
 			<div class="section">
 				<h3 class="text-14 text-semibold section-title">
-					<span>Incoming {base.upstreamCommits.length === 1 ? 'change' : 'changes'}</span><Badge
+					<span>传入{base.upstreamCommits.length === 1 ? '更改' : '更改'}</span><Badge
 						>{base.upstreamCommits.length}</Badge
 					>
 				</h3>
@@ -353,7 +353,7 @@
 								author={commit.author.name}
 								url={commitUrl}
 								onOpen={(url) => urlService.openExternalUrl(url)}
-								onCopy={() => clipboardService.write(commit.id, { message: 'Commit hash copied' })}
+								onCopy={() => clipboardService.write(commit.id, { message: '提交哈希已复制' })}
 							/>
 						{/each}
 					</ScrollableContainer>
@@ -364,12 +364,12 @@
 		{#if branchStatuses?.type === 'updatesRequired' && branchStatuses?.worktreeConflicts.length > 0}
 			<div class="section">
 				<h3 class="text-14 text-semibold section-title">
-					<span>Conflicting uncommitted files</span>
+					<span>存在冲突的未提交文件</span>
 
 					<Badge>{branchStatuses?.worktreeConflicts.length}</Badge>
 				</h3>
 				<p class="text-12 clr-text-2">
-					Updating the workspace will add conflict markers to the following files.
+					更新工作区会在以下文件中添加冲突标记。
 				</p>
 				<div class="scroll-wrap">
 					<ScrollableContainer maxHeight="15rem">
@@ -393,23 +393,23 @@
 				<img class="target-icon" src="/images/domain-icons/trunk.svg" alt="" />
 
 				<div class="target-divergence-about">
-					<h3 class="text-14 text-semibold">Target branch divergence</h3>
+					<h3 class="text-14 text-semibold">目标分支发生分叉</h3>
 					<p class="text-12 text-body target-divergence-description">
-						<span class="text-bold">target/main</span> has diverged from the workspace.
+						<span class="text-bold">target/main</span> 与工作区已分叉。
 						<br />
-						Select an action to proceed with updating.
+						请选择操作以继续更新。
 					</p>
 				</div>
 
 				<div class="target-divergence-action">
 					<Select
 						value={baseResolutionApproach}
-						placeholder="Choose…"
+						placeholder="请选择…"
 						onselect={handleBaseResolutionSelection}
 						options={[
-							{ label: 'Rebase', value: 'rebase' },
-							{ label: 'Merge', value: 'merge' },
-							{ label: 'Hard reset', value: 'hardReset' }
+							{ label: '变基', value: 'rebase' },
+							{ label: '合并', value: 'merge' },
+							{ label: '硬重置', value: 'hardReset' }
 						]}
 					>
 						{#snippet itemSnippet({ item, highlighted })}
@@ -424,7 +424,7 @@
 		<!-- STACKS AND BRANCHES TO UPDATE -->
 		{#if statuses.length > 0}
 			<div class="section" class:section-disabled={isDivergedResolved}>
-				<h3 class="text-14 text-semibold">To be updated:</h3>
+				<h3 class="text-14 text-semibold">待更新：</h3>
 				<div class="scroll-wrap">
 					<ScrollableContainer maxHeight="15rem">
 						{#each statuses as { stack, status }}
@@ -440,7 +440,7 @@
 
 	{#snippet controls()}
 		<div class="controls">
-			<Button onclick={() => modal?.close()} kind="outline">Cancel</Button>
+			<Button onclick={() => modal?.close()} kind="outline">取消</Button>
 			<Button
 				testId={TestId.IntegrateUpstreamActionButton}
 				wide
@@ -451,7 +451,7 @@
 					await integrate();
 				}}
 			>
-				Update workspace
+				更新工作区
 			</Button>
 		</div>
 	{/snippet}

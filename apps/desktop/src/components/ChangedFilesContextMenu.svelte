@@ -1,4 +1,4 @@
-<!-- This is a V3 replacement for `FileContextMenu.svelte` -->
+<!-- 这是 `FileContextMenu.svelte` 的 V3 替代实现 -->
 <script lang="ts">
 	import BranchNameTextbox from '$components/BranchNameTextbox.svelte';
 	import ReduxResult from '$components/ReduxResult.svelte';
@@ -89,15 +89,15 @@
 		selectionId.type === 'branch' ? selectionId.branchName : undefined
 	);
 
-	// Platform-specific label for "Show in Finder/Explorer/File Manager"
+	// 平台相关的“在 Finder/资源管理器/文件管理器中显示”文案
 	const showInFolderLabel = (() => {
 		switch (backend.platformName) {
 			case 'macos':
-				return 'Show in Finder';
+				return '在 Finder 中显示';
 			case 'windows':
-				return 'Show in Explorer';
+				return '在资源管理器中显示';
 			default:
-				return 'Show in File Manager';
+				return '在文件管理器中显示';
 		}
 	})();
 
@@ -140,7 +140,7 @@
 
 		const selectedFiles = item.changes.map((change) => ({ ...selectionId, path: change.path }));
 
-		// Unselect the discarded files
+		// 取消选择已丢弃的文件
 		idSelection.removeMany(selectedFiles);
 
 		confirmationModal?.close();
@@ -182,12 +182,12 @@
 		const branchName = uiState.lane(stackId).selection.current?.branchName;
 		const selectedFiles = changes.map((change) => ({ ...selectionId, path: change.path }));
 
-		// Unselect the uncommitted files
+		// 取消选择已撤销提交的文件
 		idSelection.removeMany(selectedFiles);
 
 		if (newCommitId && branchName) {
 			const previewOpen = uiState.lane(stackId).selection.current?.previewOpen ?? false;
-			// Update the selection to the new commit
+			// 将选择更新为新的提交
 			uiState.lane(stackId).selection.set({ branchName, commitId: newCommitId, previewOpen });
 		}
 		contextMenu.close();
@@ -195,63 +195,63 @@
 
 	async function triggerAutoCommit(changes: TreeChange[]) {
 		if (!canUseGBAI) {
-			chipToasts.error('GitButler AI is not configured or enabled for this project.');
+			chipToasts.error('此项目未配置或未启用 GitButler AI。');
 			return;
 		}
 
 		try {
 			await chipToasts.promise(autoCommit({ projectId, changes }), {
-				loading: 'Started auto commit',
-				success: 'Auto commit succeeded',
-				error: 'Auto commit failed'
+				loading: '已开始自动提交',
+				success: '自动提交成功',
+				error: '自动提交失败'
 			});
 		} catch (error) {
-			console.error('Auto commit failed:', error);
+			console.error('自动提交失败:', error);
 		}
 	}
 
 	async function triggerBranchChanges(changes: TreeChange[]) {
 		if (!canUseGBAI) {
-			chipToasts.error('GitButler AI is not configured or enabled for this project.');
+			chipToasts.error('此项目未配置或未启用 GitButler AI。');
 			return;
 		}
 
 		try {
 			await chipToasts.promise(branchChanges({ projectId, changes }), {
-				loading: 'Creating a branch and committing changes',
-				success: 'Branching changes succeeded',
-				error: 'Branching changes failed'
+				loading: '正在创建分支并提交更改',
+				success: '分支创建并提交成功',
+				error: '分支创建并提交失败'
 			});
 		} catch (error) {
-			console.error('Branching changes failed:', error);
+			console.error('分支创建并提交失败:', error);
 		}
 	}
 
 	async function triggerAbsorbChanges(changes: TreeChange[]) {
 		if (!canUseGBAI) {
-			chipToasts.error('GitButler AI is not configured or enabled for this project.');
+			chipToasts.error('此项目未配置或未启用 GitButler AI。');
 			return;
 		}
 
 		try {
 			await chipToasts.promise(absorbChanges({ projectId, changes }), {
-				loading: 'Looking for the best place to absorb the changes',
-				success: 'Absorbing changes succeeded',
-				error: 'Absorbing changes failed'
+				loading: '正在寻找最佳位置以吸收更改',
+				success: '吸收更改成功',
+				error: '吸收更改失败'
 			});
 		} catch (error) {
-			console.error('Absorbing changes failed:', error);
+			console.error('吸收更改失败:', error);
 		}
 	}
 
 	async function split(changes: TreeChange[]) {
 		if (!stackId) {
-			chipToasts.error('No stack selected to split off changes.');
+			chipToasts.error('未选择堆栈，无法拆分更改。');
 			return;
 		}
 
 		if (selectionId.type !== 'branch') {
-			chipToasts.error('Please select a branch to split off changes.');
+			chipToasts.error('请选择一个分支以拆分更改。');
 			return;
 		}
 
@@ -265,7 +265,7 @@
 					const newBranchName = await stackService.fetchNewBranchName(projectId);
 
 					if (!newBranchName) {
-						throw new Error('Failed to generate a new branch name.');
+						throw new Error('生成新分支名失败。');
 					}
 
 					await splitOffChanges({
@@ -277,24 +277,24 @@
 					});
 				})(),
 				{
-					loading: 'Splitting off changes',
-					success: 'Changes split off into a new branch',
-					error: 'Failed to split off changes'
+					loading: '正在拆分更改',
+					success: '更改已拆分到新分支',
+					error: '拆分更改失败'
 				}
 			);
 		} catch (error) {
-			console.error('Failed to split off changes:', error);
+			console.error('拆分更改失败:', error);
 		}
 	}
 
 	async function splitIntoDependentBranch(changes: TreeChange[]) {
 		if (!stackId) {
-			chipToasts.error('No stack selected to split off changes.');
+			chipToasts.error('未选择堆栈，无法拆分更改。');
 			return;
 		}
 
 		if (selectionId.type !== 'branch') {
-			chipToasts.error('Please select a branch to split off changes.');
+			chipToasts.error('请选择一个分支以拆分更改。');
 			return;
 		}
 
@@ -307,7 +307,7 @@
 					const newBranchName = await stackService.fetchNewBranchName(projectId);
 
 					if (!newBranchName) {
-						throw new Error('Failed to generate a new branch name.');
+						throw new Error('生成新分支名失败。');
 					}
 
 					await splitBranchIntoDependentBranch({
@@ -319,13 +319,13 @@
 					});
 				})(),
 				{
-					loading: 'Splitting into dependent branch',
-					success: 'Changes split into a dependent branch',
-					error: 'Failed to split into dependent branch'
+					loading: '正在拆分到依赖分支',
+					success: '更改已拆分到依赖分支',
+					error: '拆分到依赖分支失败'
 				}
 			);
 		} catch (error) {
-			console.error('Failed to split into dependent branch:', error);
+			console.error('拆分到依赖分支失败:', error);
 		}
 	}
 </script>
@@ -340,7 +340,7 @@
 					{@const changes = item.changes}
 					{#if isUncommitted}
 						<ContextMenuItem
-							label="Discard changes…"
+							label="丢弃更改…"
 							icon="bin"
 							onclick={() => {
 								confirmationModal?.show(item);
@@ -350,12 +350,12 @@
 					{/if}
 					{#if isUncommitted}
 						<ContextMenuItem
-							label="Stash into branch…"
+							label="暂存到分支…"
 							icon="stash"
 							onclick={async () => {
 								stashConfirmationModal?.show(item);
 								stashBranchName = await stackService.fetchNewBranchName(projectId);
-								// Select text after async value is loaded and DOM is updated
+								// 异步值加载并更新 DOM 后选中文本
 								if ($autoSelectBranchCreationFeature) {
 									await stashBranchNameInput?.selectAll();
 								}
@@ -366,7 +366,7 @@
 					{#if selectionId.type === 'commit' && stackId && !editMode}
 						{@const commitId = selectionId.commitId}
 						<ContextMenuItem
-							label="Uncommit changes"
+							label="撤销提交更改"
 							icon="undo-small"
 							onclick={async () => uncommitChanges(stackId, commitId, changes)}
 						/>
@@ -382,7 +382,7 @@
 							{#snippet children(isConflicted)}
 								{#if isConflicted === false}
 									<ContextMenuItem
-										label="Split off changes"
+										label="拆分更改"
 										icon="split"
 										onclick={() => {
 											split(changes);
@@ -390,7 +390,7 @@
 										}}
 									/>
 									<ContextMenuItem
-										label="Split into dependent branch"
+										label="拆分到依赖分支"
 										icon="new-dep-branch"
 										onclick={() => {
 											splitIntoDependentBranch(changes);
@@ -406,11 +406,11 @@
 
 			{#if itemPath}
 				<ContextMenuSection>
-					<ContextMenuItemSubmenu label="Copy path" icon="copy">
+					<ContextMenuItemSubmenu label="复制路径" icon="copy">
 						{#snippet submenu({ close: closeSubmenu })}
 							<ContextMenuSection>
 								<ContextMenuItem
-									label="Copy path"
+									label="复制路径"
 									onclick={async () => {
 										const project = await projectService.fetchProject(projectId);
 										const projectPath = project?.path;
@@ -418,8 +418,8 @@
 											const absPath = await backend.joinPath(projectPath, itemPath);
 
 											await clipboardService.write(absPath, {
-												message: 'Absolute path copied',
-												errorMessage: 'Failed to copy absolute path'
+												message: '已复制绝对路径',
+												errorMessage: '复制绝对路径失败'
 											});
 										}
 										closeSubmenu();
@@ -427,11 +427,11 @@
 									}}
 								/>
 								<ContextMenuItem
-									label="Copy relative path"
+									label="复制相对路径"
 									onclick={async () => {
 										await clipboardService.write(itemPath, {
-											message: 'Relative path copied',
-											errorMessage: 'Failed to copy relative path'
+											message: '已复制相对路径',
+											errorMessage: '复制相对路径失败'
 										});
 										closeSubmenu();
 										contextMenu.close();
@@ -445,11 +445,11 @@
 
 			<ContextMenuSection>
 				{#if !isChangedFolderItem(item)}
-					<ContextMenuItem
-						label="Open in {$userSettings.defaultCodeEditor.displayName}"
-						icon="open-editor"
-						disabled={deletion}
-						onclick={async () => {
+				<ContextMenuItem
+					label="在 {$userSettings.defaultCodeEditor.displayName} 中打开"
+					icon="open-editor"
+					disabled={deletion}
+					onclick={async () => {
 							try {
 								const project = await projectService.fetchProject(projectId);
 								const projectPath = project?.path;
@@ -464,8 +464,8 @@
 								}
 								contextMenu.close();
 							} catch {
-								chipToasts.error('Failed to open in editor');
-								console.error('Failed to open in editor');
+								chipToasts.error('在编辑器中打开失败');
+								console.error('在编辑器中打开失败');
 							}
 						}}
 					/>
@@ -489,12 +489,12 @@
 
 			{#if canUseGBAI && isUncommitted}
 				<ContextMenuSection>
-					<ContextMenuItemSubmenu label="Experimental AI" icon="lab">
+					<ContextMenuItemSubmenu label="实验性 AI" icon="lab">
 						{#snippet submenu({ close: closeSubmenu })}
 							<ContextMenuSection>
 								<ContextMenuItem
-									label="Auto commit"
-									tooltip="Try to figure out where to commit the changes. Can create new branches too."
+									label="自动提交"
+									tooltip="尝试判断更改应提交到哪里，也可能会创建新分支。"
 									onclick={async () => {
 										closeSubmenu();
 										contextMenu.close();
@@ -503,8 +503,8 @@
 									disabled={autoCommitting.current.isLoading}
 								/>
 								<ContextMenuItem
-									label="Branch changes"
-									tooltip="Create a new branch and commit the changes into it."
+									label="分支更改"
+									tooltip="创建新分支并将更改提交到该分支。"
 									onclick={() => {
 										closeSubmenu();
 										contextMenu.close();
@@ -513,8 +513,8 @@
 									disabled={branchingChanges.current.isLoading}
 								/>
 								<ContextMenuItem
-									label="Absorb changes"
-									tooltip="Try to find the best place to absorb the changes into."
+									label="吸收更改"
+									tooltip="尝试找到吸收更改的最佳位置。"
 									onclick={() => {
 										closeSubmenu();
 										contextMenu.close();
@@ -529,7 +529,7 @@
 			{/if}
 		{:else}
 			<ContextMenuSection>
-				<p class="text-13">'Woops! Malformed data :(</p>
+				<p class="text-13">哎呀！数据异常 :(</p>
 			</ContextMenuSection>
 		{/if}
 	{/snippet}
@@ -538,7 +538,7 @@
 <Modal
 	width="small"
 	type="warning"
-	title="Discard changes"
+	title="丢弃更改"
 	bind:this={confirmationModal}
 	onSubmit={(_, item) => isChangedFilesItem(item) && confirmDiscard(item)}
 >
@@ -546,14 +546,14 @@
 		{#if isChangedFilesItem(item)}
 			{#if isChangedFolderItem(item)}
 				<p class="discard-caption">
-					Are you sure you want to discard all changes in
+					确定要丢弃以下目录中的所有更改吗：
 					<span class="text-bold">{item.path}</span>?
 				</p>
 			{:else}
 				{@const changes = item.changes}
 				{#if changes.length < 10}
 					<p class="discard-caption">
-						Are you sure you want to discard the changes<br />to the following files:
+						确定要丢弃以下文件的更改吗：
 					</p>
 					<ul class="file-list">
 						{#each changes as change, i}
@@ -568,20 +568,19 @@
 					</ul>
 				{:else}
 					<p>
-						Discard the changes to all <span class="text-bold">
-							{changes.length} files
-						</span>?
+						确定要丢弃
+						<span class="text-bold">{changes.length} 个文件</span>？
 					</p>
 				{/if}
 			{/if}
 		{:else}
-			<p class="text-13">Woops! Malformed data :(</p>
+			<p class="text-13">哎呀！数据异常 :(</p>
 		{/if}
 	{/snippet}
 	{#snippet controls(close, item)}
-		<Button kind="outline" onclick={close}>Cancel</Button>
+		<Button kind="outline" onclick={close}>取消</Button>
 		<AsyncButton style="danger" type="submit" action={async () => await confirmDiscard(item)}>
-			Confirm
+			确认
 		</AsyncButton>
 	{/snippet}
 </Modal>
@@ -589,7 +588,7 @@
 <Modal
 	width={434}
 	type="info"
-	title="Stash changes into a new branch"
+	title="将更改暂存到新分支"
 	bind:this={stashConfirmationModal}
 	onSubmit={(_, item) => isChangedFilesItem(item) && confirmStashIntoBranch(item, slugifiedRefName)}
 >
@@ -598,7 +597,7 @@
 			<BranchNameTextbox
 				bind:this={stashBranchNameInput}
 				id="stashBranchName"
-				placeholder="Enter your branch name..."
+				placeholder="请输入分支名..."
 				bind:value={stashBranchName}
 				autofocus
 				onslugifiedvalue={(value) => (slugifiedRefName = value)}
@@ -606,32 +605,30 @@
 			<div class="explanation">
 				<p class="primary-text">
 					{#if isChangedFolderItem(item)}
-						All changes in this folder
+						此文件夹中的所有更改
 					{:else}
-						Your selected changes
+						你选择的更改
 					{/if}
-					will be moved to a new branch and removed from your current workspace. To get these changes
-					back later, switch to the new branch and uncommit the stash.
+					将被移动到新分支，并从当前工作区移除。若要找回这些更改，请切换到新分支并撤销提交该暂存。
 				</p>
 			</div>
 
 			<div class="technical-note">
 				<p class="text-12 text-body clr-text-2">
-					💡 This creates a new branch, commits your changes, then unapplies the branch. Future
-					versions will have simpler stash management.
+					💡 这会创建一个新分支、提交更改，然后取消应用该分支。后续版本会提供更简洁的暂存管理。
 				</p>
 			</div>
 		</div>
 	{/snippet}
 	{#snippet controls(close, item)}
-		<Button kind="outline" type="reset" onclick={close}>Cancel</Button>
+		<Button kind="outline" type="reset" onclick={close}>取消</Button>
 		<AsyncButton
 			style="pop"
 			disabled={!slugifiedRefName}
 			type="submit"
 			action={async () => await confirmStashIntoBranch(item, slugifiedRefName)}
 		>
-			Stash into branch
+			暂存到分支
 		</AsyncButton>
 	{/snippet}
 </Modal>
@@ -649,7 +646,7 @@
 		border-radius: var(--radius-m);
 		background-color: var(--clr-bg-1);
 	}
-	/* MODAL WINDOW */
+	/* 模态窗口 */
 	.content-wrap {
 		display: flex;
 		flex-direction: column;

@@ -91,7 +91,7 @@
 	const messageStyle = $derived(status?.type === 'causesWorkspaceConflict' ? 'warning' : 'info');
 </script>
 
-<Modal bind:this={modalRef} title="Cherry-pick commit" width={500}>
+<Modal bind:this={modalRef} title="挑拣提交" width={500}>
 	{#if statusResult}
 		<ReduxResult {projectId} result={combineResults(statusResult?.result, stacksResult.result)}>
 			{#snippet children([_status, stacks], { projectId: _projectId })}
@@ -114,7 +114,7 @@
 										{/snippet}
 										{#snippet caption()}
 											{stack.heads.length}
-											{stack.heads.length === 1 ? 'branch' : 'branches'}
+											{stack.heads.length === 1 ? '个分支' : '个分支'}
 										{/snippet}
 										{#snippet actions()}
 											<RadioButton
@@ -135,14 +135,14 @@
 		</ReduxResult>
 	{/if}
 	{#snippet controls()}
-		<Button kind="outline" onclick={close} disabled={isApplying}>Cancel</Button>
+		<Button kind="outline" onclick={close} disabled={isApplying}>取消</Button>
 		<Button
 			style="pop"
 			onclick={handleApply}
 			disabled={!canApply || !selectedStackId || isApplying}
 			loading={isApplying}
 		>
-			Apply commit
+			应用提交
 		</Button>
 	{/snippet}
 </Modal>

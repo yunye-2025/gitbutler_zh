@@ -23,7 +23,7 @@
 		</div>
 
 		<div class="factoid-wrap">
-			<span class="factoid-label">Contribs:</span>
+			<span class="factoid-label">贡献者：</span>
 			<AvatarGroup
 				maxAvatars={2}
 				avatars={branch.authors.map((a) => ({
@@ -49,12 +49,12 @@
 
 			<div class="header-details__conflicts-action">
 				<div class="stack-v gap-8">
-					<h3 class="text-13 text-semibold">Conflicted commits</h3>
+					<h3 class="text-13 text-semibold">存在冲突的提交</h3>
 					<p class="text-12 text-body clr-text-2">
-						GitButler opens the earliest commit first, since later commits depend on it.
+						GitButler 会先打开最早的提交，因为后续提交依赖它。
 					</p>
 				</div>
-				<Button onclick={onResolveConflicts} style="danger">Start resolving</Button>
+				<Button onclick={onResolveConflicts} style="danger">开始解决冲突</Button>
 			</div>
 		</div>
 	{/if}

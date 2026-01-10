@@ -17,6 +17,7 @@
 	let newProjectLoading = $state(false);
 	let directoryInputElement = $state<HTMLInputElement | undefined>();
 
+	// 创建本地项目入口
 	async function onNewProject() {
 		newProjectLoading = true;
 		try {
@@ -40,7 +41,7 @@
 </script>
 
 <div class="welcome" data-testid={TestId.WelcomePage}>
-	<h1 class="welcome-title text-serif-42">Welcome to GitButler!</h1>
+	<h1 class="welcome-title text-serif-42">欢迎使用 GitButler！</h1>
 	<div class="welcome__actions">
 		<div class="welcome__actions--repo">
 			<input
@@ -50,7 +51,7 @@
 				data-testid="test-directory-path"
 			/>
 			<WelcomeAction
-				title="Add local project"
+				title="添加本地项目"
 				loading={newProjectLoading}
 				onclick={onNewProject}
 				dimMessage
@@ -60,15 +61,15 @@
 					{@html newProjectSvg}
 				{/snippet}
 				{#snippet message()}
-					Should be a valid git repository
+					需要是有效的 git 仓库
 				{/snippet}
 			</WelcomeAction>
-			<WelcomeAction title="Clone repository" onclick={onCloneProject} dimMessage>
+			<WelcomeAction title="克隆仓库" onclick={onCloneProject} dimMessage>
 				{#snippet icon()}
 					{@html cloneRepoSvg}
 				{/snippet}
 				{#snippet message()}
-					Clone a repo using a URL
+					通过 URL 克隆仓库
 				{/snippet}
 			</WelcomeAction>
 		</div>
@@ -78,21 +79,21 @@
 
 	<div class="links">
 		<div class="links__section">
-			<p class="links__title text-14 text-bold">Quick start</p>
+			<p class="links__title text-14 text-bold">快速开始</p>
 			<div class="education-links">
 				<IconLink
 					icon="docs"
 					href="https://docs.gitbutler.com/features/virtual-branches/branch-lanes"
 				>
-					GitButler docs
+					GitButler 文档
 				</IconLink>
 				<IconLink icon="video" href="https://www.youtube.com/@gitbutlerapp">
-					Watch tutorials
+					观看教程
 				</IconLink>
 			</div>
 		</div>
 		<div class="links__section">
-			<p class="links__title text-14 text-bold">Join our community</p>
+			<p class="links__title text-14 text-bold">加入社区</p>
 			<div class="community-links">
 				<IconLink icon="discord" href="https://discord.gg/MmFkmaJ42D">Discord</IconLink>
 				<IconLink icon="bluesky" href="https://bsky.app/profile/gitbutler.com">Bluesky</IconLink>

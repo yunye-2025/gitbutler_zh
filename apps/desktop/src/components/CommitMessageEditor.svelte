@@ -163,7 +163,7 @@
 		testId={TestId.CommitDrawerTitleInput}
 		bind:ref={titleInput}
 		bind:value={title}
-		placeholder="Commit title (required)"
+		placeholder="提交标题（必填）"
 		onchange={(value) => {
 			onChange?.({ title: value });
 		}}
@@ -190,7 +190,7 @@
 		testId={TestId.CommitDrawerDescriptionInput}
 		bind:this={composer}
 		initialValue={description}
-		placeholder="Commit message"
+		placeholder="提交信息"
 		messageType="commit"
 		enableRuler
 		{projectId}
@@ -233,7 +233,7 @@
 			style="pop"
 			onclick={emitAction}
 			disabled={disabledAction || !title.trim()}
-			tooltip={!title.trim() ? 'Commit title is required' : undefined}
+			tooltip={!title.trim() ? '提交标题为必填项' : undefined}
 			hotkey="⌘↵"
 			{loading}
 			wide>{actionLabel}</Button

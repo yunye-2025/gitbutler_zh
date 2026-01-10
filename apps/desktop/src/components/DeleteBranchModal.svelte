@@ -26,7 +26,7 @@
 	testId={TestId.BranchHeaderDeleteModal}
 	bind:this={modal}
 	width="small"
-	title="Delete branch"
+	title="删除分支"
 	onSubmit={async (close) => {
 		await removeBranch({
 			projectId,
@@ -37,15 +37,15 @@
 	}}
 >
 	<p class="text-13 text-body">
-		Are you sure you want to delete <code class="code-string">{branchName}</code>?
+		确定要删除 <code class="code-string">{branchName}</code> 吗？
 	</p>
 	{#snippet controls(close)}
-		<Button kind="outline" onclick={close} autofocus>Cancel</Button>
+		<Button kind="outline" onclick={close} autofocus>取消</Button>
 		<Button
 			testId={TestId.BranchHeaderDeleteModal_ActionButton}
 			style="danger"
 			type="submit"
-			loading={branchRemovalOp.current.isLoading}>Delete</Button
+			loading={branchRemovalOp.current.isLoading}>删除</Button
 		>
 	{/snippet}
 </Modal>

@@ -64,7 +64,7 @@
 		const { selectedLines } = item;
 
 		if (selectedLines !== undefined && selectedLines.length > 0)
-			return `Discard ${selectedLines.length} selected lines`;
+			return `丢弃选中的 ${selectedLines.length} 行`;
 
 		return '';
 	}
@@ -128,7 +128,7 @@
 				<ContextMenuSection>
 					<ContextMenuItem
 						testId={TestId.HunkContextMenu_DiscardChange}
-						label="Discard change"
+						label="丢弃更改"
 						icon="bin"
 						onclick={() => {
 							discardHunk(item);
@@ -151,12 +151,12 @@
 			<ContextMenuSection>
 				<ContextMenuItem
 					testId={TestId.HunkContextMenu_OpenInEditor}
-					label="Open in {$userSettings.defaultCodeEditor.displayName}"
+					label="在 {$userSettings.defaultCodeEditor.displayName} 中打开"
 					icon="open-editor"
 					onclick={async () => {
 						const project = await projectService.fetchProject(projectId);
 						if (project?.path) {
-							// Use specific line number if available, otherwise use hunk start line
+							// 优先使用具体行号，否则使用补丁起始行
 							const lineNumber =
 								item.beforeLineNumber ?? item.afterLineNumber ?? item.hunk.newStart;
 							const path = getEditorUri({
@@ -202,7 +202,7 @@
 				<ContextMenuSection>
 					<ContextMenuItem
 						testId={TestId.HunkContextMenu_SelectAll}
-						label="Select all"
+						label="全选"
 						icon="select-all"
 						onclick={() => {
 							selectAllHunkLines(item.hunk);
@@ -211,7 +211,7 @@
 					/>
 					<ContextMenuItem
 						testId={TestId.HunkContextMenu_UnselectAll}
-						label="Unselect all"
+						label="取消全选"
 						icon="unselect-all"
 						onclick={() => {
 							unselectAllHunkLines(item.hunk);
@@ -220,7 +220,7 @@
 					/>
 					<ContextMenuItem
 						testId={TestId.HunkContextMenu_InvertSelection}
-						label="Invert selection"
+						label="反选"
 						icon="invert-selection"
 						onclick={() => {
 							invertHunkSelection(item.hunk);
@@ -230,7 +230,7 @@
 				</ContextMenuSection>
 			{/if}
 		{:else}
-			<p class="text-12 text-semibold clr-text-2">Malformed item (·•᷄‎ࡇ•᷅ )</p>
+			<p class="text-12 text-semibold clr-text-2">数据异常 (·•᷄‎ࡇ•᷅ )</p>
 		{/if}
 	{/snippet}
 </ContextMenu>

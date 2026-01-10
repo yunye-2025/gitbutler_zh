@@ -28,7 +28,7 @@
 	testId={TestId.SyncButton}
 	kind="outline"
 	width="auto"
-	tooltip="Last fetch from upstream"
+	tooltip="上次从上游获取的时间"
 	{loading}
 	{disabled}
 	icon="update"
@@ -51,11 +51,11 @@
 >
 	<span class="capitalize">
 		{#if loading}
-			Fetching...
+			正在获取...
 		{:else if lastFetched}
 			<TimeAgo date={lastFetched} addSuffix={true} />
 		{:else}
-			Refetch
+			重新获取
 		{/if}
 	</span>
 

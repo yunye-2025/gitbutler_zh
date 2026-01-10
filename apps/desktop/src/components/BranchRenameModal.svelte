@@ -36,7 +36,7 @@
 <Modal
 	testId={TestId.BranchHeaderRenameModal}
 	width="small"
-	title={isPushed ? 'Branch has already been pushed' : 'Rename branch'}
+	title={isPushed ? '分支已推送' : '重命名分支'}
 	type={isPushed ? 'warning' : 'info'}
 	bind:this={modal}
 	onSubmit={async (close) => {
@@ -48,7 +48,7 @@
 >
 	<BranchNameTextbox
 		bind:this={branchNameInput}
-		placeholder="New name"
+		placeholder="新名称"
 		id={ElementId.NewBranchNameInput}
 		bind:value={newName}
 		autofocus
@@ -57,19 +57,18 @@
 
 	{#if isPushed}
 		<div class="text-12 helper-text">
-			Renaming a branch that has already been pushed will create a new branch at the remote. The old
-			one will remain untouched but will be disassociated from this branch.
+			重命名已推送的分支会在远端创建一个新分支。旧分支保持不变，但会与此分支解除关联。
 		</div>
 	{/if}
 
 	{#snippet controls(close)}
-		<Button kind="outline" type="reset" onclick={close}>Cancel</Button>
+		<Button kind="outline" type="reset" onclick={close}>取消</Button>
 		<Button
 			testId={TestId.BranchHeaderRenameModal_ActionButton}
 			style="pop"
 			type="submit"
 			disabled={!slugifiedRefName}
-			loading={renameQuery.current.isLoading}>Rename</Button
+			loading={renameQuery.current.isLoading}>重命名</Button
 		>
 	{/snippet}
 </Modal>

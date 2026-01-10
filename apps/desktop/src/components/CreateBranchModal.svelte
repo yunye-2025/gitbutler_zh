@@ -122,13 +122,13 @@
 		createRefModal?.show();
 		createRefName = await stackService.fetchNewBranchName(projectId);
 
-		// Select text after async value is loaded and DOM is updated
+		// 异步值加载并更新 DOM 后选中文本
 		if ($autoSelectBranchCreationFeature) {
 			await branchNameInput?.selectAll();
 		}
-		// Reset selected stack to default
+		// 重置所选堆栈
 		selectedStackId = undefined;
-		// Set branch type - default to 'stack' unless explicitly provided
+		// 设置分支类型：默认为 stack
 		createRefType = initialType ?? 'stack';
 	}
 
@@ -141,14 +141,14 @@
 	<div class="content-wrap">
 		<BranchNameTextbox
 			bind:this={branchNameInput}
-			label="New branch"
+			label="新分支"
 			id={ElementId.NewBranchNameInput}
 			value={createRefName}
 			autofocus
 			onslugifiedvalue={(value) => (slugifiedRefName = value)}
 		/>
 
-		<div class="options-wrap" role="radiogroup" aria-label="Branch type selection">
+		<div class="options-wrap" role="radiogroup" aria-label="分支类型选择">
 			<!-- Option 1 -->
 			<label for="new-stack" class="radio-label" class:radio-selected={createRefType === 'stack'}>
 				<div class="radio-btn">
@@ -161,9 +161,9 @@
 				</div>
 
 				<div class="radio-content">
-					<h3 class="text-14 text-bold text-body radio-title">Independent branch</h3>
+					<h3 class="text-14 text-bold text-body radio-title">独立分支</h3>
 					<p class="text-12 text-body radio-caption">
-						Create an independent branch<br />in a new stack.
+						在新堆栈中创建一个独立分支。
 					</p>
 
 					<div class="radio-illustration">
@@ -193,12 +193,12 @@
 				</div>
 
 				<div class="radio-content">
-					<h3 class="text-14 text-bold text-body radio-title">Dependent branch</h3>
+					<h3 class="text-14 text-bold text-body radio-title">依赖分支</h3>
 					<p class="text-12 text-body radio-caption">
 						{#if allStacks.length === 0}
-							Create a branch that depends<br />on another stack (none available).
+							创建依赖其他堆栈的分支（暂无可用堆栈）。
 						{:else}
-							Create a branch that depends<br />on a selected stack.
+							创建依赖所选堆栈的分支。
 						{/if}
 					</p>
 
@@ -213,9 +213,9 @@
 			<Select
 				options={stackOptions}
 				value={selectedStackId}
-				label="Add to stack"
+				label="添加到堆栈"
 				disabled={stackOptions.length <= 1}
-				placeholder="Select a stack..."
+				placeholder="选择一个堆栈..."
 				onselect={(value) => (selectedStackId = value)}
 			>
 				{#snippet itemSnippet({ item, highlighted })}
@@ -231,9 +231,9 @@
 
 			<p>
 				{#if createRefType === 'stack'}
-					The new branch will be applied in parallel with other stacks in the workspace.
+					新分支将与工作区中的其他堆栈并行应用。
 					<br />
-					Adjust branch placement and preferences in
+					可在以下位置调整分支位置与偏好：
 					<button
 						type="button"
 						class="settings-link underline-dotted"
@@ -242,14 +242,14 @@
 							openGeneralSettings('lanes-and-branches');
 						}}
 					>
-						Settings → Lanes & branches
+						设置 → 分支与泳道
 					</button>
 				{:else}
-					Creates a branch that depends on a selected stack.
+					创建依赖所选堆栈的分支。
 					<br />
-					A stack's top branches also have a
-					<i class="create-dependent-icon"><Icon name="new-dep-branch" /></i> icon to create dependent
-					branches.
+					堆栈顶部的分支旁也会显示
+					<i class="create-dependent-icon"><Icon name="new-dep-branch" /></i>
+					用于创建依赖分支。
 				{/if}
 			</p>
 		</div>
@@ -258,14 +258,14 @@
 	{#snippet controls(close)}
 		<div class="footer">
 			<span class="text-12 text-body footer-text"
-				>See more: <Link
+				>了解更多：<Link
 					href="https://docs.gitbutler.com/features/branch-management/stacked-branches"
-					>Stacked vs. Dependent</Link
+					>堆栈分支与依赖分支</Link
 				></span
 			>
 
 			<div class="footer__controls">
-				<Button kind="outline" type="reset" onclick={close}>Cancel</Button>
+				<Button kind="outline" type="reset" onclick={close}>取消</Button>
 				<Button
 					style="pop"
 					type="submit"
@@ -274,7 +274,7 @@
 					loading={isAddingNew}
 					testId={TestId.ConfirmSubmit}
 				>
-					Create branch
+					创建分支
 				</Button>
 			</div>
 		</div>
@@ -282,7 +282,7 @@
 </Modal>
 
 <style lang="postcss">
-	/* MODAL WINDOW */
+	/* 模态窗口 */
 	.content-wrap {
 		display: flex;
 		flex-direction: column;

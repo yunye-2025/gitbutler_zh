@@ -30,7 +30,7 @@
 			await historyService.createSnapshot(projectId, message || undefined);
 			close();
 		} catch (error) {
-			console.error('Failed to create snapshot:', error);
+			console.error('创建快照失败:', error);
 		} finally {
 			isCreating = false;
 		}
@@ -40,28 +40,28 @@
 <Modal
 	testId={TestId.CreateSnapshotModal}
 	width="small"
-	title="Create snapshot"
+	title="创建快照"
 	type="info"
 	bind:this={modal}
 	onSubmit={createSnapshot}
 >
 	<Textbox
-		placeholder="Snapshot description (optional)"
+		placeholder="快照描述（可选）"
 		id={ElementId.SnapshotDescriptionInput}
 		bind:value={message}
 		autofocus
-		helperText="Describe what you're saving for easy reference later"
+		helperText="描述保存内容，便于日后查找"
 	/>
 
 	{#snippet controls(close)}
-		<Button kind="outline" type="reset" onclick={close}>Cancel</Button>
+		<Button kind="outline" type="reset" onclick={close}>取消</Button>
 		<Button
 			testId={TestId.CreateSnapshotModal_ActionButton}
 			style="pop"
 			type="submit"
 			loading={isCreating}
 		>
-			Create snapshot
+			创建快照
 		</Button>
 	{/snippet}
 </Modal>

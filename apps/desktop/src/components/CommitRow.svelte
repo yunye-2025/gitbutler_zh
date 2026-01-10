@@ -110,7 +110,7 @@
 	bind:this={container}
 	role="button"
 	tabindex="0"
-	aria-label="Commit row"
+	aria-label="提交行"
 	class="commit-row"
 	class:menu-shown={isOpen}
 	class:first
@@ -179,7 +179,7 @@
 						role="button"
 						tabindex="0"
 						onclick={openGerritReview}
-						title="Open Gerrit review #{reviewId}"
+						title="在 Gerrit 中打开评审 #{reviewId}"
 					>
 						<span class="text-11 text-semibold">{reviewId}</span>
 					</div>

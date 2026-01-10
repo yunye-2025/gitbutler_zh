@@ -62,7 +62,7 @@
 	const [updateBranchNameMutation] = stackService.updateBranchName;
 	const [createRef, refCreation] = stackService.createReference;
 
-	// Component is read-only when stackId is undefined
+	// 当 stackId 为空时，该组件为只读状态
 	const isReadOnly = $derived(!stackId);
 
 	const aiGenEnabled = $derived(projectAiGenEnabled(projectId));
@@ -101,7 +101,7 @@
 		const commits = await getAllCommits();
 		const commitMessages = commits?.map((commit) => commit.message) ?? [];
 		if (commitMessages.length === 0) {
-			throw new Error('There must be commits in the branch before you can generate a branch name');
+			throw new Error('生成分支名之前，该分支必须至少有一次提交');
 		}
 
 		const prompt = promptService.selectedBranchPrompt(projectId);
@@ -157,7 +157,7 @@
 			<ContextMenuSection>
 				{#if branch.remoteTrackingBranch}
 					<ContextMenuItem
-						label="Open in browser"
+						label="在浏览器中打开"
 						icon="open-link"
 						testId={TestId.BranchHeaderContextMenu_OpenInBrowser}
 						onclick={() => {
@@ -168,11 +168,11 @@
 					/>
 				{/if}
 				<ContextMenuItem
-					label="Copy branch name"
+					label="复制分支名"
 					icon="copy"
 					testId={TestId.BranchHeaderContextMenu_CopyBranchName}
 					onclick={() => {
-						clipboardService.write(branch?.name, { message: 'Branch name copied' });
+						clipboardService.write(branch?.name, { message: '分支名已复制' });
 						close();
 					}}
 				/>
@@ -180,14 +180,14 @@
 			{#if stackId}
 				<ContextMenuSection>
 					<ContextMenuItemSubmenu
-						label="Create branch"
+						label="创建分支"
 						icon="new-dep-branch"
 						disabled={isReadOnly || refCreation.current.isLoading}
 					>
 						{#snippet submenu({ close: closeSubmenu })}
 							<ContextMenuSection>
 								<ContextMenuItem
-									label="Create branch above"
+									label="在上方创建分支"
 									testId={TestId.BranchHeaderContextMenu_AddDependentBranch}
 									disabled={isReadOnly}
 									onclick={async () => {
@@ -197,7 +197,7 @@
 									}}
 								/>
 								<ContextMenuItem
-									label="Create branch below"
+									label="在下方创建分支"
 									disabled={isReadOnly}
 									onclick={async () => {
 										await handleCreateNewRef(stackId, 'Below');
@@ -209,7 +209,7 @@
 						{/snippet}
 					</ContextMenuItemSubmenu>
 					<ContextMenuItem
-						label="Add empty commit"
+						label="添加空提交"
 						icon="new-empty-commit"
 						testId={TestId.BranchHeaderContextMenu_AddEmptyCommit}
 						onclick={async () => {
@@ -226,7 +226,7 @@
 					/>
 					{#if branch.commits.length > 1}
 						<ContextMenuItem
-							label="Squash all commits"
+							label="压缩全部提交"
 							icon="squash-commits"
 							testId={TestId.BranchHeaderContextMenu_SquashAllCommits}
 							onclick={async () => {
@@ -239,9 +239,9 @@
 							}}
 							disabled={isReadOnly || isConflicted}
 							tooltip={isReadOnly
-								? 'Read-only mode'
+								? '只读模式'
 								: isConflicted
-									? 'This branch has conflicts'
+									? '该分支存在冲突'
 									: undefined}
 						/>
 					{/if}
@@ -249,7 +249,7 @@
 				<ContextMenuSection>
 					{#if $aiGenEnabled && aiConfigurationValid && !branch.remoteTrackingBranch && stackId}
 						<ContextMenuItem
-							label="Generate branch name"
+							label="生成分支名"
 							icon="ai-edit"
 							testId={TestId.BranchHeaderContextMenu_GenerateBranchName}
 							disabled={isReadOnly}
@@ -261,7 +261,7 @@
 					{/if}
 					{#if branchType !== 'Integrated'}
 						<ContextMenuItem
-							label="Rename"
+							label="重命名"
 							icon="edit"
 							testId={TestId.BranchHeaderContextMenu_Rename}
 							disabled={isReadOnly}
@@ -281,7 +281,7 @@
 					{/if}
 					{#if stackLength && (stackLength > 1 || (stackLength === 1 && branch.commits.length === 0))}
 						<ContextMenuItem
-							label="Delete"
+							label="删除"
 							icon="bin"
 							testId={TestId.BranchHeaderContextMenu_Delete}
 							disabled={isReadOnly}
@@ -308,7 +308,7 @@
 								{#snippet submenu({ close: closeSubmenu })}
 									<ContextMenuSection>
 										<ContextMenuItem
-											label="Open {forge.reviewUnitAbbr} in browser"
+											label="在浏览器中打开 {forge.reviewUnitAbbr}"
 											testId={TestId.BranchHeaderContextMenu_OpenPRInBrowser}
 											onclick={() => {
 												urlService.openExternalUrl(pr.htmlUrl);
@@ -317,11 +317,11 @@
 											}}
 										/>
 										<ContextMenuItem
-											label="Copy {forge.reviewUnitAbbr} link"
+											label="复制 {forge.reviewUnitAbbr} 链接"
 											testId={TestId.BranchHeaderContextMenu_CopyPRLink}
 											onclick={() => {
 												clipboardService.write(pr.htmlUrl, {
-													message: `${forge.reviewUnitAbbr} link copied`
+													message: `${forge.reviewUnitAbbr} 链接已复制`
 												});
 												closeSubmenu();
 												close();
@@ -340,7 +340,7 @@
 			{#if stackId && first}
 				<ContextMenuSection>
 					<ContextMenuItem
-						label="Unapply Stack"
+						label="取消应用堆栈"
 						icon="eject"
 						testId={TestId.BranchHeaderContextMenu_UnapplyBranch}
 						disabled={isReadOnly}

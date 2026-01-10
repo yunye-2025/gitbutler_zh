@@ -6,6 +6,7 @@
 		rightClickTrigger: HTMLElement;
 	};
 
+	// 提交右键菜单回调
 	const { onCherryPick: onclick, rightClickTrigger }: Props = $props();
 </script>
 
@@ -13,7 +14,7 @@
 	{#snippet contextMenu({ close })}
 		<ContextMenuSection>
 			<ContextMenuItem
-				label="Cherry-pick commit"
+				label="挑拣提交"
 				icon="cherry-pick"
 				onclick={() => {
 					close();

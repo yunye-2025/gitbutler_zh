@@ -81,7 +81,7 @@
 	const [insertBlankCommitInBranch, commitInsertion] = stackService.insertBlankCommit;
 	const [createRef, refCreation] = stackService.createReference;
 
-	// Component is read-only when stackId is undefined
+	// 当 stackId 为空时，该组件为只读状态
 	const isReadOnly = $derived(
 		contextData?.commitStatus === 'LocalAndRemote' || contextData?.commitStatus === 'LocalOnly'
 			? !contextData.stackId
@@ -143,7 +143,7 @@
 				{@const { onUncommitClick, onEditMessageClick } = contextData}
 				<ContextMenuSection>
 					<ContextMenuItem
-						label="Uncommit"
+						label="撤销提交"
 						icon="undo-small"
 						testId={TestId.CommitRowContextMenu_UncommitMenuButton}
 						disabled={isReadOnly}
@@ -155,7 +155,7 @@
 						}}
 					/>
 					<ContextMenuItem
-						label="Edit commit message"
+						label="编辑提交信息"
 						icon="edit"
 						testId={TestId.CommitRowContextMenu_EditMessageMenuButton}
 						disabled={isReadOnly}
@@ -167,7 +167,7 @@
 						}}
 					/>
 					<ContextMenuItem
-						label="Edit commit"
+						label="编辑提交"
 						icon="edit-commit"
 						testId={TestId.CommitRowContextMenu_EditCommit}
 						disabled={isReadOnly}
@@ -183,7 +183,7 @@
 			<ContextMenuSection>
 				{#if commitUrl}
 					<ContextMenuItem
-						label="Open in browser"
+						label="在浏览器中打开"
 						icon="open-link"
 						onclick={async () => {
 							await urlService.openExternalUrl(commitUrl);
@@ -191,31 +191,31 @@
 						}}
 					/>
 				{/if}
-				<ContextMenuItemSubmenu label="Copy" icon="copy">
+				<ContextMenuItemSubmenu label="复制" icon="copy">
 					{#snippet submenu({ close: closeSubmenu })}
 						<ContextMenuSection>
 							{#if commitUrl}
 								<ContextMenuItem
-									label="Copy commit link"
+									label="复制提交链接"
 									onclick={() => {
-										clipboardService.write(commitUrl, { message: 'Commit link copied' });
+										clipboardService.write(commitUrl, { message: '提交链接已复制' });
 										closeSubmenu();
 										close();
 									}}
 								/>
 							{/if}
 							<ContextMenuItem
-								label="Copy commit hash"
+								label="复制提交哈希"
 								onclick={() => {
-									clipboardService.write(commitId, { message: 'Commit hash copied' });
+									clipboardService.write(commitId, { message: '提交哈希已复制' });
 									closeSubmenu();
 									close();
 								}}
 							/>
 							<ContextMenuItem
-								label="Copy commit message"
+								label="复制提交信息"
 								onclick={() => {
-									clipboardService.write(commitMessage, { message: 'Commit message copied' });
+									clipboardService.write(commitMessage, { message: '提交信息已复制' });
 									closeSubmenu();
 									close();
 								}}
@@ -226,11 +226,11 @@
 				{#if contextData.commitStatus === 'LocalAndRemote' || contextData.commitStatus === 'LocalOnly'}
 					{@const stackId = contextData.stackId}
 
-					<ContextMenuItemSubmenu label="Add empty commit" icon="new-empty-commit">
+					<ContextMenuItemSubmenu label="添加空提交" icon="new-empty-commit">
 						{#snippet submenu({ close: closeSubmenu })}
 							<ContextMenuSection>
 								<ContextMenuItem
-									label="Add empty commit above"
+									label="在上方添加空提交"
 									disabled={isReadOnly || commitInsertion.current.isLoading}
 									onclick={() => {
 										insertBlankCommit(ensureValue(stackId), commitId, 'above');
@@ -239,7 +239,7 @@
 									}}
 								/>
 								<ContextMenuItem
-									label="Add empty commit below"
+									label="在下方添加空提交"
 									disabled={isReadOnly || commitInsertion.current.isLoading}
 									onclick={() => {
 										insertBlankCommit(ensureValue(stackId), commitId, 'below');
@@ -250,11 +250,11 @@
 							</ContextMenuSection>
 						{/snippet}
 					</ContextMenuItemSubmenu>
-					<ContextMenuItemSubmenu label="Create branch" icon="branch-remote">
+					<ContextMenuItemSubmenu label="创建分支" icon="branch-remote">
 						{#snippet submenu({ close: closeSubmenu })}
 							<ContextMenuSection>
 								<ContextMenuItem
-									label="Branch from this commit"
+									label="从此提交创建分支"
 									disabled={isReadOnly || refCreation.current.isLoading}
 									onclick={async () => {
 										if (!isReadOnly) {
@@ -265,7 +265,7 @@
 									}}
 								/>
 								<ContextMenuItem
-									label="Branch after this commit"
+									label="在此提交之后创建分支"
 									disabled={isReadOnly || refCreation.current.isLoading}
 									onclick={async () => {
 										if (!isReadOnly) {
@@ -283,7 +283,7 @@
 
 			<ContextMenuSection>
 				<ContextMenuItem
-					label={$rewrapCommitMessage ? 'Show original wrapping' : 'Rewrap message'}
+					label={$rewrapCommitMessage ? '显示原始换行' : '重新换行'}
 					icon="text-wrap"
 					disabled={commitInsertion.current.isLoading}
 					onclick={() => {

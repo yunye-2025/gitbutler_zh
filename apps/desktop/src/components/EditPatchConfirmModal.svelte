@@ -20,14 +20,13 @@
 	}
 </script>
 
-<Modal bind:this={modal} width="small" type="warning" title="Resolve conflicts to preview">
+<Modal bind:this={modal} width="small" type="warning" title="解决冲突后预览">
 	<p class="text-base-body-13 text-light">
-		The file <span class="text-bold">{fileName}</span> has unresolved merge conflicts that need to be
-		addressed before it can be previewed.
+		文件 <span class="text-bold">{fileName}</span> 存在未解决的合并冲突，需先处理后才能预览。
 	</p>
 
 	{#snippet controls()}
-		<Button kind="outline" onclick={onCancel}>Cancel</Button>
-		<Button style="pop" onclick={onConfirm}>Resolve Conflicts</Button>
+		<Button kind="outline" onclick={onCancel}>取消</Button>
+		<Button style="pop" onclick={onConfirm}>解决冲突</Button>
 	{/snippet}
 </Modal>

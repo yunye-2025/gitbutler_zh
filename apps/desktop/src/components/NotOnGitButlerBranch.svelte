@@ -48,12 +48,12 @@
 
 	let handlingOptions: { label: string; value: OptionsType; selectable: boolean }[] = $derived([
 		{
-			label: 'Stash',
+			label: '暂存',
 			value: 'stash',
 			selectable: true
 		},
 		{
-			label: 'Bring to Workspace',
+			label: '带回工作区',
 			value: 'bring-to-workspace',
 			selectable: !conflicts // TODO: Reactivity??
 		}
@@ -78,14 +78,13 @@
 
 			<div class="switchrepo__content">
 				<p class="switchrepo__title text-18 text-body text-bold">
-					You've switched away from <span class="code-string"> gitbutler/workspace </span>
+					你已切换离开 <span class="code-string"> gitbutler/workspace </span>
 				</p>
 
 				<p class="switchrepo__message text-13 text-body">
-					Due to GitButler managing multiple virtual branches, you cannot switch back and forth
-					between git branches and virtual branches easily.
+					由于 GitButler 管理多个虚拟分支，你无法在 git 分支与虚拟分支之间轻松来回切换。
 					<Link href="https://docs.gitbutler.com/features/branch-management/integration-branch">
-						Learn more
+						了解更多
 					</Link>
 				</p>
 
@@ -93,7 +92,7 @@
 					<div class="switchrepo__uncommited-changes">
 						<div class="switchrepo__uncommited-changes__section">
 							<p class="switchrepo__label text-13 text-body text-bold">
-								You have uncommitted changes:
+								你有未提交的更改：
 							</p>
 							<div class="switchrepo__file-list">
 								{#each uncommittedChanges as change}
@@ -106,7 +105,7 @@
 							</div>
 							{#if conflicts}
 								<p class="switchrepo__label text-13 text-body clr-text-2">
-									Some files can’t be applied due to conflicts:
+									部分文件因冲突无法应用：
 								</p>
 								<div class="switchrepo__file-list">
 									<ReduxResult result={mode.result} {projectId}>
@@ -117,7 +116,7 @@
 														filePath={path}
 														clickable={false}
 														conflicted
-														conflictHint="Resolve to apply"
+														conflictHint="解决冲突后可应用"
 														hideBorder={path ===
 															mode.subject.worktreeConflicts[
 																mode.subject.worktreeConflicts.length - 1
@@ -134,7 +133,7 @@
 						<hr class="switchrepo__divider" />
 
 						<p class="switchrepo__label text-13 text-body text-bold">
-							What should we do with your uncommitted changes?
+							如何处理这些未提交的更改？
 						</p>
 
 						<div class="switchrepo__handling-options">
@@ -164,7 +163,7 @@
 						loading={targetBranchSwitch.current.isLoading}
 						action={initSwithToWorkspace}
 					>
-						Switch back
+						切换回去
 					</AsyncButton>
 				</div>
 			</div>

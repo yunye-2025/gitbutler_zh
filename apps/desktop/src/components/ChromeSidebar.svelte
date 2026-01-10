@@ -23,6 +23,7 @@
 
 	const { projectId, disabled = false }: { projectId: string; disabled?: boolean } = $props();
 
+	// 侧边栏操作与快捷入口状态
 	let contextTriggerButton = $state<HTMLButtonElement | undefined>();
 	let contextMenuEl = $state<ContextMenu>();
 	let shareIssueModal = $state<ShareIssueModal>();
@@ -44,7 +45,7 @@
 				width={34}
 				hotkey="⌘1"
 				class={['btn-square', isWorkspacePath() && 'btn-active']}
-				tooltip="Workspace"
+				tooltip="工作区"
 				{disabled}
 			>
 				{#snippet custom()}
@@ -82,7 +83,7 @@
 				width={34}
 				class={['btn-square', isBranchesPath() && 'btn-active']}
 				hotkey="⌘2"
-				tooltip="Branches"
+				tooltip="分支"
 				{disabled}
 			>
 				{#snippet custom()}
@@ -144,7 +145,7 @@
 				width={34}
 				class={['btn-square', isHistoryPath() && 'btn-active']}
 				hotkey="⌘3"
-				tooltip="Operations history"
+				tooltip="操作历史"
 				{disabled}
 			>
 				{#snippet custom()}
@@ -187,7 +188,7 @@
 					icon="chat"
 					width={34}
 					class={['btn-square', isIrcPath() && 'btn-active']}
-					tooltip="History"
+					tooltip="聊天记录"
 					{disabled}
 				/>
 			</div>
@@ -206,7 +207,7 @@
 					class="btn-square"
 					tooltipPosition="top"
 					tooltipAlign="start"
-					tooltip="Project settings"
+					tooltip="项目设置"
 				>
 					{#snippet custom()}
 						<svg
@@ -236,7 +237,7 @@
 			<Button
 				icon="mail"
 				kind="ghost"
-				tooltip="Share feedback"
+				tooltip="反馈建议"
 				tooltipPosition="top"
 				tooltipAlign="start"
 				width={34}
@@ -257,7 +258,7 @@
 >
 	<ContextMenuSection>
 		<ContextMenuItem
-			label="Global settings"
+			label="全局设置"
 			onclick={() => {
 				openGeneralSettings();
 				contextMenuEl?.close();
@@ -265,9 +266,9 @@
 			keyboardShortcut="⌘,"
 		/>
 	</ContextMenuSection>
-	<ContextMenuSection title="Theme (⌘T)">
+	<ContextMenuSection title="主题 (⌘T)">
 		<ContextMenuItem
-			label="Dark"
+			label="深色"
 			onclick={async () => {
 				userSettings.update((s) => ({
 					...s,
@@ -277,7 +278,7 @@
 			}}
 		/>
 		<ContextMenuItem
-			label="Light"
+			label="浅色"
 			onclick={async () => {
 				userSettings.update((s) => ({
 					...s,
@@ -287,7 +288,7 @@
 			}}
 		/>
 		<ContextMenuItem
-			label="System"
+			label="跟随系统"
 			onclick={async () => {
 				userSettings.update((s) => ({
 					...s,

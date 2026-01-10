@@ -27,7 +27,7 @@
 			<div class="pin__circle"></div>
 		</div>
 		<div class="indicator__label waving-animation">
-			<Badge size="tag" style="pop">Your commit goes here</Badge>
+			<Badge size="tag" style="pop">你的提交会在这里</Badge>
 		</div>
 	</div>
 {/snippet}
@@ -45,7 +45,7 @@
 		<div class="commit-here__line"></div>
 		<div class="commit-here__circle"></div>
 
-		<div class="commit-here__label text-11 text-semibold">Commit here</div>
+		<div class="commit-here__label text-11 text-semibold">在此提交</div>
 	</button>
 {/snippet}
 

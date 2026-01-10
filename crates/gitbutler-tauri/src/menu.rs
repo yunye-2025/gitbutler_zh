@@ -40,7 +40,7 @@ pub fn build<R: Runtime>(
 ) -> tauri::Result<Menu<R>> {
     #[cfg(not(feature = "disable-auto-updates"))]
     let check_for_updates =
-        MenuItemBuilder::with_id("global/update", "Check for updates…").build(handle)?;
+        MenuItemBuilder::with_id("global/update", "检查更新…").build(handle)?;
 
     #[cfg(target_os = "macos")]
     let app_name = handle
@@ -50,7 +50,7 @@ pub fn build<R: Runtime>(
         .context("App name not defined.")?;
 
     #[cfg(target_os = "macos")]
-    let settings_menu = MenuItemBuilder::with_id("global/settings", "Settings")
+    let settings_menu = MenuItemBuilder::with_id("global/settings", "设置")
         .accelerator("CmdOrCtrl+,")
         .build(handle)?;
 
@@ -77,19 +77,19 @@ pub fn build<R: Runtime>(
             .build()?
     };
 
-    let file_menu = &SubmenuBuilder::new(handle, "File")
+    let file_menu = &SubmenuBuilder::new(handle, "文件")
         .items(&[
-            &MenuItemBuilder::with_id("file/add-local-repo", "Add Local Repository…")
+            &MenuItemBuilder::with_id("file/add-local-repo", "添加本地仓库…")
                 .accelerator("CmdOrCtrl+O")
                 .build(handle)?,
-            &MenuItemBuilder::with_id("file/clone-repo", "Clone Repository…")
+            &MenuItemBuilder::with_id("file/clone-repo", "克隆仓库…")
                 .accelerator("CmdOrCtrl+Shift+O")
                 .build(handle)?,
             &PredefinedMenuItem::separator(handle)?,
-            &MenuItemBuilder::with_id("file/create-branch", "Create Branch…")
+            &MenuItemBuilder::with_id("file/create-branch", "创建分支…")
                 .accelerator("CmdOrCtrl+B")
                 .build(handle)?,
-            &MenuItemBuilder::with_id("file/create-dependent-branch", "Create Dependent Branch…")
+            &MenuItemBuilder::with_id("file/create-dependent-branch", "创建依赖分支…")
                 .accelerator("CmdOrCtrl+Shift+B")
                 .build(handle)?,
             &PredefinedMenuItem::separator(handle)?,
@@ -106,16 +106,16 @@ pub fn build<R: Runtime>(
     }
 
     #[cfg(not(target_os = "linux"))]
-    let edit_menu = &Submenu::new(handle, "Edit", true)?;
+    let edit_menu = &Submenu::new(handle, "编辑", true)?;
 
     // For now, only on MacOS. Once mainstream, we'd have to set the accelerators correctly and test it more.
     #[cfg(not(target_os = "linux"))]
     if settings.get()?.feature_flags.undo && cfg!(target_os = "macos") {
         edit_menu.append_items(&[
-            &MenuItemBuilder::with_id("edit/undo", "Undo")
+            &MenuItemBuilder::with_id("edit/undo", "撤销")
                 .accelerator("CmdOrCtrl+Z")
                 .build(handle)?,
-            &MenuItemBuilder::with_id("edit/redo", "Redo")
+            &MenuItemBuilder::with_id("edit/redo", "重做")
                 .accelerator("CmdOrCtrl+Shift+Z")
                 .build(handle)?,
             &PredefinedMenuItem::separator(handle)?,
@@ -131,25 +131,25 @@ pub fn build<R: Runtime>(
         ])?;
     }
 
-    let view_menu = &Submenu::new(handle, "View", true)?;
+    let view_menu = &Submenu::new(handle, "视图", true)?;
 
     #[cfg(target_os = "macos")]
     view_menu.append(&PredefinedMenuItem::fullscreen(handle, None)?)?;
     view_menu.append_items(&[
-        &MenuItemBuilder::with_id("view/switch-theme", "Switch Theme")
+        &MenuItemBuilder::with_id("view/switch-theme", "切换主题")
             .accelerator("CmdOrCtrl+T")
             .build(handle)?,
-        &MenuItemBuilder::with_id("view/toggle-sidebar", "Toggle Unassigned")
+        &MenuItemBuilder::with_id("view/toggle-sidebar", "切换未分配面板")
             .accelerator("CmdOrCtrl+\\")
             .build(handle)?,
         &PredefinedMenuItem::separator(handle)?,
-        &MenuItemBuilder::with_id("view/zoom-in", "Zoom In")
+        &MenuItemBuilder::with_id("view/zoom-in", "放大")
             .accelerator("CmdOrCtrl+=")
             .build(handle)?,
-        &MenuItemBuilder::with_id("view/zoom-out", "Zoom Out")
+        &MenuItemBuilder::with_id("view/zoom-out", "缩小")
             .accelerator("CmdOrCtrl+-")
             .build(handle)?,
-        &MenuItemBuilder::with_id("view/zoom-reset", "Reset Zoom")
+        &MenuItemBuilder::with_id("view/zoom-reset", "重置缩放")
             .accelerator("CmdOrCtrl+0")
             .build(handle)?,
         &PredefinedMenuItem::separator(handle)?,
@@ -157,48 +157,48 @@ pub fn build<R: Runtime>(
 
     #[cfg(any(debug_assertions, feature = "devtools"))]
     view_menu.append_items(&[
-        &MenuItemBuilder::with_id("view/devtools", "Developer Tools")
+        &MenuItemBuilder::with_id("view/devtools", "开发者工具")
             .accelerator("CmdOrCtrl+Shift+C")
             .build(handle)?,
-        &MenuItemBuilder::with_id("view/reload", "Reload View")
+        &MenuItemBuilder::with_id("view/reload", "重新加载视图")
             .accelerator("CmdOrCtrl+R")
             .build(handle)?,
     ])?;
 
-    let mut project_menu_builder = SubmenuBuilder::new(handle, "Project")
+    let mut project_menu_builder = SubmenuBuilder::new(handle, "项目")
         .item(
-            &MenuItemBuilder::with_id("project/history", "Operations History")
+            &MenuItemBuilder::with_id("project/history", "操作历史")
                 .accelerator("CmdOrCtrl+Shift+H")
                 .build(handle)?,
         )
         .separator()
-        .text("project/open-in-vscode", "Open in Editor");
+        .text("project/open-in-vscode", "在编辑器中打开");
 
     #[cfg(target_os = "macos")]
     {
         project_menu_builder =
-            project_menu_builder.text("project/show-in-finder", "Show in Finder");
+            project_menu_builder.text("project/show-in-finder", "在 Finder 中显示");
     }
 
     #[cfg(target_os = "windows")]
     {
         project_menu_builder =
-            project_menu_builder.text("project/show-in-finder", "Show in Explorer");
+            project_menu_builder.text("project/show-in-finder", "在资源管理器中显示");
     }
 
     #[cfg(target_os = "linux")]
     {
         project_menu_builder =
-            project_menu_builder.text("project/show-in-finder", "Show in File Manager");
+            project_menu_builder.text("project/show-in-finder", "在文件管理器中显示");
     }
 
     let project_menu = &project_menu_builder
         .separator()
-        .text("project/settings", "Project Settings")
+        .text("project/settings", "项目设置")
         .build()?;
 
     #[cfg(target_os = "macos")]
-    let window_menu = &SubmenuBuilder::new(handle, "Window")
+    let window_menu = &SubmenuBuilder::new(handle, "窗口")
         .items(&[
             &PredefinedMenuItem::minimize(handle, None)?,
             &PredefinedMenuItem::maximize(handle, None)?,
@@ -207,17 +207,17 @@ pub fn build<R: Runtime>(
         ])
         .build()?;
 
-    let help_menu = SubmenuBuilder::new(handle, "Help")
-        .text("help/documentation", "Documentation")
-        .text("help/debugging-guide", "Debugging Guide")
-        .text("help/github", "Source Code")
-        .text("help/release-notes", "Release Notes")
+    let help_menu = SubmenuBuilder::new(handle, "帮助")
+        .text("help/documentation", "文档")
+        .text("help/debugging-guide", "调试指南")
+        .text("help/github", "源代码")
+        .text("help/release-notes", "发布说明")
         .separator()
-        .text("help/share-debug-info", "Share Debug Info…")
-        .text("help/report-issue", "Create an Issue")
+        .text("help/share-debug-info", "分享调试信息…")
+        .text("help/report-issue", "创建问题反馈")
         .separator()
-        .text("help/open-logs-folder", "Open Logs Folder")
-        .text("help/open-config-folder", "Open Config Folder")
+        .text("help/open-logs-folder", "打开日志文件夹")
+        .text("help/open-config-folder", "打开配置文件夹")
         .separator()
         .text("help/discord", "Discord")
         .text("help/youtube", "YouTube")

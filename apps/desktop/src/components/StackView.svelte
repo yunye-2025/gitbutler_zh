@@ -458,7 +458,7 @@
 			{@const ancestorMostConflictedCommitId = getAncestorMostConflicted(commits)?.id}
 
 			<ChangedFiles
-				title="Changed files"
+				title="已更改文件"
 				{projectId}
 				{stackId}
 				draggableFiles
@@ -497,7 +497,7 @@
 	<ReduxResult projectId={stableProjectId} stackId={stableStackId} result={changesQuery.result}>
 		{#snippet children(changesResult, { projectId, stackId })}
 			<ChangedFiles
-				title="Combined Changes"
+				title="合并后的更改"
 				{projectId}
 				{stackId}
 				draggableFiles
@@ -589,7 +589,7 @@
 								class:dropzone-hovered={dropzoneHovered && changes.current.length === 0}
 							>
 								<WorktreeChanges
-									title="Assigned"
+									title="已分配"
 									projectId={stableProjectId}
 									stackId={stableStackId}
 									mode="assigned"
@@ -608,7 +608,7 @@
 										{#if !isCommitting}
 											<div class="assigned-changes-empty">
 												<p class="text-12 text-body assigned-changes-empty__text">
-													Drop files to assign or commit directly
+													拖放文件以分配，或直接提交
 												</p>
 											</div>
 										{/if}
@@ -628,12 +628,12 @@
 											disabled={isReadOnly ||
 												defaultBranch === null ||
 												!!projectState.exclusiveAction.current}
-											tooltip={isReadOnly ? 'Read-only mode' : undefined}
+											tooltip={isReadOnly ? '只读模式' : undefined}
 											onclick={() => {
 												if (defaultBranch) startCommit(defaultBranch);
 											}}
 										>
-											Start a commit…
+											开始提交…
 										</Button>
 									</div>
 								{:else if isCommitting}

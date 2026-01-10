@@ -242,7 +242,7 @@
 								{commitId}
 								commitMessage={commit.message}
 								createdAt={commitCreatedAt(commit)}
-								tooltip="Upstream"
+								tooltip="上游"
 								{branchName}
 								{first}
 								{lastCommit}
@@ -257,8 +257,8 @@
 
 					<UpstreamCommitsAction testId={TestId.UpstreamCommitsCommitAction} isLast={!hasCommits}>
 						{#snippet action()}
-							<h3 class="text-13 text-semibold m-b-4">Upstream has new commits</h3>
-							<p class="text-12 text-body clr-text-2 m-b-14">Update your branch to stay current.</p>
+							<h3 class="text-13 text-semibold m-b-4">上游有新的提交</h3>
+							<p class="text-12 text-body clr-text-2 m-b-14">更新你的分支以保持最新。</p>
 							{@render integrateUpstreamAction()}
 						{/snippet}
 					</UpstreamCommitsAction>

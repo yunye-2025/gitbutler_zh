@@ -43,7 +43,7 @@
 	reversedDirection
 	onclick={handleClick}
 >
-	Remove project…
+	移除项目…
 </Button>
 
 <Modal
@@ -55,13 +55,12 @@
 >
 	<div class="remove-project-description">
 		<p class="text-14 text-body">
-			Are you sure you want to remove
-			<span class="text-bold">{projectTitle}</span> from GitButler?
+			确定要从 GitButler 中移除
+			<span class="text-bold">{projectTitle}</span> 吗？
 		</p>
 
 		<p class="text-12 text-body details-text">
-			When you delete your project from GitButler, your repository doesn't get deleted. It just
-			removes the project from the list, keeping your repository safe and easy to access.
+			从 GitButler 删除项目不会删除你的仓库，只会将项目从列表中移除，仓库仍然安全可用。
 		</p>
 	</div>
 
@@ -75,9 +74,9 @@
 			icon="bin-small"
 			type="submit"
 		>
-			Remove
+			移除
 		</Button>
-		<Button style="pop" onclick={close}>Cancel</Button>
+		<Button style="pop" onclick={close}>取消</Button>
 	{/snippet}
 </Modal>
 

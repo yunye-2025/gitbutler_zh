@@ -233,10 +233,10 @@
 				{/snippet}
 
 				{#snippet emptyState()}
-					<span class="branch-header__empty-state-span">This is an empty branch.</span>
-					<span class="branch-header__empty-state-span">Click for details.</span>
+					<span class="branch-header__empty-state-span">这是一个空分支。</span>
+					<span class="branch-header__empty-state-span">点击查看详情。</span>
 					<br />
-					Create or drag & drop commits here.
+					在此创建或拖放提交。
 				{/snippet}
 
 				{#snippet content()}
@@ -301,8 +301,7 @@
 			roundedBottom={args.roundedBottom}
 		>
 			{#snippet emptyState()}
-				<span class="branch-header__empty-state-span">There are no commits yet on this branch.</span
-				>
+				<span class="branch-header__empty-state-span">该分支尚无提交。</span>
 			{/snippet}
 			{#snippet content()}
 				{#if args.lastUpdatedAt}

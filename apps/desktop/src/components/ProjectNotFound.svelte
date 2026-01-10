@@ -46,8 +46,8 @@
 
 	function getDeletionStatus(repoName: string, deleteSucceeded: boolean): DeletionStatus {
 		return deleteSucceeded
-			? { message: `Project "${repoName}" successfully deleted`, style: 'success' }
-			: { message: `Failed to delete "${repoName}" project`, style: 'danger' };
+			? { message: `已成功删除项目“${repoName}”`, style: 'success' }
+			: { message: `删除项目“${repoName}”失败`, style: 'danger' };
 	}
 </script>
 
@@ -58,25 +58,25 @@
 				{#if deleteSucceeded === undefined}
 					<div class="text-content">
 						<h2 class="title-text text-18 text-body text-bold">
-							Can’t find "{project.title}"
+							找不到“{project.title}”
 						</h2>
 
 						<p class="description-text text-13 text-body">
-							Sorry, we can't find the project you're looking for.
+							抱歉，未找到你要的项目。
 							<br />
-							It might have been removed or doesn't exist.
+							它可能已被移除或不存在。
 							<button type="button" class="check-again-btn" onclick={() => location.reload()}
-								>Click here</button
+								>点击这里</button
 							>
-							to check again.
+							再次检查。
 							<br />
-							The current project path: <span class="code-string">{project.path}</span>
+							当前项目路径：<span class="code-string">{project.path}</span>
 						</p>
 					</div>
 
 					<div class="button-container">
 						<Button type="button" style="pop" onclick={async () => await locate(projectId)}
-							>Locate project…</Button
+							>定位项目…</Button
 						>
 						<RemoveProjectButton
 							noModal

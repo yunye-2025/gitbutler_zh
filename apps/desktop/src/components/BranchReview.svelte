@@ -49,25 +49,25 @@
 	<Modal
 		width="small"
 		type="warning"
-		title="Create {forge.reviewUnitName}"
+		title="创建 {forge.reviewUnitName}"
 		bind:this={confirmCreatePrModal}
 		onSubmit={() => {
 			modal?.show();
 		}}
 	>
 		<p class="text-13 text-body helper-text">
-			It's strongly recommended to create {forge.reviewUnitName.toLowerCase()}s starting with the
-			branch at the base of the stack.
+			强烈建议从堆栈底部的分支开始创建
+			{forge.reviewUnitName.toLowerCase()}。
 			<br />
-			Do you still want to create this {forge.reviewUnitName.toLowerCase()}?
+			仍要创建此 {forge.reviewUnitName.toLowerCase()} 吗？
 		</p>
 		{#snippet controls(close)}
-			<Button kind="outline" onclick={close}>Cancel</Button>
-			<Button style="warning" type="submit">Create {forge.reviewUnitName}</Button>
+			<Button kind="outline" onclick={close}>取消</Button>
+			<Button style="warning" type="submit">创建 {forge.reviewUnitName}</Button>
 		{/snippet}
 	</Modal>
 
-	<Modal bind:this={modal} title="Submit changes for review">
+	<Modal bind:this={modal} title="提交更改以供审核">
 		<ReviewCreation
 			bind:this={reviewCreation}
 			{projectId}

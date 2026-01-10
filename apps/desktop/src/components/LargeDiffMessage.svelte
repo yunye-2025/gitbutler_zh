@@ -14,8 +14,8 @@
 </script>
 
 <div data-testid={TestId.LargeDiffMessage} class="large-diff-message" class:frame-box={showFrame}>
-	<p class="text-13">Change hidden as large diffs may slow down the UI</p>
-	<Button testId={TestId.LargeDiffMessageButton} kind="outline" onclick={show}>Show anyways</Button>
+	<p class="text-13">为避免大型差异拖慢界面，已隐藏更改</p>
+	<Button testId={TestId.LargeDiffMessageButton} kind="outline" onclick={show}>仍然显示</Button>
 </div>
 
 <style>

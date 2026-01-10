@@ -45,7 +45,7 @@
 		<ReduxResult {projectId} result={changesQuery.result}>
 			{#snippet children(changes)}
 				<ChangedFiles
-					title="Changed files"
+					title="已更改文件"
 					autoselect
 					grow
 					{projectId}

@@ -156,7 +156,7 @@
 	const EMPTY_STATE_WIDTH = 280;
 
 	// Helper to get a user-friendly forge name
-	const forgeName = $derived(FORGE_NAME_MAP[forge.determinedForgeType] ?? 'your forge');
+	const forgeName = $derived(FORGE_NAME_MAP[forge.determinedForgeType] ?? '代码托管平台');
 
 	// Helper to determine if authentication message should be shown
 	// Show auth message when:
@@ -179,7 +179,7 @@
 	<div class="branches__header">
 		<div class="branches__header-info">
 			<div class="branches-title" class:hide-branch-title={searching}>
-				<span class="text-14 text-bold">Branches</span>
+				<span class="text-14 text-bold">分支</span>
 
 				<Badge>{combined.length}</Badge>
 			</div>
@@ -199,7 +199,7 @@
 					oninput={debounceSearchInput}
 					class="search-input text-13"
 					type="text"
-					placeholder="Search branches"
+					placeholder="搜索分支"
 					onkeydown={handleSearchKeyDown}
 				/>
 			</div>
@@ -223,53 +223,53 @@
 							{/each}
 						</div>
 					{:else}
-						{@render branchGroup({ title: 'Applied', children: groupedBranches.applied })}
+						{@render branchGroup({ title: '已应用', children: groupedBranches.applied })}
 
 						{#if groupedBranches.authored.length > 0}
-							{@render branchGroup({ title: 'Mine', children: groupedBranches.authored })}
+							{@render branchGroup({ title: '我的', children: groupedBranches.authored })}
 						{/if}
 
 						{#if groupedBranches.review.length > 0}
-							{@render branchGroup({ title: 'Review Requested', children: groupedBranches.review })}
+							{@render branchGroup({ title: '待评审', children: groupedBranches.review })}
 						{/if}
 
-						{@render branchGroup({ title: 'Today', children: groupedBranches.today })}
-						{@render branchGroup({ title: 'Yesterday', children: groupedBranches.yesterday })}
-						{@render branchGroup({ title: 'Last week', children: groupedBranches.lastWeek })}
-						{@render branchGroup({ title: 'Older', children: groupedBranches.older })}
+						{@render branchGroup({ title: '今天', children: groupedBranches.today })}
+						{@render branchGroup({ title: '昨天', children: groupedBranches.yesterday })}
+						{@render branchGroup({ title: '上周', children: groupedBranches.lastWeek })}
+						{@render branchGroup({ title: '更早', children: groupedBranches.older })}
 					{/if}
 				</ScrollableContainer>
 			</div>
-		{:else}
-			<EmptyStatePlaceholder image={noBranchesSvg} width={180} bottomMargin={48}>
-				{#snippet caption()}
-					No branches<br />match your filter
-				{/snippet}
-			</EmptyStatePlaceholder>
-		{/if}
+			{:else}
+				<EmptyStatePlaceholder image={noBranchesSvg} width={180} bottomMargin={48}>
+					{#snippet caption()}
+						没有分支符合筛选条件
+					{/snippet}
+				</EmptyStatePlaceholder>
+			{/if}
 	{:else}
 		<div class="branches__empty-state">
 			<EmptyStatePlaceholder image={noBranchesSvg} width={EMPTY_STATE_WIDTH} bottomMargin={48}>
 				{#snippet title()}
 					{#if selectedOption === 'local'}
-						No local branches found
+						未找到本地分支
 					{:else}
-						No branches or {forge.reviewUnitAbbr}s found
+						未找到分支或 {forge.reviewUnitAbbr}
 					{/if}
 				{/snippet}
 				{#snippet caption()}
 					{#if selectedOption === 'pullRequest'}
-						No {forge.reviewUnitAbbr}s found {#if baseBranch}
-							from <strong>{baseBranch.remoteName}</strong>{/if}.
+						未找到 {forge.reviewUnitAbbr}{#if baseBranch}
+							，来自 <strong>{baseBranch.remoteName}</strong>{/if}。
 					{:else if selectedOption === 'local'}
-						Create a new branch or fetch from your remote.
+						创建新分支或从远端获取。
 					{:else if baseBranch}
-						Branches and {forge.reviewUnitAbbr}s from
+						来自以下远端的分支与 {forge.reviewUnitAbbr}
 						<strong>{baseBranch.remoteName}/{baseBranch.shortName}</strong>
-						will appear here.
+						会在此显示。
 					{/if}
 					{#if shouldShowAuthMessage}
-						Authenticate with {forgeName} to see {forge.reviewUnitAbbr}s.
+						请先在 {forgeName} 登录以查看 {forge.reviewUnitAbbr}。
 					{/if}
 				{/snippet}
 			</EmptyStatePlaceholder>

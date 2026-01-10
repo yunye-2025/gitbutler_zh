@@ -182,7 +182,7 @@
 			{#snippet contextMenu({ close })}
 				<ContextMenuSection>
 					<ContextMenuItem
-						label="Edit rule"
+						label="编辑规则"
 						icon="edit"
 						onclick={() => {
 							close();
@@ -190,7 +190,7 @@
 						}}
 					/>
 					<ContextMenuItem
-						label="Delete rule"
+						label="删除规则"
 						icon="bin"
 						onclick={async () => {
 							close();
@@ -215,10 +215,10 @@
 				{/each}
 			{:else}
 				<div class="filter-pill">
-					<span class="text-12 truncate">*. All changes</span>
+					<span class="text-12 truncate">*. 所有更改</span>
 				</div>
 			{/if}
-			<Tooltip text="Assign to branch">
+			<Tooltip text="分配到分支">
 				<Icon name="arrow-right" color="var(--clr-text-3)" />
 			</Tooltip>
 			{@render stackTarget(target)}
@@ -232,18 +232,18 @@
 	bind:this={confirmationModal}
 	width="small"
 	type="warning"
-	title="Delete rule"
+	title="删除规则"
 	onSubmit={async (close) => {
 		await handleDeleteRule();
 		close();
 	}}
 >
-	Are you sure you want to delete this rule? This action cannot be undone.
+	确定要删除此规则吗？此操作无法撤销。
 
 	{#snippet controls(close)}
-		<Button kind="outline" onclick={close}>Cancel</Button>
+		<Button kind="outline" onclick={close}>取消</Button>
 		<Button loading={deletingRule.current.isLoading} style="danger" type="submit"
-			>Delete rule</Button
+			>删除规则</Button
 		>
 	{/snippet}
 </Modal>

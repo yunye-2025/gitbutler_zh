@@ -56,7 +56,7 @@
 
 <div class="commit">
 	<div class="metadata text-12">
-		<span>Author:</span>
+		<span>作者：</span>
 		<Avatar
 			size="medium"
 			username={commit.author.name}
@@ -65,13 +65,13 @@
 		<span class="divider">•</span>
 		<TimeAgo date={commitCreatedAtDate(commit)} />
 		<span class="divider">•</span>
-		<Tooltip text="Copy commit SHA">
+		<Tooltip text="复制提交 SHA">
 			<button
 				type="button"
 				class="copy-sha underline-dotted"
 				onclick={() => {
 					clipboardService.write(commit.id, {
-						message: 'Commit SHA copied'
+						message: '提交 SHA 已复制'
 					});
 				}}
 			>
@@ -106,9 +106,9 @@
 					class="readmore underline-dotted text-bold"
 				>
 					{#if expanded}
-						less
+						收起
 					{:else}
-						more
+						更多
 					{/if}
 				</button>
 			{/if}

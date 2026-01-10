@@ -24,7 +24,7 @@
 <ReduxResult result={stackQuery.result} {projectId} {stackId} {onerror}>
 	{#snippet children(stack, { stackId, projectId })}
 		{#if stack === null}
-			<p>Stack not found.</p>
+			<p>未找到堆栈。</p>
 		{:else}
 			{#each getStackBranchNames(stack) as branchName, idx}
 				{@const branchDetailsQuery = stackService.branchDetails(projectId, stackId, branchName)}

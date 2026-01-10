@@ -97,13 +97,13 @@
 	});
 
 	const reopenStatus = $derived.by(() => {
-		let disabled = true;
-		let tooltip = undefined;
-		if (isPushed && hasParent && !parentIsPushed) {
-			tooltip = 'Remote parent branch seems to have been deleted';
-		} else {
-			disabled = false;
-		}
+	let disabled = true;
+	let tooltip = undefined;
+	if (isPushed && hasParent && !parentIsPushed) {
+		tooltip = '远端父分支可能已被删除';
+	} else {
+		disabled = false;
+	}
 		return { disabled, tooltip };
 	});
 </script>
@@ -117,21 +117,21 @@
 		<ContextMenu bind:this={contextMenuEl} rightClickTrigger={container}>
 			<ContextMenuSection>
 				<ContextMenuItem
-					label="Open in browser"
+					label="在浏览器中打开"
 					onclick={() => {
 						urlService.openExternalUrl(pr.htmlUrl);
 						contextMenuEl?.close();
 					}}
 				/>
 				<ContextMenuItem
-					label="Copy link"
+					label="复制链接"
 					onclick={() => {
-						clipboardService.write(pr.htmlUrl, { message: `${abbr} link copied` });
+						clipboardService.write(pr.htmlUrl, { message: `${abbr} 链接已复制` });
 						contextMenuEl?.close();
 					}}
 				/>
 				<ContextMenuItem
-					label="Refetch status"
+					label="重新获取状态"
 					onclick={() => {
 						prService?.fetch(pr.number, { forceRefetch: true });
 						contextMenuEl?.close();
@@ -144,16 +144,16 @@
 			{#if hasChecks}
 				<ContextMenuSection>
 					<ContextMenuItem
-						label="Open checks"
+						label="打开检查"
 						onclick={() => {
 							urlService.openExternalUrl(`${pr.htmlUrl}/checks`);
 							contextMenuEl?.close();
 						}}
 					/>
 					<ContextMenuItem
-						label="Copy checks"
+						label="复制检查链接"
 						onclick={() => {
-							clipboardService.write(`${pr.htmlUrl}/checks`, { message: 'Checks link copied' });
+							clipboardService.write(`${pr.htmlUrl}/checks`, { message: '检查链接已复制' });
 							contextMenuEl?.close();
 						}}
 					/>
@@ -177,16 +177,16 @@
 					kind="outline"
 					size="tag"
 					icon="copy-small"
-					tooltip="Copy {abbr} link"
+					tooltip="复制 {abbr} 链接"
 					onclick={() => {
-						clipboardService.write(pr.htmlUrl, { message: `${abbr} link copied` });
+						clipboardService.write(pr.htmlUrl, { message: `${abbr} 链接已复制` });
 					}}
 				/>
 				<Button
 					kind="outline"
 					size="tag"
 					icon="open-link"
-					tooltip="Open {abbr} in browser"
+					tooltip="在浏览器中打开 {abbr}"
 					onclick={() => {
 						urlService.openExternalUrl(pr.htmlUrl);
 					}}
@@ -204,12 +204,12 @@
 			<div class="text-12 pr-row">
 				<div class="factoid">
 					{#if pr.reviewers.length > 0}
-						<span class="label">Reviewers:</span>
+						<span class="label">评审者：</span>
 						<div class="avatar-group-container">
 							<AvatarGroup avatars={pr.reviewers} />
 						</div>
 					{:else}
-						<span class="label italic">No reviewers</span>
+						<span class="label italic">暂无评审者</span>
 					{/if}
 				</div>
 				<span class="separator">•</span>

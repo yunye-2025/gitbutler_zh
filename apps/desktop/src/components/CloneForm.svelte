@@ -40,7 +40,7 @@
 		const selectedPath = await backend.filePicker({
 			directory: true,
 			recursive: true,
-			title: 'Target Clone Directory'
+			title: '选择克隆目标目录'
 		});
 		if (!selectedPath || !selectedPath[0]) return;
 
@@ -64,7 +64,7 @@
 
 		if (!repositoryUrl || !targetDirPath) {
 			errors.push({
-				label: 'You must add both a repository URL and target directory.'
+				label: '必须填写仓库 URL 和目标目录。'
 			});
 			loading = false;
 			return;
@@ -85,9 +85,9 @@
 			if (!outcome) {
 				posthog.captureOnboarding(
 					OnboardingEvent.ClonedProjectFailed,
-					'Failed to add project after cloning'
+					'克隆后添加项目失败'
 				);
-				throw new Error('Failed to add project after cloning.');
+				throw new Error('克隆后添加项目失败。');
 			}
 
 			handleAddProjectOutcome(outcome, (project) => goto(projectPath(project.id)));
@@ -112,31 +112,31 @@
 	}
 </script>
 
-<h1 class="clone-title text-serif-42">Clone a <i>repository</i></h1>
+<h1 class="clone-title text-serif-42">克隆<i>仓库</i></h1>
 <SettingsSection>
-	<Textbox label="Clone URL" bind:value={repositoryUrl} />
+	<Textbox label="克隆 URL" bind:value={repositoryUrl} />
 
 	<div class="clone__field repositoryTargetPath">
 		<Textbox
-			label="Where to clone"
+			label="克隆到哪里"
 			bind:value={targetDirPath}
 			placeholder="/Users/tipsy/Documents"
 		/>
-		<Button kind="outline" disabled={loading} onclick={handleCloneTargetSelect}>Choose..</Button>
+		<Button kind="outline" disabled={loading} onclick={handleCloneTargetSelect}>选择...</Button>
 	</div>
 </SettingsSection>
 
 <Spacer dotted margin={24} />
 
 {#if completed}
-	{@render Notification({ title: 'Success', style: 'success' })}
+	{@render Notification({ title: '成功', style: 'success' })}
 {/if}
 {#if errors.length}
-	{@render Notification({ title: 'Error', items: errors, style: 'danger' })}
+	{@render Notification({ title: '错误', items: errors, style: 'danger' })}
 {/if}
 
 <div class="clone__actions">
-	<Button kind="outline" disabled={loading} onclick={handleCancel}>Cancel</Button>
+	<Button kind="outline" disabled={loading} onclick={handleCancel}>取消</Button>
 	<Button
 		style="pop"
 		icon={errors.length > 0 ? 'update' : 'chevron-right-small'}
@@ -145,11 +145,11 @@
 		onclick={cloneRepository}
 	>
 		{#if loading}
-			Cloning..
+			正在克隆...
 		{:else if errors.length > 0}
-			Retry clone
+			重试克隆
 		{:else}
-			Clone
+			克隆
 		{/if}
 	</Button>
 </div>

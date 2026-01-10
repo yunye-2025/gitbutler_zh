@@ -99,27 +99,27 @@
 
 		<h4 class="text-13 text-semibold update-banner__status">
 			{#if status === 'Up-to-date'}
-				You are up-to-date!
+				已是最新版本！
 			{:else if status === 'Downloading'}
-				Downloading update…
+				正在下载更新…
 			{:else if status === 'Downloaded'}
-				Update downloaded
+				更新已下载
 			{:else if status === 'Installing'}
-				Installing update…
+				正在安装更新…
 			{:else if status === 'Done'}
-				Install complete
+				安装完成
 			{:else if status === 'Checking'}
-				Checking for update…
+				正在检查更新…
 			{:else if status === 'Error'}
-				Error occurred
+				发生错误
 			{:else if version}
-				New version available
+				有新版本可用
 			{/if}
 		</h4>
 
 		<div class="buttons">
 			{#if releaseNotes}
-				<Button kind="outline" onclick={handleOpenModal}>Release notes</Button>
+				<Button kind="outline" onclick={handleOpenModal}>发布说明</Button>
 			{/if}
 			{#if !inFlatpak}
 				<div class="status-section">
@@ -136,7 +136,7 @@
 									await updaterService.downloadAndInstall();
 								}}
 							>
-								Update to {version}
+								更新到 {version}
 							</Button>
 						{:else if status === 'Up-to-date'}
 							<Button
@@ -147,7 +147,7 @@
 									updaterService.dismiss();
 								}}
 							>
-								Got it!
+								知道了！
 							</Button>
 						{:else if status === 'Done'}
 							<Button
@@ -156,7 +156,7 @@
 								testId="restart-app"
 								onclick={async () => await updaterService.relaunchApp()}
 							>
-								Restart
+								重启
 							</Button>
 						{/if}
 					</div>
@@ -172,12 +172,12 @@
 			<div class="p-16">
 				{#if loadingReleases}
 					<div class="loading-state">
-						<p class="text-12">Loading releases...</p>
+						<p class="text-12">正在加载发布记录...</p>
 					</div>
 				{:else}
 					<div class="release-notes-header">
 						<h3 class="text-15 text-bold">
-							<span class="text-12 m-r-4">📒</span> Release Notes - {displayVersion}
+							<span class="text-12 m-r-4">📒</span> 发布说明 - {displayVersion}
 						</h3>
 
 						<div class="flex gap-2">
@@ -203,7 +203,7 @@
 					</div>
 
 					<div class="text-12 text-body release-notes-content">
-						<Markdown content={displayNotes || 'No release notes available'} />
+						<Markdown content={displayNotes || '暂无发布说明'} />
 					</div>
 				{/if}
 			</div>

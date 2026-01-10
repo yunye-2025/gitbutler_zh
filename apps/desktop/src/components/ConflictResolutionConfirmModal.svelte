@@ -19,18 +19,18 @@
 
 <Modal bind:this={modalEl} width="small">
 	<div>
-		<p>It's generally better to start resolving conflicts from the bottom up.</p>
+		<p>通常更建议从底部开始解决冲突。</p>
 		<br />
-		<p>Are you sure you want to resolve conflicts for this commit?</p>
+		<p>确定要解决此提交的冲突吗？</p>
 	</div>
 	{#snippet controls(close)}
-		<Button kind="outline" type="reset" onclick={close}>Cancel</Button>
+		<Button kind="outline" type="reset" onclick={close}>取消</Button>
 		<AsyncButton
 			style="pop"
 			action={async () => {
 				await onSubmit();
 				close();
-			}}>Yes</AsyncButton
+			}}>确定</AsyncButton
 		>
 	{/snippet}
 </Modal>

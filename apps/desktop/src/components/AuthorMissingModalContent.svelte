@@ -35,15 +35,14 @@
 	}
 </script>
 
-<ModalHeader type="warning">Set up your git author information</ModalHeader>
+<ModalHeader type="warning">设置 git 作者信息</ModalHeader>
 <div class="author-missing__content">
-	Your commits need author information to identify who made the changes. This information will be
-	saved to your global git configuration and used for all future commits.
+	提交需要作者信息来标识更改的来源。该信息将保存到全局 git 配置中，并用于后续提交。
 
 	<Textbox
 		disabled={settingInfo.current.isLoading}
-		placeholder="Your full name"
-		label="Name"
+		placeholder="你的姓名"
+		label="姓名"
 		testId={TestId.GlobalModal_AuthorMissing_NameInput}
 		bind:value={name}
 		autofocus
@@ -52,14 +51,14 @@
 	<EmailTextbox
 		disabled={settingInfo.current.isLoading}
 		placeholder="your.email@example.com"
-		label="Email address"
+		label="邮箱地址"
 		testId={TestId.GlobalModal_AuthorMissing_EmailInput}
 		bind:value={email}
 		bind:this={emailTextbox}
 	/>
 </div>
 <ModalFooter>
-	<Button kind="outline" onclick={close} disabled={settingInfo.current.isLoading}>Cancel</Button>
+	<Button kind="outline" onclick={close} disabled={settingInfo.current.isLoading}>取消</Button>
 	<Button
 		testId={TestId.GlobalModal_AuthorMissing_ActionButton}
 		style="pop"
@@ -67,7 +66,7 @@
 		loading={settingInfo.current.isLoading}
 		disabled={!name || !email}
 	>
-		{settingInfo.current.isLoading ? 'Saving...' : 'Save & Continue'}
+		{settingInfo.current.isLoading ? '正在保存...' : '保存并继续'}
 	</Button>
 </ModalFooter>
 

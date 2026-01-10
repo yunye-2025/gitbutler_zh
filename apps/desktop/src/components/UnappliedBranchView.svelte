@@ -54,8 +54,8 @@
 					{#if hasCommits}
 						<Tooltip
 							text={remoteTrackingBranch
-								? `Remote tracking branch:\n${remoteTrackingBranch}`
-								: 'No remote tracking branch'}
+								? `远端跟踪分支：\n${remoteTrackingBranch}`
+								: '没有远端跟踪分支'}
 						>
 							<div class="remote-tracking-branch-icon" class:disabled={!remoteTrackingBranch}>
 								<Icon
@@ -104,7 +104,7 @@
 		<ReduxResult {projectId} result={changesQuery.result}>
 			{#snippet children(changes, env)}
 				<ChangedFiles
-					title="All changed files"
+					title="所有已更改文件"
 					projectId={env.projectId}
 					stackId={env.stackId}
 					autoselect

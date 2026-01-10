@@ -41,7 +41,7 @@
 		kind="outline"
 		disabled={isFormBusy || isCreatingPR}
 		width={120}
-		onclick={onCancel}>Cancel</Button
+		onclick={onCancel}>取消</Button
 	>
 
 	<DropdownButton
@@ -57,12 +57,12 @@
 		disabled={submitDisabled || isFormBusy}
 		hotkey="⌘↵"
 	>
-		{$createDraft ? `Create ${unit} draft` : `Create ${unit}`}
+		{$createDraft ? `创建 ${unit} 草稿` : `创建 ${unit}`}
 
 		{#snippet contextMenuSlot()}
 			<ContextMenuSection>
 				<ContextMenuItem
-					label="Create {unit} draft"
+					label="创建 {unit} 草稿"
 					onclick={() => {
 						$createDraft = true;
 						commitButton?.close();
@@ -71,7 +71,7 @@
 				/>
 
 				<ContextMenuItem
-					label="Create {unit}"
+					label="创建 {unit}"
 					onclick={() => {
 						$createDraft = false;
 						commitButton?.close();

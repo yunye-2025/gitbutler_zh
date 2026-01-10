@@ -135,12 +135,12 @@
 					onclick={openModal}
 					disabled={!projectId || actionsDisabled}
 				>
-					{upstreamCommits} upstream {upstreamCommits === 1 ? 'commit' : 'commits'}
+					上游有 {upstreamCommits} 个{upstreamCommits === 1 ? '提交' : '提交'}
 				</Button>
 			{:else}
 				<div class="chrome-you-are-up-to-date">
 					<Icon name="tick-small" />
-					<span class="text-12">You’re up to date</span>
+					<span class="text-12">已是最新</span>
 				</div>
 			{/if}
 		</div>
@@ -198,7 +198,7 @@
 							try {
 								const outcome = await projectsService.addProject();
 								if (!outcome) {
-									// User cancelled the project creation
+									// 用户已取消创建项目
 									newProjectLoading = false;
 									return;
 								}
@@ -209,7 +209,7 @@
 							}
 						}}
 					>
-						Add local repository
+						添加本地仓库
 					</SelectItem>
 					<SelectItem
 						icon="clone"
@@ -217,18 +217,18 @@
 							goto('/onboarding/clone');
 						}}
 					>
-						Clone repository
+						克隆仓库
 					</SelectItem>
 				</OptionsGroup>
 			</Select>
 			{#if singleBranchMode}
-				<Tooltip text="Current branch">
+				<Tooltip text="当前分支">
 					<div class="chrome-current-branch">
 						<div class="chrome-current-branch__content">
 							<Icon name="branch-remote" color="var(--clr-text-2)" />
 							<span class="text-12 text-bold clr-text-2 truncate">{currentBranchName}</span>
 							{#if isNotInWorkspace}
-								<span class="text-12 text-bold clr-text-2 op-60"> read-only </span>
+								<span class="text-12 text-bold clr-text-2 op-60"> 只读 </span>
 							{/if}
 						</div>
 					</div>
@@ -237,7 +237,7 @@
 		</div>
 
 		{#if currentMode && isNotInWorkspace}
-			<Tooltip text="Switch back to gitbutler/workspace">
+			<Tooltip text="切换回 gitbutler/workspace">
 				<Button
 					kind="outline"
 					icon="undo"
@@ -246,7 +246,7 @@
 					reversedDirection
 					disabled={targetBranchSwitch.current.isLoading}
 				>
-					Back to workspace
+					返回工作区
 				</Button>
 			</Tooltip>
 		{/if}
@@ -270,13 +270,13 @@
 				reversedDirection
 				onclick={() => createBranchModal?.show()}
 			>
-				Create branch
+				创建分支
 			</Button>
 			{#if !$codegenDisabled}
 				<Button
 					testId={TestId.ChromeHeaderCreateCodegenSessionButton}
 					kind="outline"
-					tooltip="New Codegen Session"
+					tooltip="新建 Codegen 会话"
 					icon="ai-new-session"
 					onclick={() => {
 						createAiStack();

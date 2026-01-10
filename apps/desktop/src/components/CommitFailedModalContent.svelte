@@ -73,7 +73,7 @@
 		closeButton
 		{oncloseclick}
 		closeButtonTestId={TestId.GlobalModalActionButton}
-		>{data.newCommitId ? 'Some changes were not committed' : 'Failed to create commit'}</ModalHeader
+		>{data.newCommitId ? '部分更改未提交' : '创建提交失败'}</ModalHeader
 	>
 	<ConfigurableScrollableContainer
 		onscrollTop={(visible) => {
@@ -83,13 +83,13 @@
 		<div class="commit-failed__content">
 			<div class="text-13 commit-failed__description">
 				{#if data.newCommitId}
-					Commit <i class="commit-failed__text-icon"><Icon name="commit" /></i>
-					<Tooltip text={data.commitTitle ? data.commitTitle : 'No commit title provided'}
+					提交 <i class="commit-failed__text-icon"><Icon name="commit" /></i>
+					<Tooltip text={data.commitTitle ? data.commitTitle : '未提供提交标题'}
 						><span class="h-dotted-underline text-semibold">{data.newCommitId.substring(0, 7)}</span
 						></Tooltip
-					> was created, but some changes weren't fully committed:
+					> 已创建，但部分更改未完全提交：
 				{:else}
-					Commit could not be created because of the following reasons:
+					由于以下原因，提交无法创建：
 				{/if}
 			</div>
 
@@ -98,7 +98,7 @@
 					<hr class="commit-failed__reasons-divider" />
 
 					<p class="text-13">
-						Cause: <span class="text-bold">{reasonReadable}</span>
+						原因：<span class="text-bold">{reasonReadable}</span>
 					</p>
 
 					<div class="commit-failed__reason-file-list">

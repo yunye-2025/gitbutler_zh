@@ -13,6 +13,7 @@
 
 	let contextMenu = $state<ContextMenu>();
 
+	// 判断指定筛选条件是否已经被添加
 	function filterHasBeenAdded(type: RuleFilterType): boolean {
 		return addedFilterTypes.includes(type);
 	}
@@ -36,7 +37,7 @@
 	<ContextMenuSection>
 		<ContextMenuItem
 			icon="folder"
-			label="File or folder path"
+			label="文件或文件夹路径"
 			disabled={filterHasBeenAdded('pathMatchesRegex')}
 			onclick={() => {
 				handleAddFilter('pathMatchesRegex');
@@ -44,7 +45,7 @@
 		/>
 		<ContextMenuItem
 			icon="text-width"
-			label="Contains text"
+			label="包含文本"
 			disabled={filterHasBeenAdded('contentMatchesRegex')}
 			onclick={() => {
 				handleAddFilter('contentMatchesRegex');
@@ -52,7 +53,7 @@
 		/>
 		<ContextMenuItem
 			icon="file-changes"
-			label="Change type (coming soon)"
+			label="变更类型（即将推出）"
 			disabled={filterHasBeenAdded('fileChangeType') || true}
 			onclick={() => {
 				handleAddFilter('fileChangeType');
@@ -60,7 +61,7 @@
 		/>
 		<ContextMenuItem
 			icon="tag"
-			label="Work category (coming soon)"
+			label="工作类别（即将推出）"
 			disabled={filterHasBeenAdded('semanticType') || true}
 			onclick={() => {
 				handleAddFilter('semanticType');
@@ -69,7 +70,7 @@
 	</ContextMenuSection>
 	{#if addEmpty}
 		<ContextMenuSection>
-			<ContextMenuItem icon="arrow-right" label="Assign all to branch" onclick={handleAddEmpty} />
+			<ContextMenuItem icon="arrow-right" label="全部分配到分支" onclick={handleAddEmpty} />
 		</ContextMenuSection>
 	{/if}
 </ContextMenu>

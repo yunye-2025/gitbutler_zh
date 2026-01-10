@@ -44,7 +44,7 @@
 {#if remoteBranchesQuery.result.isLoading}
 	<InfoMessage filled outlined={false} icon="info">
 		{#snippet content()}
-			Loading remote branches...
+			正在加载远端分支...
 		{/snippet}
 	</InfoMessage>
 {:else if remoteBranchesQuery.result.isSuccess}
@@ -53,12 +53,11 @@
 		<CardGroup>
 			<CardGroup.Item>
 				{#snippet title()}
-					Remote configuration
+					远端配置
 				{/snippet}
 				{#snippet caption()}
-					Lets you choose where to push code and set the target branch for contributions. The target
-					branch is usually the "production" branch like 'origin/master' or 'upstream/main.' This
-					section helps ensure your code goes to the correct remote and branch for integration.
+					用于选择推送位置并设置贡献的目标分支。目标分支通常是“生产”分支，例如
+					'origin/master' 或 'upstream/main'。此处帮助确保代码集成到正确的远端与分支。
 				{/snippet}
 
 				<Select
@@ -69,7 +68,7 @@
 						selectedBranch = value;
 					}}
 					disabled={targetChangeDisabled}
-					label="Current target branch"
+					label="当前目标分支"
 					searchable
 				>
 					{#snippet itemSnippet({ item, highlighted })}
@@ -88,7 +87,7 @@
 							selectedRemote = value;
 						}}
 						disabled={targetChangeDisabled}
-						label="Create branches on remote"
+						label="创建分支所用远端"
 					>
 						{#snippet itemSnippet({ item, highlighted })}
 							<SelectItem selected={item.value === selectedRemote} {highlighted}>
@@ -101,8 +100,9 @@
 				{#if targetChangeDisabled}
 					<InfoMessage filled outlined={false} icon="info">
 						{#snippet content()}
-							You have {stackCount === 1 ? '1 active branch' : `${stackCount} active branches`} in your
-							workspace. Please clear the workspace before switching the base branch.
+							你的工作区中有
+							{stackCount === 1 ? '1 个活跃分支' : `${stackCount} 个活跃分支`}
+							，请先清理工作区再切换基分支。
 						{/snippet}
 					</InfoMessage>
 				{:else}
@@ -115,9 +115,7 @@
 							selectedRemote === baseBranch?.actualPushRemoteName()) ||
 							targetChangeDisabled}
 					>
-						{targetBranchSwitch.current.isLoading
-							? 'Switching branches...'
-							: 'Update configuration'}
+						{targetBranchSwitch.current.isLoading ? '正在切换分支...' : '更新配置'}
 					</Button>
 				{/if}
 			</CardGroup.Item>
@@ -126,7 +124,7 @@
 {:else if remoteBranchesQuery.result.isError}
 	<InfoMessage filled outlined={true} style="danger">
 		{#snippet title()}
-			We got an error trying to list your remote branches
+			列出远端分支时出错
 		{/snippet}
 	</InfoMessage>
 {/if}

@@ -92,7 +92,7 @@
 		{#snippet contextMenu({ close })}
 			<ContextMenuSection>
 				<ContextMenuItem
-					label="Move to leftmost"
+					label="移到最左侧"
 					icon="leftmost-lane"
 					disabled={!canMoveLeft}
 					onclick={() => {
@@ -101,7 +101,7 @@
 					}}
 				/>
 				<ContextMenuItem
-					label="Move to rightmost"
+					label="移到最右侧"
 					icon="rightmost-lane"
 					disabled={!canMoveRight}
 					onclick={() => {
@@ -112,7 +112,7 @@
 			</ContextMenuSection>
 			<ContextMenuSection>
 				<ContextMenuItem
-					label="Unapply stack"
+					label="取消应用堆栈"
 					icon="eject"
 					onclick={() => {
 						unapplyStack();

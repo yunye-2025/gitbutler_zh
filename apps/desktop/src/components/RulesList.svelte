@@ -248,7 +248,7 @@
 	defaultCollapsed={true}
 >
 	{#snippet header()}
-		<h4 class="text-14 text-semibold truncate">Rules</h4>
+		<h4 class="text-14 text-semibold truncate">规则</h4>
 		{#if rules.result.isSuccess}
 			<Badge>{rules.result.data.ids.length}</Badge>
 		{:else}
@@ -332,15 +332,15 @@
 			{:else}
 				<div class="rules-placeholder">
 					<p class="text-13 text-body rules-placeholder-text">
-						Let rules automatically sort your changes.
+						让规则自动整理你的更改。
 						<Link
 							href="https://docs.gitbutler.com/features/branch-management/rules"
 							class="underline-dotted clr-text-2"
 						>
-							Read the docs
-						</Link> or set up your
+							查看文档
+						</Link> 或设置你的
 						<button type="button" class="underline-dotted clr-text-2" onclick={openRuleEditor}>
-							first rule
+							首条规则
 						</button> +
 					</p>
 				</div>
@@ -353,7 +353,7 @@
 	{@const stackEntries = stackService.stacks(projectId)}
 	<div class="rules-list__editor-content">
 		<div class="rules-list__action">
-			<h3 class="text-13 text-semibold">Assign to branch</h3>
+			<h3 class="text-13 text-semibold">分配到分支</h3>
 			<ReduxResult {projectId} result={stackEntries.result}>
 				{#snippet children(stacks)}
 					{@const stackOptions = [
@@ -369,11 +369,11 @@
 							.filter(isDefined),
 						{ separator: true } as const,
 						{
-							label: 'Leftmost lane',
+							label: '最左侧泳道',
 							value: encodeStackTarget({ type: 'leftmost' })
 						},
 						{
-							label: 'Rightmost lane',
+							label: '最右侧泳道',
 							value: encodeStackTarget({ type: 'rightmost' })
 						}
 					]}
@@ -432,10 +432,10 @@
 			</div>
 		{:else}
 			<div class="rules-list__matches-all">
-				<p class="text-13">Matches all changes</p>
+				<p class="text-13">匹配所有更改</p>
 				<div bind:this={addFilterButton} class="rules-list__add-filter-button text-12">
 					<button type="button" onclick={openAddFilterContextMenu}>
-						<span class="clr-text-1 underline-dotted"> Add filter +</span>
+						<span class="clr-text-1 underline-dotted">添加筛选条件 +</span>
 					</button>
 				</div>
 			</div>
@@ -444,7 +444,7 @@
 		<Spacer margin={2} dotted />
 
 		<div class="rules-list__editor-buttons">
-			<Button onclick={cancelRuleEdition} kind="outline">Cancel</Button>
+			<Button onclick={cancelRuleEdition} kind="outline">取消</Button>
 			<Button
 				onclick={saveRule}
 				kind="solid"
@@ -453,7 +453,7 @@
 				disabled={!canSaveRule}
 				loading={stackEntries.result.isLoading ||
 					creatingRule.current.isLoading ||
-					updatingRule.current.isLoading}>Save rule</Button
+					updatingRule.current.isLoading}>保存规则</Button
 			>
 		</div>
 	</div>
