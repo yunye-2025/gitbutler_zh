@@ -1,0 +1,110 @@
+[
+	{
+		"social": "x",
+		"handle": "@hunkybill",
+		"author": "Dave Lazar",
+		"occupation": "Ruby 与 JavaScript 开发者",
+		"avatar": "/images/social-avatars/hunkybill.jpg",
+		"quote": "这太棒了！我很喜欢简洁、精准的通道设计以及以这种方式使用 Claude！肯定会用起来！",
+		"source": "https://x.com/hunkybill/status/1947723999104143787"
+	},
+	{
+		"social": "Bluesky",
+		"handle": "@ericclemmons.com",
+		"author": "Eric Clemmons",
+		"occupation": "前端工程师，前 Honor / Stripe，AWS_Amplify",
+		"avatar": "/images/social-avatars/ericclemmons.jpg",
+		"quote": "各位，我多亏 GitButler 已经好几个月没用 `git` CLI 了。但现在他们有真正的堆叠 PR（不只是独立通道）😍 我觉得再也不用回到 CLI 了 🙏",
+		"source": "https://bsky.app/profile/ericclemmons.com/post/3lcojptzvfs2e"
+	},
+	{
+		"social": "Bluesky",
+		"handle": "@lesh0.bsky.social",
+		"author": "Alesh",
+		"occupation": "DevOps 工程师",
+		"avatar": "/images/social-avatars/lesh0.jpg",
+		"quote": "第一次用 GitButler。太棒的工具了！多年只用 CLI 之后，这是我第一个愿意用的 Git UI 工具。干得漂亮！👏",
+		"source": "https://bsky.app/profile/lesh0.bsky.social/post/3ll4izc3fr222"
+	},
+	{
+		"social": "Bluesky",
+		"handle": "@lostdomain.org",
+		"author": "Martijn Smit",
+		"occupation": "技术联合创始人兼开发者",
+		"avatar": "/images/social-avatars/lostdomain.jpg",
+		"quote": "如果你在用 Git 和分支流程，强烈推荐试试 GitButler——它让我在多个 PR 之间切分支省了很多时间，而且把你需要的数据都呈现得非常清晰。",
+		"source": "https://bsky.app/profile/lostdomain.org/post/3lsxr3pvyzc2e"
+	},
+	{
+		"social": "X",
+		"handle": "@sergedottech",
+		"author": "Serge",
+		"occupation": "Sentry DevEx",
+		"avatar": "/images/social-avatars/sergedottech.jpg",
+		"quote": "仅供参考，GitButler 真的很惊艳。我以前用过 GitHub App、Tower 和 CLI，但它更好，向团队致敬。",
+		"source": "https://x.com/sergedottech/status/1896603782945112515"
+	},
+	{
+		"social": "Bluesky",
+		"handle": "@renderg.host",
+		"author": "B. Prendergast",
+		"occupation": "首席设计师与 DesignOps",
+		"avatar": "/images/social-avatars/renderg.jpg",
+		"quote": "GitButler 最新的 v3 迭代真的太赞了。视觉层级一流，水平滚动也很顺手（没有内部滚动问题👏）。而且看起来超漂亮 🌈",
+		"source": "https://bsky.app/profile/renderg.host/post/3lsfwbsftmk2x"
+	},
+	{
+		"social": "X",
+		"handle": "@ItsAndreKoenig",
+		"author": "André König",
+		"occupation": "CEO 与创始人 | Scalable Software Solutions",
+		"avatar": "/images/social-avatars/andrekoenig.jpg",
+		"quote": "GitButler 很酷！",
+		"source": "https://x.com/ItsAndreKoenig/status/1936819109301572071"
+	},
+	{
+		"social": "Bluesky",
+		"handle": "@djlink.bsky.social",
+		"author": "David Amador",
+		"occupation": "独立游戏开发者 | Upfall Studios 创始人",
+		"avatar": "/images/social-avatars/djlink.jpg",
+		"quote": "这个 Git 客户端是个绝妙的点子：虚拟分支让你可以同时处理不同功能，还能很轻松地把未提交的工作转移到别的内容上。",
+		"source": "https://bsky.app/profile/djlink.bsky.social/post/3lukodmv2ps2q"
+	},
+	{
+		"social": "X",
+		"handle": "@colebemis",
+		"author": "Cole Bemis",
+		"occupation": "Notion 设计工程师",
+		"avatar": "/images/social-avatars/colebemis.jpg",
+		"quote": "我之前用 Graphite 的 CLI 管理堆叠 PR，但 GitButler 的 GUI 要容易太多。",
+		"source": "https://x.com/colebemis/status/1967839675307135115"
+	},
+	{
+		"social": "X",
+		"handle": "@EstradiotoLuan",
+		"author": "Luan Estra",
+		"occupation": "偏前端的全栈开发者",
+		"avatar": "/images/social-avatars/estradiotoluan.jpg",
+		"quote": "GitButler，哇，真的说不出它有多好，省了我太多头疼事。",
+		"source": "https://x.com/EstradiotoLuan/status/1963276484962828772"
+	},
+	{
+		"social": "X",
+		"handle": "@sethgho",
+		"author": "Seth Gholson",
+		"occupation": "Ethos 创始工程师 | 前 Atlassian",
+		"avatar": "/images/social-avatars/sethgho.jpg",
+		"quote": "我是 GitButler 的忠实粉丝！它改变了我的 Git 流程。和别人并行测试我的分支，或快速拆出一个小改动做成 PR，都容易多了。",
+		"source": "https://x.com/sethgho/status/1937014523325751474"
+	},
+	{
+		"social": "X",
+		"handle": "@tonyennis",
+		"author": "Tony Ennis",
+		"occupation": "开发者与创业者 | Really Good Software",
+		"avatar": "/images/social-avatars/tonyennis.jpg",
+		"quote": "Git 工作流仍然是智能体编程最大的障碍之一。GitButler 多年来一直在做的技术，恰好完美解决了这个问题。太喜欢了。",
+		"source": "https://x.com/tonyennis/status/1947734649058607144"
+	}
+]

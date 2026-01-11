@@ -1,0 +1,215 @@
+<script lang="ts">
+	import RedirectIfLoggedIn from '$lib/auth/RedirectIfLoggedIn.svelte';
+	import OAuthButtons from '$lib/components/auth/OAuthButtons.svelte';
+	import FullscreenIllustrationCard from '$lib/components/service/FullscreenIllustrationCard.svelte';
+	import { inject } from '@gitbutler/core/context';
+	import { LOGIN_SERVICE } from '@gitbutler/shared/login/loginService';
+	import { WEB_ROUTES_SERVICE } from '@gitbutler/shared/routing/webRoutes.svelte';
+	import { Button, EmailTextbox, Textbox, InfoMessage } from '@gitbutler/ui';
+	import { env } from '$env/dynamic/public';
+
+	let email = $state<string>();
+	let password = $state<string>();
+
+	let emailTextbox: any = $state();
+
+	let error = $state<string>();
+	let errorCode = $state<string>();
+	let confirmationSent = $state<boolean>(false);
+	let resendCountdown = $state<number>(0);
+	let resendDisabled = $state<boolean>(false);
+
+	// Clear error when user starts typing
+	function clearError() {
+		error = undefined;
+		errorCode = undefined;
+		confirmationSent = false;
+	}
+
+	function startResendCountdown() {
+		resendDisabled = true;
+		resendCountdown = 30;
+
+		const timer = setInterval(() => {
+			resendCountdown--;
+			if (resendCountdown <= 0) {
+				clearInterval(timer);
+				resendDisabled = false;
+				resendCountdown = 0;
+			}
+		}, 1000);
+	}
+
+	const isFormValid = $derived(!!email && !!password && (!email || emailTextbox?.isValid()));
+
+	const loginService = inject(LOGIN_SERVICE);
+	const routesService = inject(WEB_ROUTES_SERVICE);
+
+	async function handleSubmit(event: Event) {
+		event.preventDefault();
+
+		// Clear previous errors when attempting to log in
+		clearError();
+
+		if (!email || !password) {
+			console.error('邮箱和密码不能为空');
+			return;
+		}
+
+		const response = await loginService.loginWithEmail(email, password);
+
+		if (response.type === 'error') {
+			error = response.errorMessage;
+			errorCode = response.errorCode;
+			console.error('登录失败：', response.raw ?? response.errorMessage);
+		} else {
+			const token = response.data;
+			const url = new URL('successful_login', env.PUBLIC_APP_HOST);
+			url.searchParams.set('access_token', encodeURIComponent(token));
+			const path = url.toString();
+			window.location.href = path;
+		}
+	}
+
+	async function resendConfirmationEmail() {
+		if (!email) {
+			error = '请输入邮箱以重新发送确认邮件。';
+			return;
+		}
+
+		// Start countdown immediately when user clicks
+		startResendCountdown();
+
+		const response = await loginService.resendConfirmationEmail(email);
+		if (response.type === 'error') {
+			error = response.errorMessage;
+			errorCode = response.errorCode;
+			confirmationSent = false;
+			console.error('重新发送确认邮件失败：', response.raw ?? response.errorMessage);
+		} else {
+			error = undefined;
+			errorCode = undefined;
+			confirmationSent = true;
+			// Clear the confirmation message after 5 seconds
+			setTimeout(() => {
+				confirmationSent = false;
+			}, 5000);
+		}
+	}
+</script>
+
+<svelte:head>
+	<title>GitButler | 登录</title>
+</svelte:head>
+
+<RedirectIfLoggedIn />
+
+<FullscreenIllustrationCard>
+	{#snippet title()}
+		<i>登录</i>
+		GitButler
+	{/snippet}
+
+	<div id="login-form" class="stack-v">
+		<div class="auth-form__inputs">
+			<EmailTextbox
+				bind:this={emailTextbox}
+				label="邮箱"
+				placeholder=" "
+				bind:value={email}
+				autocomplete={false}
+				autocorrect={false}
+				spellcheck
+			/>
+			<Textbox bind:value={password} label="密码" type="password" />
+
+			<div class="text-12 password-reset">
+				<a href={routesService.resetPasswordPath()}>忘记密码？</a>
+			</div>
+		</div>
+
+		{#if confirmationSent}
+			<InfoMessage filled outlined={false} style="success" class="m-b-16">
+				{#snippet content()}
+					<p>确认邮件已发送！请检查收件箱。</p>
+				{/snippet}
+			</InfoMessage>
+		{:else if error}
+			<div class="wiggle-animation">
+				<InfoMessage filled outlined={false} style="danger" class="m-b-16">
+					{#snippet content()}
+						{#if errorCode === 'email_not_verified'}
+							{#if !resendDisabled}
+								<p>
+									请先验证邮箱。请检查收件箱或 <button
+										type="button"
+										class="resend-btn"
+										onclick={resendConfirmationEmail}
+										disabled={!email || resendDisabled}
+									>
+										重新发送确认邮件</button
+									>.
+								</p>
+							{:else}
+								<p>
+									请先验证邮箱。你可以在 {resendCountdown} 秒后重新发送确认邮件。
+								</p>
+							{/if}
+						{:else}
+							<p>{error}</p>
+						{/if}
+					{/snippet}
+				</InfoMessage>
+			</div>
+		{/if}
+
+		<Button style="pop" disabled={!isFormValid} onclick={handleSubmit}>登录</Button>
+
+		<OAuthButtons mode="signup" />
+	</div>
+
+	{#snippet footer()}
+		<div class="auth-form__footer">
+			<p>
+				还没有账号？<a href={routesService.signupPath()}>注册</a>
+			</p>
+		</div>
+	{/snippet}
+</FullscreenIllustrationCard>
+
+<style lang="postcss">
+	.auth-form__inputs {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 24px;
+		gap: 14px;
+	}
+
+	.password-reset {
+		display: flex;
+		justify-content: flex-end;
+		color: var(--clr-text-2);
+
+		a {
+			text-decoration: none;
+
+			&:hover {
+				color: var(--clr-text-1);
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.auth-form__footer {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 8px;
+	}
+
+	.resend-btn {
+		text-decoration: underline;
+		text-decoration-style: dotted;
+		cursor: pointer;
+	}
+</style>

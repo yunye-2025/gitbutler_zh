@@ -1,0 +1,299 @@
+<script lang="ts">
+	import ClaudeSessionDescriptor from '$components/ClaudeSessionDescriptor.svelte';
+	import ReduxResult from '$components/ReduxResult.svelte';
+	import {
+		semanticTypeToString,
+		treeStatusToShortString,
+		type RuleFilter,
+		type StackTarget,
+		type WorkspaceRule
+	} from '$lib/rules/rule';
+	import { RULES_SERVICE } from '$lib/rules/rulesService.svelte';
+	import { getStackName } from '$lib/stacks/stack';
+	import { STACK_SERVICE } from '$lib/stacks/stackService.svelte';
+	import { inject } from '@gitbutler/core/context';
+	import {
+		Button,
+		FileStatusBadge,
+		Icon,
+		KebabButton,
+		ContextMenuSection,
+		ContextMenuItem,
+		Modal,
+		Tooltip
+	} from '@gitbutler/ui';
+	import type iconsJson from '@gitbutler/ui/data/icons.json';
+
+	type Props = {
+		projectId: string;
+		rule: WorkspaceRule;
+		editRule: () => void;
+	};
+
+	const { rule, projectId, editRule }: Props = $props();
+
+	const stackService = inject(STACK_SERVICE);
+	const rulesService = inject(RULES_SERVICE);
+
+	const [deleteRule, deletingRule] = rulesService.deleteWorkspaceRule;
+
+	let confirmationModal = $state<Modal>();
+
+	async function handleDeleteRule() {
+		await deleteRule({
+			projectId,
+			id: rule.id
+		});
+	}
+
+	function getFilterConfig(filter: RuleFilter) {
+		switch (filter.type) {
+			case 'pathMatchesRegex':
+				return {
+					icon: 'folder' as keyof typeof iconsJson,
+					label: filter.subject,
+					tooltip: `路径：${filter.subject}`
+				};
+			case 'contentMatchesRegex':
+				return {
+					icon: 'text-width' as keyof typeof iconsJson,
+					label: filter.subject,
+					tooltip: `包含文本：${filter.subject}`
+				};
+			case 'fileChangeType':
+				return {
+					icon: null,
+					label: treeStatusToShortString(filter.subject),
+					tooltip: `文件更改类型：${treeStatusToShortString(filter.subject)}`
+				};
+			case 'semanticType':
+				return {
+					icon: 'tag' as keyof typeof iconsJson,
+					label: semanticTypeToString(filter.subject.type),
+					tooltip: `语义类型：${semanticTypeToString(filter.subject.type)}`
+				};
+			case 'claudeCodeSessionId':
+				return {
+					icon: 'ai-outline' as keyof typeof iconsJson,
+					label: filter.subject,
+					tooltip: `Claude 会话：${filter.subject}`
+				};
+		}
+	}
+
+	type FilterConfig = ReturnType<typeof getFilterConfig>;
+</script>
+
+{#snippet stackPill(
+	icon: keyof typeof iconsJson,
+	label: string,
+	tooltip: string,
+	hasError?: boolean
+)}
+	<Tooltip text={tooltip}>
+		<div class="target-pill" class:error={hasError}>
+			<Icon name={icon} color={hasError ? 'danger' : 'var(--clr-text-2)'} />
+			<span class="text-12 truncate">{label}</span>
+		</div>
+	</Tooltip>
+{/snippet}
+
+{#snippet stackTarget(target: StackTarget)}
+	{#if target.type === 'stackId'}
+		{@const stackId = target.subject}
+		{@const stack = stackService.stackById(projectId, stackId)}
+		<ReduxResult {projectId} result={stack.result}>
+			{#snippet children(stack)}
+				{#if stack !== null}
+				{@const stackName = getStackName(stack)}
+				{@render stackPill('branch-remote', stackName, stackName)}
+			{:else}
+				{@render stackPill('error-small', '分支缺失', '未找到关联堆叠', true)}
+			{/if}
+			{/snippet}
+		</ReduxResult>
+	{:else if target.type === 'leftmost'}
+		{@render stackPill('leftmost-lane', '最左', '最左泳道')}
+	{:else if target.type === 'rightmost'}
+		{@render stackPill('rightmost-lane', '最右', '最右堆叠')}
+	{/if}
+{/snippet}
+
+{#snippet renderBasicPill(config: FilterConfig)}
+	<div class="filter-pill">
+		<Tooltip text={config.tooltip}>
+			<div class="flex items-center gap-6 overflow-hidden">
+				{#if config.icon}
+					<Icon name={config.icon} color="var(--clr-text-2)" />
+				{/if}
+				<span class="text-12 truncate">{config.label}</span>
+			</div>
+		</Tooltip>
+	</div>
+{/snippet}
+
+{#snippet renderFileChangePill(config: FilterConfig, fileStatus: any)}
+	<Tooltip text={config.tooltip}>
+		<div class="filter-pill">
+			<FileStatusBadge status={fileStatus} style="dot" />
+			<span class="text-12 truncate">{config.label}</span>
+		</div>
+	</Tooltip>
+{/snippet}
+
+{#snippet renderSessionPill(tooltip: string, icon: keyof typeof iconsJson, title: string)}
+	<Tooltip text={tooltip}>
+		<div class="ai-pill">
+			<Icon name={icon} color="var(--clr-theme-purple-element)" />
+			<span class="text-12 text-semibold truncate">{title}</span>
+		</div>
+	</Tooltip>
+{/snippet}
+
+{#snippet aiSessionPill(filter: RuleFilter)}
+	{#if filter.type === 'claudeCodeSessionId'}
+		{@const config = getFilterConfig(filter)}
+		<ClaudeSessionDescriptor {projectId} sessionId={filter.subject}>
+			{#snippet fallback()}
+				{@render renderBasicPill(config)}
+			{/snippet}
+			{#snippet children(descriptor)}
+				{@render renderSessionPill(`Claude 会话：${descriptor}`, config.icon!, descriptor)}
+			{/snippet}
+		</ClaudeSessionDescriptor>
+	{/if}
+{/snippet}
+
+{#snippet filterPill(filter: RuleFilter)}
+	{@const config = getFilterConfig(filter)}
+
+	{#if filter.type === 'claudeCodeSessionId'}
+		{@render aiSessionPill(filter)}
+	{:else if filter.type === 'fileChangeType'}
+		{@render renderFileChangePill(config, filter.subject)}
+	{:else}
+		{@render renderBasicPill(config)}
+	{/if}
+{/snippet}
+
+{#snippet ruleActions()}
+	<div class="rule__actions">
+		<KebabButton minimal buttonClassname="extra-padding">
+			{#snippet contextMenu({ close })}
+				<ContextMenuSection>
+					<ContextMenuItem
+						label="编辑规则"
+						icon="edit"
+						onclick={() => {
+							close();
+							editRule();
+						}}
+					/>
+					<ContextMenuItem
+						label="删除规则"
+						icon="bin"
+						onclick={async () => {
+							close();
+							confirmationModal?.show();
+						}}
+					/>
+				</ContextMenuSection>
+			{/snippet}
+		</KebabButton>
+	</div>
+{/snippet}
+
+{#if rule.action.type === 'explicit' && rule.action.subject.type === 'assign' && (rule.trigger === 'fileSytemChange' || rule.trigger === 'claudeCodeHook')}
+	{@const target = rule.action.subject.subject.target}
+	{@const filters = rule.filters}
+
+	<div class="rule" role="presentation" ondblclick={editRule}>
+		<div class="flex items-center gap-4 flex-1 overflow-hidden m-r-4">
+			{#if filters.length > 0}
+				{#each filters as filter (filter.type)}
+					{@render filterPill(filter)}
+				{/each}
+			{:else}
+				<div class="filter-pill">
+					<span class="text-12 truncate">*. 所有更改</span>
+				</div>
+			{/if}
+			<Tooltip text="分配到分支">
+				<Icon name="arrow-right" color="var(--clr-text-3)" />
+			</Tooltip>
+			{@render stackTarget(target)}
+		</div>
+
+		{@render ruleActions()}
+	</div>
+{/if}
+
+<Modal
+	bind:this={confirmationModal}
+	width="small"
+	type="warning"
+	title="删除规则"
+	onSubmit={async (close) => {
+		await handleDeleteRule();
+		close();
+	}}
+>
+	确定要删除此规则吗？此操作无法撤销。
+
+	{#snippet controls(close)}
+		<Button kind="outline" onclick={close}>取消</Button>
+		<Button loading={deletingRule.current.isLoading} style="danger" type="submit"
+			>删除规则</Button
+		>
+	{/snippet}
+</Modal>
+
+<style lang="postcss">
+	.rule {
+		display: flex;
+		position: relative;
+		align-items: center;
+		padding: 10px;
+		overflow: hidden;
+		gap: 4px;
+		border-bottom: 1px solid var(--clr-border-3);
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+
+	.rule__actions {
+		display: flex;
+		align-items: center;
+	}
+
+	:global(.rule__actions .extra-padding) {
+		padding: 4px;
+	}
+
+	.filter-pill,
+	.target-pill,
+	.ai-pill {
+		display: flex;
+		align-items: center;
+		height: 24px;
+		padding: 0 6px;
+		overflow: hidden;
+		gap: 6px;
+		border-radius: 100px;
+	}
+
+	.filter-pill {
+		background-color: var(--clr-bg-2);
+	}
+
+	.target-pill {
+		background-color: var(--clr-bg-2);
+	}
+
+	.ai-pill {
+		background: var(--clr-theme-purple-soft);
+		color: var(--clr-theme-purple-on-soft);
+	}
+</style>

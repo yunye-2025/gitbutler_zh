@@ -1,0 +1,300 @@
+<script lang="ts">
+	import ProjectNameLabel from '$components/ProjectNameLabel.svelte';
+	import ReduxResult from '$components/ReduxResult.svelte';
+	import { OnboardingEvent, POSTHOG_WRAPPER } from '$lib/analytics/posthog';
+	import gerritLogoSvg from '$lib/assets/gerrit-logo.svg?raw';
+	import { GIT_CONFIG_SERVICE } from '$lib/config/gitConfigService';
+	import { PROJECTS_SERVICE } from '$lib/project/projectsService';
+	import { combineResults } from '$lib/state/helpers';
+	import { unique } from '$lib/utils/array';
+	import { getBestBranch, getBestRemote, getBranchRemoteFromRef } from '$lib/utils/branch';
+	import { inject } from '@gitbutler/core/context';
+	import { Button, CardGroup, Icon, Link, Select, SelectItem, TestId, Toggle } from '@gitbutler/ui';
+	import { slide } from 'svelte/transition';
+	import type { RemoteBranchInfo } from '$lib/baseBranch/baseBranch';
+
+	interface Props {
+		projectId: string;
+		projectName: string;
+		remoteBranches: RemoteBranchInfo[];
+		onBranchSelected?: (branch: string[]) => void;
+	}
+
+	const { projectId, projectName, remoteBranches, onBranchSelected }: Props = $props();
+
+	const posthog = inject(POSTHOG_WRAPPER);
+	const gitConfig = inject(GIT_CONFIG_SERVICE);
+
+	const gbConfig = $derived(gitConfig.gbConfig(projectId));
+	const gerritMode = $derived(gbConfig.response?.gitbutlerGerritMode ?? false);
+
+	let loading = $state<boolean>(false);
+	let showMoreInfo = $state<boolean>(false);
+
+	// split all the branches by the first '/' and gather the unique remote names
+	// then turn remotes into an array of objects with a 'name' and 'value' key
+	const remotes = $derived(
+		unique(remoteBranches.map((b) => getBranchRemoteFromRef(b.name))).filter(
+			(r): r is string => !!r
+		)
+	);
+
+	let selectedBranch = $state<RemoteBranchInfo | undefined>(undefined);
+	const defaultBranch = $derived(getBestBranch(remoteBranches.slice()));
+	const branch = $derived(selectedBranch ?? defaultBranch);
+
+	let selectedRemote = $state<string | undefined>(undefined);
+	const defaultRemote = $derived(
+		(branch && getBranchRemoteFromRef(branch.name)) ?? getBestRemote(remotes)
+	);
+	const remote = $derived(selectedRemote ?? defaultRemote);
+
+	async function onSetTargetClick() {
+		if (!branch || !remote) return;
+		posthog.captureOnboarding(OnboardingEvent.ProjectSetupContinue);
+		onBranchSelected?.([branch.name, remote]);
+	}
+
+	const projectsService = inject(PROJECTS_SERVICE);
+	async function deleteProjectAndGoBack() {
+		await projectsService.deleteProject(projectId);
+	}
+
+	const itSmellsLikeGerrit = $derived(projectsService.areYouGerritKiddingMe(projectId));
+	const projectIsGerrit = $derived(projectsService.isGerritProject(projectId));
+</script>
+
+<div class="project-setup">
+	<div class="stack-v gap-4">
+		<ProjectNameLabel {projectName} />
+		<h1 class="text-serif-42">配置你的<i>工作区</i></h1>
+	</div>
+
+	<div class="project-setup__fields">
+		<div class="project-setup__field-wrap" data-testid={TestId.ProjectSetupPageTargetBranchSelect}>
+			<Select
+				value={branch?.name}
+				options={remoteBranches.map((b) => ({ label: b.name, value: b.name }))}
+				wide
+				onselect={(value) => {
+					selectedBranch = { name: value };
+				}}
+				label="目标分支"
+				searchable
+			>
+				{#snippet itemSnippet({ item, highlighted })}
+					<SelectItem selected={item.value === branch?.name} {highlighted}>
+						{item.label}
+					</SelectItem>
+				{/snippet}
+			</Select>
+
+			<p class="text-12 text-body project-setup__field-caption">
+				你的主要“生产”分支，通常是 <code class="code-string">origin/master</code> 或
+				<code class="code-string">upstream/main</code>.
+				<br />
+				<Link href="https://docs.gitbutler.com/overview#target-branch">了解更多</Link>
+			</p>
+		</div>
+
+		{#if remotes.length > 1}
+			<div class="project-setup__field-wrap">
+				<Select
+					value={remote}
+					options={remotes.map((r) => ({ label: r, value: r }))}
+					onselect={(value) => {
+						const newSelectedRemote = remotes.find((r) => r === value);
+						selectedRemote = newSelectedRemote ?? remote;
+					}}
+				>
+					{#snippet itemSnippet({ item, highlighted })}
+						<SelectItem selected={item.value === remote} {highlighted}>
+							{item.label}
+						</SelectItem>
+					{/snippet}
+				</Select>
+
+				<p class="text-12 text-body clr-text-2">
+					你有来自多个远程的分支。如果你想指定与目标分支所在远程不同的远程用于创建分支，
+					请在这里更改。
+				</p>
+			</div>
+		{/if}
+
+		<ReduxResult
+			{projectId}
+			result={combineResults(itSmellsLikeGerrit.result, projectIsGerrit.result)}
+		>
+			{#snippet error()}
+				<!-- Fail silently to detect the gerritness of a project -->
+				<div></div>
+			{/snippet}
+			{#snippet children([isGerrit])}
+				{#if isGerrit}
+					<CardGroup.Item standalone labelFor="gerritToggle">
+						{#snippet iconSide()}
+							{@html gerritLogoSvg}
+						{/snippet}
+						{#snippet title()}
+							启用 Gerrit 项目
+						{/snippet}
+						{#snippet caption()}
+							该项目可能是 Gerrit 项目。
+							<br />
+							是否启用 Gerrit 模式？
+							<br />
+							如有需要，可稍后在项目设置中调整。
+						{/snippet}
+						{#snippet actions()}
+							<Toggle
+								id="gerritToggle"
+								checked={gerritMode}
+								onclick={() => {
+									gitConfig.setGerritMode(projectId, !gerritMode);
+								}}
+							/>
+						{/snippet}
+					</CardGroup.Item>
+				{/if}
+			{/snippet}
+		</ReduxResult>
+	</div>
+
+	<div
+		class="project-setup__info"
+		role="presentation"
+		onclick={() => (showMoreInfo = !showMoreInfo)}
+	>
+		<div class="project-setup__fold-icon" class:rotate-icon={showMoreInfo}>
+			<Icon name="chevron-right" />
+		</div>
+
+		<div class="stack-v gap-6 full-width">
+			<div class="project-setup__info__title">
+				<svg
+					width="16"
+					height="13"
+					viewBox="0 0 16 13"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						d="M2 12L3.5 7.5M14 12L12.5 7.5M12.5 7.5L11 3H5L3.5 7.5M12.5 7.5H3.5"
+						stroke="#D96842"
+						stroke-width="1.5"
+					/>
+					<path
+						d="M1.24142 3H14.7586C14.8477 3 14.8923 2.89229 14.8293 2.82929L13.0293 1.02929C13.0105 1.01054 12.9851 1 12.9586 1H3.04142C3.0149 1 2.98946 1.01054 2.97071 1.02929L1.17071 2.82929C1.10771 2.89229 1.15233 3 1.24142 3Z"
+						fill="#FF9774"
+						stroke="#FF9774"
+						stroke-width="1.5"
+					/>
+				</svg>
+
+				<h3 class="text-13 text-body text-semibold">
+					GitButler 会将你的仓库切换到 gitbutler/workspace
+				</h3>
+			</div>
+
+			{#if showMoreInfo}
+				<p class="text-12 text-body" transition:slide={{ duration: 200 }}>
+					为支持同时在多个分支上工作，GitButler 会创建并自动管理一个特殊分支
+					<span class="text-bold">gitbutler/workspace</span>。你可以按需在普通 Git 分支与
+					GitButler 工作区之间来回切换。
+					<Link href="https://docs.gitbutler.com/features/branch-management/integration-branch"
+						>了解更多</Link
+					>
+				</p>
+			{/if}
+		</div>
+	</div>
+
+	<div class="action-buttons">
+		<Button kind="outline" onclick={deleteProjectAndGoBack}>取消</Button>
+		<Button
+			style="pop"
+			{loading}
+			onclick={onSetTargetClick}
+			icon="chevron-right-small"
+			testId={TestId.ProjectSetupPageTargetContinueButton}
+			id="set-base-branch"
+		>
+			开始吧
+		</Button>
+	</div>
+</div>
+
+<style lang="postcss">
+	.project-setup {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.project-setup__fields {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.project-setup__field-wrap {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.project-setup__field-caption {
+		width: 90%;
+		color: var(--clr-text-2);
+	}
+
+	.action-buttons {
+		display: flex;
+		justify-content: flex-end;
+		width: 100%;
+		gap: 8px;
+	}
+
+	/* BANNER */
+	.project-setup__info {
+		display: flex;
+		padding: 14px 16px;
+		gap: 8px;
+		border-radius: var(--radius-m);
+		background-color: var(--clr-bg-muted);
+		cursor: pointer;
+
+		&:hover {
+			& .project-setup__fold-icon {
+				color: var(--clr-text-2);
+			}
+		}
+	}
+
+	.project-setup__info__title {
+		display: inline;
+		width: 100%;
+		gap: 8px;
+
+		svg {
+			display: inline;
+			margin-right: 8px;
+			float: left;
+			transform: translateY(4px);
+		}
+	}
+
+	.project-setup__fold-icon {
+		display: flex;
+		align-self: flex-start;
+		padding-top: 2px;
+		color: var(--clr-text-3);
+		transition:
+			transform var(--transition-medium),
+			color var(--transition-fast);
+
+		&.rotate-icon {
+			transform: rotate(90deg);
+		}
+	}
+</style>

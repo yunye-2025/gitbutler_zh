@@ -1,0 +1,76 @@
+apps\web\src\lib\components\AddSshKeyModal.svelte:31: 添加 SSH 密钥失败：
+apps\web\src\lib\components\AddSshKeyModal.svelte:32: 添加 SSH 密钥失败，请重试。
+apps\web\src\lib\components\AddSshKeyModal.svelte:43: 添加 SSH 密钥
+apps\web\src\lib\components\AddSshKeyModal.svelte:49: 例如：MacBook Pro
+apps\web\src\lib\components\AddSshKeyModal.svelte:53: ssh-rsa AAAAB3NzaC1yc2EAAAADA...
+apps\web\src\lib\components\OrganizationProfile.svelte:177: {localOrganization.name} 的标识
+apps\web\src\lib\components\OrganizationProfile.svelte:228: {member.login} 的头像
+apps\web\src\lib\components\ReviewsSection.svelte:40: All Reviews
+apps\web\src\lib\components\UserProfile.svelte:138: 请输入自述文件的 Markdown 内容…
+apps\web\src\lib\components\UserProfile.svelte:202: noopener noreferrer
+apps\web\src\lib\components\UserProfile.svelte:216: noopener noreferrer
+apps\web\src\lib\components\marketing\Header.svelte:27: noopener noreferrer
+apps\web\src\lib\components\marketing\ReleaseCard.svelte:44: Apple Silicon 版
+apps\web\src\lib\components\marketing\ReleaseCard.svelte:44: Intel 版
+apps\web\src\lib\components\review\ReviewInfo.svelte:77: 提交 SHA
+apps\web\src\lib\components\service\FullscreenUtilityCard.svelte:33: noopener noreferrer
+apps\web\src\routes\(app)\+page.svelte:56: noopener noreferrer
+apps\web\src\routes\(app)\+page.svelte:63: noopener noreferrer
+apps\web\src\routes\(app)\profile\+page.svelte:181: noopener noreferrer
+apps\web\src\routes\(app)\profile\+page.svelte:198: noopener noreferrer
+apps\web\src\routes\(app)\profile\+page.svelte:214: noopener noreferrer
+apps\web\src\routes\(app)\profile\components\SshKeysSection.svelte:29: 加载 SSH 密钥失败：
+apps\web\src\routes\(app)\profile\components\SshKeysSection.svelte:46: 删除 SSH 密钥失败：
+apps\web\src\routes\(app)\profile\components\SshKeysSection.svelte:65: 生成 SSH 密钥令牌失败：未返回令牌
+apps\web\src\routes\(app)\profile\components\SshKeysSection.svelte:68: 生成 SSH 密钥令牌失败：
+apps\web\src\routes\(app)\profile\components\SshKeysSection.svelte:121: 通过 SSH 添加密钥
+apps\web\src\routes\(app)\signup\+page.svelte:142: noopener noreferrer
+apps\web\src\routes\(app)\[ownerSlug]\[projectSlug]\+page.svelte:270: 输入自述文件的 Markdown 内容...
+apps\web\src\routes\(app)\[ownerSlug]\[projectSlug]\reviews\[branchId]\+page.svelte:100: Access denied
+apps\web\src\routes\(app)\[ownerSlug]\[projectSlug]\reviews\[branchId]\+page.svelte:203: GitButler 评审：{branch.current.value?.title}
+apps\web\src\routes\(app)\[ownerSlug]\[projectSlug]\reviews\[branchId]\+page.svelte:204: GitButler 代码评审
+apps\web\src\routes\(app)\[ownerSlug]\[projectSlug]\reviews\[branchId]\+page.svelte:207: GitButler 评审：{data.ownerSlug}/{data.projectSlug}
+apps\web\src\routes\(app)\[ownerSlug]\[projectSlug]\reviews\[branchId]\+page.svelte:208: GitButler 代码评审
+apps\web\src\routes\(app)\[ownerSlug]\[projectSlug]\reviews\[branchId]\commit\[changeId]\+page.svelte:164: Access denied
+apps\web\src\routes\(app)\[ownerSlug]\[projectSlug]\reviews\[branchId]\commit\[changeId]\+page.svelte:187: GitButler 评审：{data.ownerSlug}/{data.projectSlug}
+apps\web\src\routes\(app)\[ownerSlug]\[projectSlug]\reviews\[branchId]\commit\[changeId]\+page.svelte:188: GitButler 代码评审
+apps\web\src\routes\(home)\components\CtaButton.svelte:60: (pointer: coarse)
+apps\web\src\routes\(home)\components\CtaButton.svelte:78: (pointer: coarse)
+apps\web\src\routes\(home)\components\MobileMenu.svelte:51: noopener noreferrer
+apps\web\src\routes\(home)\components\MobileMenu.svelte:57: noopener noreferrer
+apps\web\src\routes\(home)\components\MobileMenu.svelte:65: noopener noreferrer
+apps\web\src\routes\(home)\components\MobileMenu.svelte:71: noopener noreferrer
+apps\web\src\routes\(home)\components\MobileMenu.svelte:83: noopener noreferrer
+apps\web\src\routes\(home)\components\VideoOverlay.svelte:74: accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture
+apps\web\src\routes\(home)\sections\AiFeatures.svelte:32: YouTube 视频播放器
+apps\web\src\routes\(home)\sections\AiFeatures.svelte:34: accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share
+apps\web\src\routes\(home)\sections\AiFeatures.svelte:46: AI 功能演示
+apps\web\src\routes\(home)\sections\BlogHighlights.svelte:37: GitButler 团队
+apps\web\src\routes\(home)\sections\BlogHighlights.svelte:60: 获取 RSS 源失败：
+apps\web\src\routes\(home)\sections\DevelopersReview.svelte:16: I'm really careful with my commits, I use to make it atomic and try to make in independent. With a good git knowledge I'm able to squash the commits that are related and keep branches with atomic changes, like legos bricks, but you need to do magic with git. Love this tool!
+apps\web\src\routes\(home)\sections\DevelopersReview.svelte:17: 9:07 PM · Jul 6, 2023
+apps\web\src\routes\(home)\sections\DevelopersReview.svelte:25: Pedro Piñera
+apps\web\src\routes\(home)\sections\DevelopersReview.svelte:27: The design looks gorgeous 😍
+apps\web\src\routes\(home)\sections\DevelopersReview.svelte:28: 8:27 PM · Jan 18, 2024
+apps\web\src\routes\(home)\sections\DevelopersReview.svelte:38: Joel Califa
+apps\web\src\routes\(home)\sections\DevelopersReview.svelte:40: Very cool approach to stacked diffs!
+apps\web\src\routes\(home)\sections\DevelopersReview.svelte:41: 4:57 PM · Jul 6, 2023
+apps\web\src\routes\(home)\sections\DevelopersReview.svelte:50: Derek Neighbors
+apps\web\src\routes\(home)\sections\DevelopersReview.svelte:53: You might want to follow along with @gitbutler if you are looking for something fresh
+apps\web\src\routes\(home)\sections\DevelopersReview.svelte:54: 4:241 AM · Jan 25, 2024
+apps\web\src\routes\(home)\sections\DevelopersReview.svelte:64: Paul Stack
+apps\web\src\routes\(home)\sections\DevelopersReview.svelte:67: FWIW, @gitbutler has absolutely changed my git workflow to make it easier to apply those PRs to my environment! If you’ve not seen it before then check it out
+apps\web\src\routes\(home)\sections\DevelopersReview.svelte:68: 12:57 AM · Dec 31, 2023
+apps\web\src\routes\(home)\sections\DevelopersReview.svelte:76: Peter Pistorius
+apps\web\src\routes\(home)\sections\DevelopersReview.svelte:78: This is really cool!
+apps\web\src\routes\(home)\sections\DevelopersReview.svelte:79: 7:44 PM · Jul 6, 2023
+apps\web\src\routes\(home)\sections\SocialQuotes.svelte:191: 在 {quote.social} 查看帖子
+apps\web\src\routes\(home)\sections\SocialQuotes.svelte:195: noopener noreferrer
+apps\web\src\routes\(home)\sections\SocialQuotes.svelte:202: {quote.author} 的头像
+apps\web\src\routes\(home)\sections\SocialQuotes.svelte:222: 在 {quote.social} 查看帖子
+apps\web\src\routes\(home)\sections\SocialQuotes.svelte:226: noopener noreferrer
+apps\web\src\routes\color-generator\components\ExportSection.svelte:35: 复制 CSS
+apps\web\src\routes\color-generator\components\ExportSection.svelte:38: 复制 JSON
+apps\web\src\routes\nightly\+page.svelte:60: noopener noreferrer
+apps\web\src\routes\nightly\+page.svelte:231: noopener noreferrer
+apps\web\src\routes\nightly\+page.svelte:232: 在 GitHub 查看提交

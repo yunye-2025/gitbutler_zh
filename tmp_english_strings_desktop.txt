@@ -1,0 +1,636 @@
+apps\desktop\src\components\AiCredentialCheck.svelte:32: Hello World
+apps\desktop\src\components\AiCredentialCheck.svelte:78: 请登录以使用 GitButler 的 AI API
+apps\desktop\src\components\AiCredentialCheck.svelte:80: 请为所选 AI 服务提供有效的 API 密钥
+apps\desktop\src\components\AiCredentialCheck.svelte:99: AI 响应在 20 秒后超时
+apps\desktop\src\components\AiCredentialCheck.svelte:101: AI 响应在 20 秒后超时。请检查你的 AI 服务是否正常运行。
+apps\desktop\src\components\AiCredentialCheck.svelte:148: 从 AI 服务收到空响应
+apps\desktop\src\components\AiCredentialCheck.svelte:151: AI 凭据检查出错：
+apps\desktop\src\components\AiCredentialCheck.svelte:155: AI 请求已取消
+apps\desktop\src\components\AiCredentialCheck.svelte:253: AI 正在响应…
+apps\desktop\src\components\AiCredentialCheck.svelte:253: 正在测试 AI 连接…
+apps\desktop\src\components\AuthorizationBanner.svelte:12: 请授权 GitButler 使用此服务
+apps\desktop\src\components\BranchCommitList.svelte:166: 将仅本地的更改放在最上方，然后再应用上游更改。类似 git pull --rebase。
+apps\desktop\src\components\BranchesViewPR.svelte:113: 应用 {forge.reviewUnitName}
+apps\desktop\src\components\BranchExplorer.svelte:152: Azure DevOps
+apps\desktop\src\components\BranchHeaderContextMenu.svelte:311: 在浏览器中打开 {forge.reviewUnitAbbr}
+apps\desktop\src\components\BranchHeaderContextMenu.svelte:320: 复制 {forge.reviewUnitAbbr} 链接
+apps\desktop\src\components\BranchIntegrationModal.svelte:220: 堆叠 ID 未定义
+apps\desktop\src\components\BranchIntegrationModal.svelte:286: 提交 SHA 已复制
+apps\desktop\src\components\BranchIntegrationModal.svelte:291: 上游提交 SHA 已复制
+apps\desktop\src\components\BranchReview.svelte:52: 创建 {forge.reviewUnitName}
+apps\desktop\src\components\ChangedFilesContextMenu.svelte:96: 在 Finder 中显示
+apps\desktop\src\components\ChangedFilesContextMenu.svelte:198: 此项目未配置或未启用 GitButler AI。
+apps\desktop\src\components\ChangedFilesContextMenu.svelte:215: 此项目未配置或未启用 GitButler AI。
+apps\desktop\src\components\ChangedFilesContextMenu.svelte:232: 此项目未配置或未启用 GitButler AI。
+apps\desktop\src\components\ChangedFilesContextMenu.svelte:449: 在 {$userSettings.defaultCodeEditor.displayName} 中打开
+apps\desktop\src\components\ChangedFilesContextMenu.svelte:492: 实验性 AI
+apps\desktop\src\components\ChecksPolling.svelte:62: 无 PR 检查
+apps\desktop\src\components\ChecksPolling.svelte:103: 无 PR 检查
+apps\desktop\src\components\CherryApplyModal.svelte:67: This commit can be applied to any stack. Select a stack below.
+apps\desktop\src\components\CherryApplyModal.svelte:69: This commit conflicts when applied to the selected stack, as such it must be applied to the selected stack to avoid a workspace conflict.
+apps\desktop\src\components\CherryApplyModal.svelte:71: This commit can't be applied since it would cause a workspace conflict.
+apps\desktop\src\components\CherryApplyModal.svelte:73: No stacks are currently applied to the workspace.
+apps\desktop\src\components\ChromeHeader.svelte:62: detached HEAD
+apps\desktop\src\components\ChromeHeader.svelte:240: 切回 gitbutler/workspace
+apps\desktop\src\components\ChromeHeader.svelte:279: 新建 Codegen 会话
+apps\desktop\src\components\ChromeSidebar.svelte:108: rotate(90 15 1)
+apps\desktop\src\components\ChromeSidebar.svelte:118: rotate(90 15 9)
+apps\desktop\src\components\ChromeSidebar.svelte:128: rotate(90 5 1)
+apps\desktop\src\components\ChromeSidebar.svelte:268: 主题 (⌘T)
+apps\desktop\src\components\CloneForm.svelte:67: 必须填写仓库 URL 和目标目录。
+apps\desktop\src\components\CloneForm.svelte:117: 仓库 URL
+apps\desktop\src\components\CloudForm.svelte:42:  and 
+apps\desktop\src\components\CollapseStackButton.svelte:33: Expand stack
+apps\desktop\src\components\CollapseStackButton.svelte:33: Collapse stack
+apps\desktop\src\components\CommitDetails.svelte:68: 复制提交 SHA
+apps\desktop\src\components\CommitDetails.svelte:74: 已复制提交 SHA
+apps\desktop\src\components\CommitFailedFileEntry.svelte:90: No commit message provided
+apps\desktop\src\components\CommitRow.svelte:182: 打开 Gerrit 评审 #{reviewId}
+apps\desktop\src\components\CommitTitle.svelte:20: Empty commit. Drag changes here
+apps\desktop\src\components\CommitTitle.svelte:20: Empty commit
+apps\desktop\src\components\DraftBranchHeader.svelte:55: AI session
+apps\desktop\src\components\FileList.svelte:135: Creating a branch and committing the changes
+apps\desktop\src\components\FileList.svelte:136: This may take a few seconds.
+apps\desktop\src\components\FileList.svelte:150: And... done!
+apps\desktop\src\components\FileList.svelte:161: Figuring out where to commit the changes
+apps\desktop\src\components\FileList.svelte:162: This may take a few seconds.
+apps\desktop\src\components\FileList.svelte:176: And... done!
+apps\desktop\src\components\ForgeForm.svelte:136: 你的 Fork 项目 ID
+apps\desktop\src\components\ForgeForm.svelte:141: Upstream 项目 ID
+apps\desktop\src\components\ForgeForm.svelte:146: 实例 URL
+apps\desktop\src\components\ForgeForm.svelte:185: 此项目的 GitHub 账户
+apps\desktop\src\components\GeneralSettingsModalContent.svelte:48: Git 设置
+apps\desktop\src\components\GeneralSettingsModalContent.svelte:58: AI 选项
+apps\desktop\src\components\GerritPushModal.svelte:98: Gerrit 推送选项
+apps\desktop\src\components\GitHubAccountBadge.svelte:30: GitHub Enterprise
+apps\desktop\src\components\GitHubAccountBadge.svelte:32: Personal Access Token
+apps\desktop\src\components\GithubIntegration.svelte:96: 已验证 GitHub 账户
+apps\desktop\src\components\GithubIntegration.svelte:99: 验证 GitHub 账户失败
+apps\desktop\src\components\GithubIntegration.svelte:124: 保存 GitHub PAT 失败：
+apps\desktop\src\components\GithubIntegration.svelte:143: 保存 GitHub Enterprise PAT 失败：
+apps\desktop\src\components\GithubIntegration.svelte:322: API 基础 URL
+apps\desktop\src\components\GithubIntegration.svelte:377: 授权 GitHub 账户
+apps\desktop\src\components\GithubIntegration.svelte:393: 添加 GitHub Enterprise 账户
+apps\desktop\src\components\HunkContextMenu.svelte:154: 在 {$userSettings.defaultCodeEditor.displayName} 中打开
+apps\desktop\src\components\MultiStackPagination.svelte:35: In view
+apps\desktop\src\components\MultiStackPagination.svelte:39: Scroll to lane
+apps\desktop\src\components\ProjectSettingsModalContent.svelte:28: Git 设置
+apps\desktop\src\components\ProjectSettingsModalContent.svelte:33: AI 选项
+apps\desktop\src\components\ProjectSetup.svelte:45: Failed to load project, redirecting:
+apps\desktop\src\components\PromptModal.svelte:58: Git 需要输入
+apps\desktop\src\components\PrTemplateSection.svelte:68: Choose template
+apps\desktop\src\components\PrTemplateSection.svelte:69: No PR templates found ¯\\_(ツ)_/¯
+apps\desktop\src\components\PullRequestCard.svelte:180: 复制 {abbr} 链接
+apps\desktop\src\components\PullRequestCard.svelte:189: 在浏览器中打开 {abbr}
+apps\desktop\src\components\ReduxResult.svelte:7: A, B extends string | undefined, C extends string | undefined
+apps\desktop\src\components\ReviewCreation.svelte:199: You must configure the GitLab integration before creating a Merge Request.
+apps\desktop\src\components\ReviewCreation.svelte:426: {forge.reviewUnitAbbr} 标题
+apps\desktop\src\components\ReviewCreation.svelte:442: {forge.reviewUnitAbbr} 描述
+apps\desktop\src\components\ReviewCreationControls.svelte:65: 创建 {unit} 草稿
+apps\desktop\src\components\ReviewCreationControls.svelte:74: 创建 {unit}
+apps\desktop\src\components\RuleFilterPathRegex.svelte:11: 路径：例如 src/components
+apps\desktop\src\components\RuleFiltersEditor.svelte:148: 路径，例如 src/components 或正则
+apps\desktop\src\components\RuleFiltersEditor.svelte:159: 字符串，例如 TODO 或正则
+apps\desktop\src\components\ShareIssueModal.svelte:74: GitButler 版本：
+apps\desktop\src\components\ShareIssueModal.svelte:153: 与 GitButler 团队分享调试数据以便审查
+apps\desktop\src\components\SnapshotCard.svelte:93: ${entry.details?.trailers.find((t) => t.key === 'name')?.value}
+apps\desktop\src\components\SnapshotCard.svelte:98: ${entry.details?.trailers.find((t) => t.key === 'name')?.value}
+apps\desktop\src\components\SnapshotCard.svelte:103: ${snapshotDetails.trailers.find((t) => t.key === 'name')?.value}
+apps\desktop\src\components\SnapshotCard.svelte:108: ${snapshotDetails.trailers.find((t) => t.key === 'before')?.value}
+apps\desktop\src\components\SnapshotCard.svelte:108: ${snapshotDetails.trailers.find((t) => t.key === 'after')?.value}
+apps\desktop\src\components\SnapshotCard.svelte:113: ${snapshotDetails.trailers.find((t) => t.key === 'name')?.value}
+apps\desktop\src\components\SnapshotCard.svelte:118: ${snapshotDetails.trailers.find((t) => t.key === 'before')?.value}
+apps\desktop\src\components\SnapshotCard.svelte:118: ${snapshotDetails.trailers.find((t) => t.key === 'after')?.value}
+apps\desktop\src\components\SnapshotCard.svelte:123: ${snapshotDetails.trailers.find((t) => t.key === 'after')?.value}
+apps\desktop\src\components\SnapshotCard.svelte:128: ${snapshotDetails.trailers.find((t) => t.key === 'before')?.value}
+apps\desktop\src\components\SnapshotCard.svelte:128: ${snapshotDetails.trailers.find((t) => t.key === 'after')?.value}
+apps\desktop\src\components\SnapshotCard.svelte:171: ${entry.details?.trailers.find((t) => t.key === 'name')?.value}
+apps\desktop\src\components\SnapshotCard.svelte:228: 将 GitButler 和你的文件恢复到此操作之前的状态。还原操作也可以撤销。
+apps\desktop\src\components\SomethingWentWrong.svelte:21: An unknown error occurred
+apps\desktop\src\components\StackDraft.svelte:97: 创建 Codegen 会话失败
+apps\desktop\src\components\StackView.svelte:282: Workspace selection cleared
+apps\desktop\src\components\codegen\AttachmentList.svelte:116: 移除 {attachment}
+apps\desktop\src\components\codegen\ClaudeCheck.svelte:106: Claude Code 路径：
+apps\desktop\src\components\codegen\ClaudeCheck.svelte:108: Claude Code 可执行文件路径
+apps\desktop\src\components\codegen\ClaudeCheck.svelte:111: Claude 以非 0 退出码退出
+apps\desktop\src\components\codegen\CodegenApprovalToolCall.svelte:47: 权限将保存到 .claude/settings.local.json
+apps\desktop\src\components\codegen\CodegenApprovalToolCall.svelte:49: 权限将保存到 ~/.claude/settings.json
+apps\desktop\src\components\codegen\CodegenGitButlerMessage.svelte:24: 已创建新提交{message.commitIds.length > 1 ? '（多条）' : ''}
+apps\desktop\src\components\codegen\CodegenInput.svelte:258: Editor error
+apps\desktop\src\components\codegen\CodegenMcpConfigModal.svelte:32: MCP server configuration
+apps\desktop\src\components\codegen\CodegenMessages.svelte:129: Sonnet 1m
+apps\desktop\src\components\codegen\CodegenMessages.svelte:131: Opus Planning
+apps\desktop\src\components\codegen\CodegenMessages.svelte:289: var(--radius-ml) var(--radius-ml) 0 var(--radius-ml)
+apps\desktop\src\components\codegen\CodegenMessages.svelte:303: var(--radius-ml) var(--radius-ml) 0 var(--radius-ml)
+apps\desktop\src\components\codegen\CodegenMessages.svelte:320: calc(var(--size-button) + 0.188rem)
+apps\desktop\src\components\codegen\CodegenMessages.svelte:345: 令牌：{stats.tokens.toLocaleString()} / ${stats.cost.toFixed(2)}
+apps\desktop\src\components\codegen\CodegenMessages.svelte:351: 已使用 {contextUsage}% 上下文
+apps\desktop\src\components\codegen\CodegenMessages.svelte:375: MCP 设置
+apps\desktop\src\components\codegen\CodegenServiceMessageUseTool.svelte:12: start a subagent
+apps\desktop\src\components\codegen\CodegenServiceMessageUseTool.svelte:14: run a command
+apps\desktop\src\components\codegen\CodegenServiceMessageUseTool.svelte:16: pattern match some files
+apps\desktop\src\components\codegen\CodegenServiceMessageUseTool.svelte:18: perform a content search
+apps\desktop\src\components\codegen\CodegenServiceMessageUseTool.svelte:20: read a file
+apps\desktop\src\components\codegen\CodegenServiceMessageUseTool.svelte:22: edit a file
+apps\desktop\src\components\codegen\CodegenServiceMessageUseTool.svelte:24: edit a file
+apps\desktop\src\components\codegen\CodegenServiceMessageUseTool.svelte:26: create a file
+apps\desktop\src\components\codegen\CodegenServiceMessageUseTool.svelte:28: search the internet
+apps\desktop\src\components\codegen\CodegenServiceMessageUseTool.svelte:30: search the internet
+apps\desktop\src\components\codegen\CodegenServiceMessageUseTool.svelte:32: do something requiring your approval
+apps\desktop\src\components\codegen\CodegenServiceMessageUseTool.svelte:39: subagent request
+apps\desktop\src\components\codegen\CodegenServiceMessageUseTool.svelte:43: pattern match
+apps\desktop\src\components\codegen\CodegenServiceMessageUseTool.svelte:45: content search
+apps\desktop\src\components\codegen\CodegenServiceMessageUseTool.svelte:47: read request
+apps\desktop\src\components\codegen\CodegenServiceMessageUseTool.svelte:49: edit request
+apps\desktop\src\components\codegen\CodegenServiceMessageUseTool.svelte:51: edit request
+apps\desktop\src\components\codegen\CodegenServiceMessageUseTool.svelte:53: create request
+apps\desktop\src\components\codegen\CodegenServiceMessageUseTool.svelte:55: internet search
+apps\desktop\src\components\codegen\CodegenServiceMessageUseTool.svelte:57: internet search
+apps\desktop\src\components\codegen\CodegenToolCalls.svelte:59: {filteredCalls.length} 次工具调用
+apps\desktop\src\components\editor\MessageEditor.svelte:242: 需要在项目设置中启用 AI 才能使用此功能
+apps\desktop\src\components\editor\MessageEditor.svelte:333: Editor error
+apps\desktop\src\components\editor\MessageEditorRuler.svelte:19: calc({lineWidth}px - var(--lexical-input-client-padding))
+apps\desktop\src\components\profileSettings\AiSettings.svelte:86: 使用 GitButler API
+apps\desktop\src\components\profileSettings\AiSettings.svelte:97: GPT 5
+apps\desktop\src\components\profileSettings\AiSettings.svelte:101: GPT 5 Mini
+apps\desktop\src\components\profileSettings\AiSettings.svelte:105: o3 Mini
+apps\desktop\src\components\profileSettings\AiSettings.svelte:109: o1 Mini
+apps\desktop\src\components\profileSettings\AiSettings.svelte:113: GPT 4o mini
+apps\desktop\src\components\profileSettings\AiSettings.svelte:117: GPT 4.1
+apps\desktop\src\components\profileSettings\AiSettings.svelte:121: GPT 4.1 mini（推荐）
+apps\desktop\src\components\profileSettings\AiSettings.svelte:132: Sonnet 3.5
+apps\desktop\src\components\profileSettings\AiSettings.svelte:136: Sonnet 3.7（推荐）
+apps\desktop\src\components\profileSettings\AiSettings.svelte:140: Sonnet 4
+apps\desktop\src\components\profileSettings\AiSettings.svelte:144: Opus 4
+apps\desktop\src\components\profileSettings\AiSettings.svelte:241: 请登录以使用 GitButler API。
+apps\desktop\src\components\profileSettings\AiSettings.svelte:243: GitButler 使用 OpenAI API 生成提交信息和分支名。
+apps\desktop\src\components\profileSettings\AiSettings.svelte:249: API 密钥
+apps\desktop\src\components\profileSettings\AiSettings.svelte:309: 请登录以使用 GitButler API。
+apps\desktop\src\components\profileSettings\AiSettings.svelte:312: GitButler 使用 Anthropic API 生成提交信息和分支名。
+apps\desktop\src\components\profileSettings\AiSettings.svelte:319: API 密钥
+apps\desktop\src\components\profileSettings\CliSymLink.svelte:25: sudo ln -sf '
+apps\desktop\src\components\profileSettings\CliSymLink.svelte:25: ' /usr/local/bin/but
+apps\desktop\src\components\profileSettings\GeneralSettings.svelte:57: VSCode Insiders
+apps\desktop\src\lib\dragging\DragClone.svelte:86: Empty commit
+apps\desktop\src\lib\dragging\DragClone.svelte:120: Empty file
+apps\desktop\src\lib\dragging\DragClone.svelte:127: Empty folder
+apps\desktop\src\lib\floating\FloatingModal.svelte:240: calc(100vw - 5rem)
+apps\desktop\src\lib\floating\FloatingModal.svelte:241: calc(100vh - 5rem)
+apps\desktop\src\routes\+layout.svelte:131: c o 3
+apps\desktop\src\routes\+layout.svelte:135: d o t
+apps\desktop\src\routes\+layout.svelte:140: e n v
+apps\desktop\src\routes\+layout.svelte:146: Also written to window.tauriEnv
+apps\desktop\src\routes\[projectId]\+layout.svelte:232: Failed to refresh base branch:
+apps\desktop\src\routes\[projectId]\+layout.svelte:238: Failed to refresh remote branches:
+apps\desktop\src\hooks.client.ts:13: Unable to autolaunch a dbus-daemon without a $DISPLAY for X11
+apps\desktop\src\hooks.client.ts:17: undefined is not an object (evaluating '[callbackId, data]')
+apps\desktop\src\components\AppUpdater.test.ts:41: should be hidden if no update
+apps\desktop\src\components\AppUpdater.test.ts:51: should display download button
+apps\desktop\src\components\AppUpdater.test.ts:55: release notes
+apps\desktop\src\components\AppUpdater.test.ts:66: should display up-to-date on manual check
+apps\desktop\src\components\AppUpdater.test.ts:76: should display restart button on install complete
+apps\desktop\src\components\AppUpdater.test.ts:80: release notes
+apps\desktop\src\lib\actions\actionService.svelte.ts:47: Figure out where to commit the given changes
+apps\desktop\src\lib\actions\actionService.svelte.ts:69: Absorb changes into the best matching branch and commit
+apps\desktop\src\lib\actions\actionService.svelte.ts:83: Perform a freestyle action based on the given prompt
+apps\desktop\src\lib\actions\actionService.svelte.ts:97: but bot action
+apps\desktop\src\lib\actions\types.ts:126: Improved commit message
+apps\desktop\src\lib\ai\diffFormatting.ts:130: \n\n ================================= \n\n
+apps\desktop\src\lib\ai\lmStudioClient.ts:89: data: [DONE]
+apps\desktop\src\lib\ai\lmStudioClient.ts:105: 解析流式 JSON 出错
+apps\desktop\src\lib\ai\lmStudioClient.ts:118: 调用 LM Studio API 时出错：
+apps\desktop\src\lib\ai\prompts.ts:127: List the most important changes. Use bullet points. Skip any other information.
+apps\desktop\src\lib\ai\promptService.ts:95: My prompt
+apps\desktop\src\lib\ai\service.test.ts:56: Method not implemented.
+apps\desktop\src\lib\ai\service.test.ts:59: Method not implemented.
+apps\desktop\src\lib\ai\service.test.ts:76: Method not implemented.
+apps\desktop\src\lib\ai\service.test.ts:83: Method not implemented.
+apps\desktop\src\lib\ai\service.test.ts:111: lorem ipsum
+apps\desktop\src\lib\ai\service.test.ts:135: quack quack goes the dog
+apps\desktop\src\lib\ai\service.test.ts:166: With default configuration, When a user token is provided. It returns ButlerAIClient
+apps\desktop\src\lib\ai\service.test.ts:174: With default configuration, When a user is undefined. It returns undefined
+apps\desktop\src\lib\ai\service.test.ts:178: When using GitButler's API to summarize code, you must be logged in
+apps\desktop\src\lib\ai\service.test.ts:183: When token is bring your own, When a openAI token is present. It returns OpenAIClient
+apps\desktop\src\lib\ai\service.test.ts:197: When token is bring your own, When a openAI token is blank. It returns undefined
+apps\desktop\src\lib\ai\service.test.ts:210: When using OpenAI in a bring your own key configuration, you must provide a valid token
+apps\desktop\src\lib\ai\service.test.ts:215: When ai provider is Anthropic, When token is bring your own, When an anthropic token is present. It returns AnthropicAIClient
+apps\desktop\src\lib\ai\service.test.ts:232: When ai provider is Anthropic, When token is bring your own, When an anthropic token is blank. It returns undefined
+apps\desktop\src\lib\ai\service.test.ts:246: When using Anthropic in a bring your own key configuration, you must provide a valid token
+apps\desktop\src\lib\ai\service.test.ts:253: When buildModel returns undefined, it returns undefined
+apps\desktop\src\lib\ai\service.test.ts:261: When the AI returns a single line commit message, it returns it unchanged
+apps\desktop\src\lib\ai\service.test.ts:264: single line commit
+apps\desktop\src\lib\ai\service.test.ts:271: single line commit
+apps\desktop\src\lib\ai\service.test.ts:275: When the AI returns a title and body that is split by a single new line, it replaces it with two
+apps\desktop\src\lib\ai\service.test.ts:278: one\nnew line
+apps\desktop\src\lib\ai\service.test.ts:285: one\n\nnew line
+apps\desktop\src\lib\ai\service.test.ts:289: When the commit is in brief mode, When the AI returns a title and body, it takes just the title
+apps\desktop\src\lib\ai\service.test.ts:292: one\nnew line
+apps\desktop\src\lib\ai\service.test.ts:305: When buildModel returns undefined, it returns undefined
+apps\desktop\src\lib\ai\service.test.ts:315: When the AI client returns a string with spaces, it replaces them with hypens
+apps\desktop\src\lib\ai\service.test.ts:318: with spaces included
+apps\desktop\src\lib\ai\service.test.ts:329: When the AI client returns multiple lines, it replaces them with hypens
+apps\desktop\src\lib\ai\service.test.ts:343: When the AI client returns multiple lines and spaces, it replaces them with hypens
+apps\desktop\src\lib\ai\service.test.ts:346: with\nnew lines\nincluded
+apps\desktop\src\lib\ai\service.test.ts:360: When provided one hunk, it returns the formatted diff
+apps\desktop\src\lib\ai\service.test.ts:366: When provided one hunk and its longer than the limit, it returns the truncated formatted diff
+apps\desktop\src\lib\ai\service.test.ts:370: When provided multiple hunks, it joins them together with newlines
+apps\desktop\src\lib\ai\service.ts:122: AI Service
+apps\desktop\src\lib\ai\service.ts:287: 使用 GitButler 的 API 进行代码总结时必须登录
+apps\desktop\src\lib\ai\service.ts:304: 使用 LM Studio 时必须提供有效的端点
+apps\desktop\src\lib\ai\service.ts:317: When using OpenAI in a bring your own key configuration, you must provide a valid token
+apps\desktop\src\lib\ai\service.ts:330: When using Anthropic in a bring your own key configuration, you must provide a valid token
+apps\desktop\src\lib\ai\service.ts:367: Compose the commit message in the form of a haiku. A haiku is a three-line poem with a 5-7-5 syllable structure.
+apps\desktop\src\lib\ai\service.ts:369: The commit message must be only one sentence and as short as possible.
+apps\desktop\src\lib\ai\service.ts:374: Make use of GitMoji in the title prefix.
+apps\desktop\src\lib\ai\service.ts:375: Don't use any emoji.
+apps\desktop\src\lib\ai\tool.ts:326: Failed to parse JSON:
+apps\desktop\src\lib\analytics\posthog.ts:61: posthog error
+apps\desktop\src\lib\backend\tauri.test.ts:5: returns true for valid but:// URLs
+apps\desktop\src\lib\backend\tauri.test.ts:11: returns true for valid but-dev:// URLs
+apps\desktop\src\lib\backend\tauri.test.ts:16: returns true for valid but-nightly:// URLs
+apps\desktop\src\lib\backend\tauri.test.ts:21: returns false for invalid schemes
+apps\desktop\src\lib\backend\tauri.test.ts:28: returns false for missing or invalid paths
+apps\desktop\src\lib\backend\tauri.test.ts:35: returns false for malformed URLs
+apps\desktop\src\lib\backend\tauri.test.ts:44: parses simple open URLs without query parameters
+apps\desktop\src\lib\backend\tauri.test.ts:51: parses open URLs with single query parameter
+apps\desktop\src\lib\backend\tauri.test.ts:58: parses open URLs with multiple query parameters
+apps\desktop\src\lib\backend\tauri.test.ts:66: handles URL-encoded query parameters
+apps\desktop\src\lib\backend\tauri.test.ts:73: handles query parameters with special characters
+apps\desktop\src\lib\backend\tauri.test.ts:79: /path/with spaces
+apps\desktop\src\lib\backend\tauri.test.ts:83: works with all valid schemes
+apps\desktop\src\lib\backend\tauri.test.ts:93: returns null for missing path part
+apps\desktop\src\lib\backend\tauri.test.ts:98: returns null for invalid top-level path
+apps\desktop\src\lib\backend\tauri.test.ts:103: returns null for empty path
+apps\desktop\src\lib\backend\tauri.test.ts:108: handles URLs with empty query string
+apps\desktop\src\lib\backend\tauri.test.ts:115: handles URLs with trailing characters after query
+apps\desktop\src\lib\backend\tauri.ts:112: Received invalid deep link URL:
+apps\desktop\src\lib\backend\tauri.ts:118: Failed to parse deep link URL:
+apps\desktop\src\lib\backend\tauri.ts:126: Deep link URL missing timestamp parameter:
+apps\desktop\src\lib\backend\tauri.ts:202: unable to log error to file
+apps\desktop\src\lib\backend\web.ts:69: 解析 Cookie 中的磁盘存储值时出错
+apps\desktop\src\lib\backend\web.ts:77: Web 构建不支持写入日志文件。
+apps\desktop\src\lib\backend\web.ts:172: Web 版本尚未实现重新启动
+apps\desktop\src\lib\backend\web.ts:235: Web 版本未实现 webReadFile
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:11: full ref with remote
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:17: short remote ref with remote
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:23: full ref with remote, simple name
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:29: short remote ref with remote, simple name
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:35: full ref with different remote and complex name
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:41: short ref with different remote and complex name
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:49: full ref with non-matching remoteName
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:55: short ref with non-matching remoteName
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:63: heads ref with remoteName set
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:69: local-like name with remoteName set
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:77: heads ref, no remoteName
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:83: local-like name, no remoteName
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:89: heads ref, simple name, no remoteName
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:95: local-like simple name, no remoteName
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:101: complex local name, no remoteName
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:107: complex heads name, no remoteName
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:115: branchName is just remoteName, prefixed
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:121: branchName is full remote prefix
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:127: branchName is full heads prefix
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:133: branch name containing other ref parts
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:139: empty branch name with remote
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:145: empty branch name no remote
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:151: remote name with slashes
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:157: remote name with slashes, short form
+apps\desktop\src\lib\baseBranch\baseBranch.test.ts:172: should return original name if remoteName is present but no remote prefix in branchName, and no heads prefix
+apps\desktop\src\lib\baseBranch\baseBranchService.svelte.ts:111: cargo build -p gitbutler-git
+apps\desktop\src\lib\baseBranch\baseBranchService.svelte.ts:112: 请运行 `cargo build -p gitbutler-git`
+apps\desktop\src\lib\codegen\claude.ts:27: Claude code service
+apps\desktop\src\lib\codegen\claude.ts:150: Send message
+apps\desktop\src\lib\codegen\claude.ts:178: 未找到 Redux 依赖 Backend！
+apps\desktop\src\lib\codegen\claude.ts:210: 未找到 Redux 依赖 Backend！
+apps\desktop\src\lib\codegen\claude.ts:239: Update Permission Request
+apps\desktop\src\lib\codegen\claude.ts:255: Cancel Session
+apps\desktop\src\lib\codegen\claude.ts:274: 未找到 Redux 依赖 Backend！
+apps\desktop\src\lib\codegen\claude.ts:302: Create Prompt Directory
+apps\desktop\src\lib\codegen\claude.ts:323: Verify Path
+apps\desktop\src\lib\codegen\claude.ts:336: Compact History
+apps\desktop\src\lib\codegen\dropzone.ts:30: Unsupported operation, no stackId provided.
+apps\desktop\src\lib\codegen\dropzone.ts:65: Unsupported operation, no stackId provided.
+apps\desktop\src\lib\codegen\dropzone.ts:89: Unsupported operation, no stackId provided.
+apps\desktop\src\lib\codegen\dropzone.ts:119: Unsupported operation, no stackId provided.
+apps\desktop\src\lib\codegen\messageQueue.svelte.ts:62: /add-dir 
+apps\desktop\src\lib\codegen\messageQueue.svelte.ts:63: /add-dir 
+apps\desktop\src\lib\codegen\messages.ts:71: Invalid API key · Please run /login
+apps\desktop\src\lib\codegen\messages.ts:159: Tool completed with no output
+apps\desktop\src\lib\codegen\messages.ts:244: Tool call aborted - session is no longer active
+apps\desktop\src\lib\codegen\messages.ts:569: an error has occurred
+apps\desktop\src\lib\commits\commit.ts:152: Local and remote
+apps\desktop\src\lib\commits\dropHandler.ts:126: 变更拖放数据必须指定源堆叠 ID
+apps\desktop\src\lib\commits\dropHandler.ts:201: 变更拖放数据必须指定源堆叠 ID
+apps\desktop\src\lib\config\appSettings.ts:93: Not implemented
+apps\desktop\src\lib\dragging\draggable.ts:300: draggable parent node not found
+apps\desktop\src\lib\dragging\horizontalPanner.ts:53: button, a, input, select, textarea
+apps\desktop\src\lib\editMode\editPatchUtils.ts:16: Mode service not available for edit patch operation
+apps\desktop\src\lib\editMode\editPatchUtils.ts:21: Missing required parameters for edit patch operation
+apps\desktop\src\lib\editMode\editPatchUtils.ts:32: Failed to enter edit mode:
+apps\desktop\src\lib\error\error.ts:42: QUERY:An unknown error occurred
+apps\desktop\src\lib\error\parser.ts:36: undefined is not an object (evaluating 'first_child_getter.call')
+apps\desktop\src\lib\error\parser.ts:51: A promise had an unhandled exception.
+apps\desktop\src\lib\error\parser.ts:70: Load failed
+apps\desktop\src\lib\error\parser.ts:83: GitHub Organizations OAuth Error
+apps\desktop\src\lib\error\parser.ts:101: Although you appear to have the correct authorization credentials,
+apps\desktop\src\lib\forge\forgeFactory.test.ts:42: Create GitHub service
+apps\desktop\src\lib\forge\forgeFactory.test.ts:66: Create self hosted Gitlab service
+apps\desktop\src\lib\forge\forgeFactory.test.ts:90: Create Gitlab service
+apps\desktop\src\lib\forge\forgeFactory.test.ts:114: Respects detectedForgeProvider: GitHub
+apps\desktop\src\lib\forge\forgeFactory.test.ts:137: Respects detectedForgeProvider: GitLab
+apps\desktop\src\lib\forge\azure\azure.test.ts:14: commit url
+apps\desktop\src\lib\forge\azure\azure.test.ts:26: uses https protocol for ssh remote urls (browser compatibility)
+apps\desktop\src\lib\forge\azure\azure.test.ts:43: branch urls use https protocol for ssh remote urls
+apps\desktop\src\lib\forge\azure\azure.test.ts:61: handles ssh protocol with colon suffix
+apps\desktop\src\lib\forge\azure\azure.test.ts:78: uses https protocol for ssh remote urls on custom Azure DevOps instance
+apps\desktop\src\lib\forge\bitbucket\bitbucket.test.ts:13: commit url
+apps\desktop\src\lib\forge\bitbucket\bitbucket.test.ts:25: uses https protocol for ssh remote urls (browser compatibility)
+apps\desktop\src\lib\forge\bitbucket\bitbucket.test.ts:42: branch urls use https protocol for ssh remote urls
+apps\desktop\src\lib\forge\bitbucket\bitbucket.test.ts:60: handles ssh protocol with colon suffix
+apps\desktop\src\lib\forge\bitbucket\bitbucket.test.ts:77: uses https protocol for ssh remote urls on custom BitBucket instance
+apps\desktop\src\lib\forge\github\errorMap.ts:16: Draft pull requests are not supported
+apps\desktop\src\lib\forge\github\errorMap.ts:18: Draft pull requests are not enabled
+apps\desktop\src\lib\forge\github\errorMap.ts:30: enabled OAuth App access restrictions
+apps\desktop\src\lib\forge\github\errorMap.ts:32: OAuth access restricted
+apps\desktop\src\lib\forge\github\errorMap.ts:43: Validation Failed
+apps\desktop\src\lib\forge\github\errorMap.ts:50: unknown validation error
+apps\desktop\src\lib\forge\github\errorMap.ts:55: GitHub validation failed
+apps\desktop\src\lib\forge\github\ghQuery.ts:58: 未找到 GitHub 客户端！
+apps\desktop\src\lib\forge\github\ghQuery.ts:63: GitHub API error
+apps\desktop\src\lib\forge\github\ghQuery.ts:63: No GitHub owner or repo!
+apps\desktop\src\lib\forge\github\ghQuery.ts:86: GitHub API error
+apps\desktop\src\lib\forge\github\ghQuery.ts:89: Not Found -
+apps\desktop\src\lib\forge\github\github.test.ts:20: commit url
+apps\desktop\src\lib\forge\github\github.test.ts:35: uses https protocol for ssh remote urls (browser compatibility)
+apps\desktop\src\lib\forge\github\github.test.ts:55: branch urls use https protocol for ssh remote urls
+apps\desktop\src\lib\forge\github\github.test.ts:78: handles ssh protocol with colon suffix
+apps\desktop\src\lib\forge\github\github.test.ts:98: uses https protocol for ssh remote urls on GitHub Enterprise
+apps\desktop\src\lib\forge\github\githubBranch.test.ts:22: branch compare url
+apps\desktop\src\lib\forge\github\githubBranch.test.ts:37: fork compare url
+apps\desktop\src\lib\forge\github\githubClient.ts:77: GitButler Client
+apps\desktop\src\lib\forge\github\githubPrService.svelte.ts:65: PR Successful
+apps\desktop\src\lib\forge\github\githubPrService.svelte.ts:75: PR Failure
+apps\desktop\src\lib\forge\github\githubPrService.test.ts:37: test parsing response
+apps\desktop\src\lib\forge\github\githubPrService.test.ts:38: PR Title
+apps\desktop\src\lib\forge\github\githubUserService.svelte.ts:205: Forget GitHub Username
+apps\desktop\src\lib\forge\github\githubUserService.svelte.ts:215: Init GitHub Device OAuth
+apps\desktop\src\lib\forge\github\githubUserService.svelte.ts:222: Check GitHub Auth Status
+apps\desktop\src\lib\forge\github\githubUserService.svelte.ts:246: Clear All GitHub Accounts
+apps\desktop\src\lib\forge\github\githubUserService.svelte.ts:254: Store GitHub PAT
+apps\desktop\src\lib\forge\github\githubUserService.svelte.ts:265: Store GitHub Enterprise PAT
+apps\desktop\src\lib\forge\gitlab\gitlab.test.ts:27: uses https protocol by default when no protocol specified
+apps\desktop\src\lib\forge\gitlab\gitlab.test.ts:42: respects http protocol when specified
+apps\desktop\src\lib\forge\gitlab\gitlab.test.ts:62: respects https protocol when explicitly specified
+apps\desktop\src\lib\forge\gitlab\gitlab.test.ts:82: handles protocol with colon suffix
+apps\desktop\src\lib\forge\gitlab\gitlab.test.ts:102: branch urls use correct protocol
+apps\desktop\src\lib\forge\gitlab\gitlab.test.ts:123: uses https protocol for ssh remote urls (browser compatibility)
+apps\desktop\src\lib\forge\gitlab\gitlab.test.ts:143: branch urls use https protocol for ssh remote urls
+apps\desktop\src\lib\forge\gitlab\gitlab.test.ts:164: handles ssh protocol with colon suffix
+apps\desktop\src\lib\forge\gitlab\gitlab.test.ts:184: uses https protocol for ssh remote urls on custom GitLab instance
+apps\desktop\src\lib\forge\gitlab\gitlabClient.svelte.ts:59: 未找到 GitLab 客户端！
+apps\desktop\src\lib\forge\gitlab\gitlabClient.svelte.ts:60: 无法找到 GitLab 客户端
+apps\desktop\src\lib\forge\gitlab\gitlabClient.svelte.ts:61: 无法找到分叉项目 ID
+apps\desktop\src\lib\forge\gitlab\gitlabClient.svelte.ts:62: 无法找到上游项目 ID
+apps\desktop\src\lib\forge\gitlab\gitlabPrService.svelte.ts:20: Merge request
+apps\desktop\src\lib\forge\gitlab\gitlabPrService.svelte.ts:57: Gitlab MR Successful
+apps\desktop\src\lib\forge\gitlab\gitlabPrService.svelte.ts:67: Gitlab MR Failure
+apps\desktop\src\lib\forge\shared\prFooter.ts:5: <!-- GitButler Footer Boundary Top -->
+apps\desktop\src\lib\forge\shared\prFooter.ts:6: <!-- GitButler Footer Boundary Bottom -->
+apps\desktop\src\lib\forge\shared\prFooter.ts:8: <!-- GitButler Review Footer Boundary Top -->
+apps\desktop\src\lib\forge\shared\prFooter.ts:9: <!-- GitButler Review Footer Boundary Bottom -->
+apps\desktop\src\lib\hooks\hooksService.ts:49: 已开始运行 pre-commit 钩子
+apps\desktop\src\lib\hooks\hooksService.ts:63: pre-commit 钩子执行成功
+apps\desktop\src\lib\hooks\hooksService.ts:71: 已开始运行 post-commit 钩子
+apps\desktop\src\lib\hooks\hooksService.ts:84: post-commit 钩子执行成功
+apps\desktop\src\lib\hunks\hunk.test.ts:15: should return empty array when given no line IDs
+apps\desktop\src\lib\hunks\hunk.test.ts:20: should return a single hunk header when given a single line ID
+apps\desktop\src\lib\hunks\hunk.test.ts:35: can deal with a big diff and a neat selection
+apps\desktop\src\lib\hunks\hunk.test.ts:68: can deal with a big diff and an overlapping selection
+apps\desktop\src\lib\hunks\hunk.test.ts:107: can deal with a big diff and an overlapping selection, unordered
+apps\desktop\src\lib\hunks\hunk.test.ts:148: should return an empty array when given no line IDs
+apps\desktop\src\lib\hunks\hunk.test.ts:168: should return the correct line groups for each type
+apps\desktop\src\lib\hunks\hunk.test.ts:202: should be able to deal with non-consecutive line numbers
+apps\desktop\src\lib\hunks\hunk.test.ts:234: should be able to deal with non-consecutive, out of orderline numbers
+apps\desktop\src\lib\hunks\hunk.test.ts:275: returns true if hunk b is fully inside hunk a
+apps\desktop\src\lib\hunks\hunk.test.ts:279: returns false if hunk b is not fully inside hunk a
+apps\desktop\src\lib\hunks\hunk.test.ts:283: returns true when hunk b ends at the exact same line as hunk a
+apps\desktop\src\lib\hunks\hunk.test.ts:289: returns false when hunk b extends beyond hunk a by one line
+apps\desktop\src\lib\hunks\hunk.test.ts:301: returns true when ranges are identical
+apps\desktop\src\lib\hunks\hunk.test.ts:308: returns true for a line inside the hunk (old line)
+apps\desktop\src\lib\hunks\hunk.test.ts:311: returns true for a line inside the hunk (new line)
+apps\desktop\src\lib\hunks\hunk.test.ts:314: returns false for a line outside the hunk
+apps\desktop\src\lib\hunks\hunk.test.ts:317: returns true for a line with both old and new inside
+apps\desktop\src\lib\hunks\hunk.test.ts:320: returns false for a line with both old and new outside
+apps\desktop\src\lib\hunks\hunk.test.ts:334: returns line locks for lines covered by locks
+apps\desktop\src\lib\hunks\hunk.test.ts:342: returns empty array if no locks match
+apps\desktop\src\lib\hunks\hunk.test.ts:354: returns partially locked for hunks with only some lines covered
+apps\desktop\src\lib\hunks\hunk.test.ts:375: should properly order the headers
+apps\desktop\src\lib\hunks\hunk.test.ts:433: should order headers with mixed zeroed and non-zeroed starts
+apps\desktop\src\lib\hunks\hunk.test.ts:449: should order headers with all oldStart zeroed
+apps\desktop\src\lib\hunks\hunk.test.ts:463: should order headers with all newStart zeroed
+apps\desktop\src\lib\hunks\hunk.test.ts:477: should handle headers with both starts zeroed (should remain stable)
+apps\desktop\src\lib\hunks\hunk.test.ts:489: should order headers with negative values
+apps\desktop\src\lib\hunks\hunk.test.ts:505: should extract all added and removed lines from a simple diff
+apps\desktop\src\lib\hunks\hunk.test.ts:533: should extract multiple consecutive removed lines
+apps\desktop\src\lib\hunks\hunk.test.ts:570: should extract multiple consecutive added lines
+apps\desktop\src\lib\hunks\hunk.test.ts:604: should group non-consecutive changes separately
+apps\desktop\src\lib\hunks\hunk.test.ts:644: should handle diff with only added lines
+apps\desktop\src\lib\hunks\hunk.test.ts:671: should handle diff with only removed lines
+apps\desktop\src\lib\hunks\hunk.test.ts:698: should handle diff with only context lines (no changes)
+apps\desktop\src\lib\hunks\hunk.test.ts:716: should handle complex diff with multiple change groups
+apps\desktop\src\lib\hunks\hunk.test.ts:771: should handle file deletion (all lines removed)
+apps\desktop\src\lib\hunks\hunk.test.ts:798: should handle new file creation (all lines added)
+apps\desktop\src\lib\hunks\hunk.test.ts:827: should return empty array for diff with no changes
+apps\desktop\src\lib\hunks\hunk.test.ts:837: should convert single removed line to hunk header for discard action
+apps\desktop\src\lib\hunks\hunk.test.ts:848: should convert single removed line to hunk header for commit action
+apps\desktop\src\lib\hunks\hunk.test.ts:859: should convert single added line to hunk header for discard action
+apps\desktop\src\lib\hunks\hunk.test.ts:870: should convert single added line to hunk header for commit action
+apps\desktop\src\lib\hunks\hunk.test.ts:881: should convert multiple consecutive removed lines
+apps\desktop\src\lib\hunks\hunk.test.ts:897: should convert multiple consecutive added lines
+apps\desktop\src\lib\hunks\hunk.test.ts:913: should convert mixed add/remove to separate hunk headers
+apps\desktop\src\lib\hunks\hunk.test.ts:930: should handle multiple separate change groups
+apps\desktop\src\lib\hunks\hunk.test.ts:955: should handle complex diff with multiple change types
+apps\desktop\src\lib\hunks\hunk.test.ts:987: should handle file deletion (all lines removed)
+apps\desktop\src\lib\hunks\hunk.test.ts:1001: should handle new file creation (all lines added)
+apps\desktop\src\lib\hunks\hunk.test.ts:1015: should handle diff with only removals
+apps\desktop\src\lib\hunks\hunk.test.ts:1031: should handle diff with only additions
+apps\desktop\src\lib\hunks\hunk.test.ts:1047: should handle diff at the beginning of file
+apps\desktop\src\lib\hunks\hunk.test.ts:1065: should handle diff at the end of file
+apps\desktop\src\lib\hunks\hunk.test.ts:1083: should handle alternating additions and removals
+apps\desktop\src\lib\hunks\hunk.ts:420: 行 ID 格式错误
+apps\desktop\src\lib\irc\ircClient.svelte.ts:80: CAP LS 302
+apps\desktop\src\lib\irc\ircClient.svelte.ts:86: IRC connection open
+apps\desktop\src\lib\irc\ircClient.svelte.ts:115: Capabilities rejected!
+apps\desktop\src\lib\irc\ircClient.svelte.ts:118: CAP END
+apps\desktop\src\lib\irc\ircClient.svelte.ts:132: IRC connection closed
+apps\desktop\src\lib\irc\ircClient.svelte.ts:148: WebSocket 未连接！
+apps\desktop\src\lib\irc\ircService.svelte.ts:103: IRC 错误
+apps\desktop\src\lib\irc\ircSlice.ts:214: PING :
+apps\desktop\src\lib\mode\modeService.ts:133: 未找到 Redux 依赖 Backend！
+apps\desktop\src\lib\mode\modeService.ts:159: 未找到 Redux 依赖 Backend！
+apps\desktop\src\lib\mode\modeService.ts:178: 未找到 Redux 依赖 Backend！
+apps\desktop\src\lib\notifications\toasts.ts:64: You are likely experiencing a dev mode bundling error, 
+apps\desktop\src\lib\notifications\toasts.ts:65: try disabling the cache from the network tab and 
+apps\desktop\src\lib\notifications\toasts.ts:66: reload the page.
+apps\desktop\src\lib\notifications\toasts.ts:80: Don't show this again
+apps\desktop\src\lib\polyfills\abortSignal.test.ts:22: should add AbortSignal.timeout if it does not exist
+apps\desktop\src\lib\polyfills\abortSignal.test.ts:33: should not override existing AbortSignal.timeout
+apps\desktop\src\lib\polyfills\abortSignal.test.ts:44: should create an AbortSignal that aborts after the specified timeout
+apps\desktop\src\lib\polyfills\abortSignal.test.ts:62: should set the abort reason to TimeoutError
+apps\desktop\src\lib\polyfills\abortSignal.test.ts:78: should allow listening to abort events
+apps\desktop\src\lib\polyfills\abortSignal.ts:15: The operation was aborted due to timeout
+apps\desktop\src\lib\project\project.ts:49:  + path.replace(
+apps\desktop\src\lib\project\project.ts:123: Open project
+apps\desktop\src\lib\project\project.ts:135: Path not found
+apps\desktop\src\lib\project\project.ts:136: The specified path does not exist on the filesystem.
+apps\desktop\src\lib\project\project.ts:142: Not a directory
+apps\desktop\src\lib\project\project.ts:143: The specified path is not a directory.
+apps\desktop\src\lib\project\project.ts:150: Bare repository
+apps\desktop\src\lib\project\project.ts:151: The specified path appears to be a bare Git repository and cannot be added.
+apps\desktop\src\lib\project\project.ts:157: Non-main worktree
+apps\desktop\src\lib\project\project.ts:158: The specified path is not the main worktree of the repository.
+apps\desktop\src\lib\project\project.ts:164: No workdir
+apps\desktop\src\lib\project\project.ts:165: The specified repository does not have a working directory.
+apps\desktop\src\lib\project\project.ts:172: No .git directory
+apps\desktop\src\lib\project\project.ts:173: The specified path does not contain a .git directory.
+apps\desktop\src\lib\project\project.ts:180: Not a Git repository
+apps\desktop\src\lib\project\projectsService.ts:161: 对于 WSL2 项目，请在 WSL2 发行版内安装 GitButler 的 Linux 版本
+apps\desktop\src\lib\project\projectsService.ts:163: 请使用 GitButler 的 Linux 版本
+apps\desktop\src\lib\project\projectsService.ts:170: 不建议跨网络使用 git。请在本地克隆仓库，或使用 NET USE 命令映射网络驱动器。
+apps\desktop\src\lib\project\projectsService.ts:172: 不直接支持 UNC 路径
+apps\desktop\src\lib\prompt\promptService.ts:51: Timed out waiting for response
+apps\desktop\src\lib\rules\rule.ts:167: Refactor 🔧
+apps\desktop\src\lib\rules\rule.ts:169: New Feature ✨
+apps\desktop\src\lib\rules\rule.ts:171: Bug Fix 🐛
+apps\desktop\src\lib\rules\rule.ts:173: Documentation 📚
+apps\desktop\src\lib\rules\rulesService.svelte.ts:137: 未找到 Redux 依赖 Backend！
+apps\desktop\src\lib\settings\userSettings.ts:51: Geist Mono, Menlo, monospace
+apps\desktop\src\lib\soup\commitAnalytics.ts:104: Failed to fetch commit analytics:
+apps\desktop\src\lib\stacks\dropHandler.ts:76: 变更拖放数据必须指定源堆叠 ID
+apps\desktop\src\lib\stacks\dropHandler.ts:126: 变更拖放数据必须指定源堆叠 ID
+apps\desktop\src\lib\stacks\dropHandler.ts:154: 代码块拖放数据必须指定源堆叠 ID 和提交 ID
+apps\desktop\src\lib\stacks\macros.ts:11: New commit
+apps\desktop\src\lib\stacks\macros.ts:115: 未找到移动更改的新提交 ID
+apps\desktop\src\lib\stacks\stackService.svelte.ts:81: Git push failed
+apps\desktop\src\lib\stacks\stackService.svelte.ts:83: an authentication failure
+apps\desktop\src\lib\stacks\stackService.svelte.ts:84: force push protection
+apps\desktop\src\lib\stacks\stackService.svelte.ts:86: an unforeseen error
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1008: 未找到 Redux 依赖 Tauri！
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1029: Create Stack
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1045: Update Stack Order
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1250: Update Commit Message
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1261: Update Commit Message
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1272: Create Branch
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1303: Amend Commit
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1318: Insert Blank Commit
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1333: Insert Blank Commit
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1344: Discard Changes
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1362: Move Changes Between Commits
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1388: Move Changes Between Commits
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1409: Uncommit Changes
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1426: Stash Changes
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1437: Unapply Stack
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1458: Update Branch PR Number
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1478: Update Branch Name
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1497: Remove Branch
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1514: Update Branch Description
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1528: Reorder Stack
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1541: Move Commit
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1561: Move Branch
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1581: Tear Off Branch
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1602: Integrate Upstream Commits
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1617: --no stack ID--
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1630: Integrate Branch with Steps
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1645: Create Virtual Branch From Branch
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1659: Delete Local Branch
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1673: Squash Commits
+apps\desktop\src\lib\stacks\stackService.svelte.ts:1756: Create Reference
+apps\desktop\src\lib\state\backendQuery.ts:24: 未找到 Redux 依赖 Tauri！
+apps\desktop\src\lib\state\backendQuery.ts:48: 执行 Tauri 查询失败
+apps\desktop\src\lib\state\helpers.test.ts:7: when passed one result, keep the same status
+apps\desktop\src\lib\state\helpers.test.ts:34: rejected takes precedence over all
+apps\desktop\src\lib\state\helpers.test.ts:58: uninitialized takes precedence over fulfilled and pending
+apps\desktop\src\lib\state\helpers.test.ts:77: pending takes precedence over fulfilled
+apps\desktop\src\lib\state\helpers.test.ts:91: multiple fulfilled combines results in order
+apps\desktop\src\lib\state\helpers.test.ts:115: combining zero results returns undefined
+apps\desktop\src\lib\stores\tokenMemoryService.test.ts:24: It gets the value form secret service
+apps\desktop\src\lib\stores\tokenMemoryService.test.ts:40: Setting the token to be different
+apps\desktop\src\lib\stores\tokenMemoryService.test.ts:60: Setting the token to be undefined (logging out)
+apps\desktop\src\lib\stores\tokenMemoryService.test.ts:80: Old tokens in localStorage get ported
+apps\desktop\src\lib\testing\mockBaseBranch.ts:14: Mock Author
+apps\desktop\src\lib\testing\mockBaseBranch.ts:19: Mock description
+apps\desktop\src\lib\testing\mockBaseBranch.ts:28: Mock Title
+apps\desktop\src\lib\testing\mockBaseBranch.ts:29: Mock Body
+apps\desktop\src\lib\testing\mockStackService.ts:8: Author A
+apps\desktop\src\lib\testing\mockStackService.ts:16: Initial commit message
+apps\desktop\src\lib\testing\mockStackService.ts:26: Upstream commit message
+apps\desktop\src\lib\updater\updater.test.ts:36: should not show up-to-date on interval check
+apps\desktop\src\lib\updater\updater.test.ts:42: should show up-to-date on manual check
+apps\desktop\src\lib\updater\updater.test.ts:48: should prompt again on new version
+apps\desktop\src\lib\updater\updater.test.ts:49: release notes
+apps\desktop\src\lib\updater\updater.test.ts:76: should not prompt download for seen version
+apps\desktop\src\lib\updater\updater.test.ts:78: release notes
+apps\desktop\src\lib\updater\updater.test.ts:98: should check for updates continously
+apps\desktop\src\lib\updater\updater.test.ts:111: should respect disableAutoChecks setting
+apps\desktop\src\lib\updater\updater.test.ts:129: should ignore disableAutoChecks setting when manual update
+apps\desktop\src\lib\updater\updater.test.ts:144: should disable updater when updateIntervalMs is 0
+apps\desktop\src\lib\updater\updater.ts:145: App Update Successful
+apps\desktop\src\lib\updater\updater.ts:150: App Update Install Error
+apps\desktop\src\lib\updater\updater.ts:199: Could not fetch a valid release
+apps\desktop\src\lib\updater\updater.ts:200: error sending request
+apps\desktop\src\lib\updater\updater.ts:201: Network Error
+apps\desktop\src\lib\updater\updater.ts:209: App update failed
+apps\desktop\src\lib\upstream\upstreamIntegrationService.svelte.ts:96: Integrate Upstream
+apps\desktop\src\lib\upstream\upstreamIntegrationService.svelte.ts:115: Resolve Integrate Upstream
+apps\desktop\src\lib\utils\branch.test.ts:5: When provided a ref with a remote prefix, it returns the branch name
+apps\desktop\src\lib\utils\branch.test.ts:12: When provided a ref with a remote prefix that can't be found, it throws an error
+apps\desktop\src\lib\utils\branch.test.ts:19: When provided a ref with a remote prefix and multiple separators, it returns the correct branch name
+apps\desktop\src\lib\utils\branch.test.ts:26: When provided a ref with a remote that has multiple separators in it, it returns the correct branch name
+apps\desktop\src\lib\utils\branch.test.ts:33: When provided a ref but no explicit remote, it returns the branch name with the remote prefix
+apps\desktop\src\lib\utils\branch.test.ts:41: When provided a ref with a remote prefix, it returns the remote name
+apps\desktop\src\lib\utils\branch.test.ts:47: When provided a ref without a remote prefix, it returns undefined
+apps\desktop\src\lib\utils\branch.test.ts:53: When provided a ref with a remote prefix and multiple separators, it returns the remote name
+apps\desktop\src\lib\utils\codegenTools.ts:78: Running subtask
+apps\desktop\src\lib\utils\codegenTools.ts:96: Unknown tool call type:
+apps\desktop\src\lib\utils\codegenTools.ts:105: no parameters
+apps\desktop\src\lib\utils\commitMessage.test.ts:5: When provided an empty string, it returns an empty title and description
+apps\desktop\src\lib\utils\commitMessage.test.ts:9: When provided a single line, it returns a title and empty description
+apps\desktop\src\lib\utils\commitMessage.test.ts:10: Fixed all the bugs!
+apps\desktop\src\lib\utils\commitMessage.test.ts:12: Fixed all the bugs!
+apps\desktop\src\lib\utils\commitMessage.test.ts:15: When provided a single line, --with empty lines following it-- it returns a title and empty description
+apps\desktop\src\lib\utils\commitMessage.test.ts:16: Fixed all the bugs!\n\n
+apps\desktop\src\lib\utils\commitMessage.test.ts:18: Fixed all the bugs!
+apps\desktop\src\lib\utils\commitMessage.test.ts:21: When provided a commit message with one newline, it returns a title and description
+apps\desktop\src\lib\utils\commitMessage.test.ts:22: Fixed all the bugs!\nActually maybe not...
+apps\desktop\src\lib\utils\commitMessage.test.ts:25: Fixed all the bugs!
+apps\desktop\src\lib\utils\commitMessage.test.ts:26: Actually maybe not...
+apps\desktop\src\lib\utils\commitMessage.test.ts:30: Titles are trimmed by default
+apps\desktop\src\lib\utils\commitMessage.test.ts:31:    Fixed all the bugs!   \nActually maybe not...
+apps\desktop\src\lib\utils\commitMessage.test.ts:32: Fixed all the bugs!
+apps\desktop\src\lib\utils\commitMessage.test.ts:33: Actually maybe not...
+apps\desktop\src\lib\utils\commitMessage.test.ts:37: If specified, titles are not trimmed
+apps\desktop\src\lib\utils\commitMessage.test.ts:38:    Fixed all the bugs!   \nActually maybe not...
+apps\desktop\src\lib\utils\commitMessage.test.ts:39:    Fixed all the bugs!   
+apps\desktop\src\lib\utils\commitMessage.test.ts:40: Actually maybe not...
+apps\desktop\src\lib\utils\commitMessage.test.ts:44: When provided a commit message with multiple newline, it returns a title and description
+apps\desktop\src\lib\utils\commitMessage.test.ts:45: Fixed all the bugs!\n\nActually maybe not...
+apps\desktop\src\lib\utils\commitMessage.test.ts:48: Fixed all the bugs!
+apps\desktop\src\lib\utils\commitMessage.test.ts:49: Actually maybe not...
+apps\desktop\src\lib\utils\commitMessage.test.ts:52: Fixed all the bugs!\n\n\n\nActually maybe not...
+apps\desktop\src\lib\utils\commitMessage.test.ts:55: Fixed all the bugs!
+apps\desktop\src\lib\utils\commitMessage.test.ts:56: Actually maybe not...
+apps\desktop\src\lib\utils\commitMessage.test.ts:60: When proivded a commit message with newlines in the description, it returns a title and description
+apps\desktop\src\lib\utils\commitMessage.test.ts:70: Fixed all the bugs!
+apps\desktop\src\lib\utils\commitMessage.test.ts:81: Only the new-lines in the beginning and end of the description are removed
+apps\desktop\src\lib\utils\commitMessage.test.ts:99: Fixed all the bugs!
+apps\desktop\src\lib\utils\filters.test.ts:5: When provided an array with duplicate values, it returns an array with unique values
+apps\desktop\src\lib\utils\filters.test.ts:12: When provided an array with no duplicate values, it returns the original array
+apps\desktop\src\lib\utils\filters.test.ts:31: When provided an array of objects with duplicate values, it returns an array with unique values
+apps\desktop\src\lib\utils\filters.test.ts:48: When provided an array of objects with duplicate values, it returns an array with unique values - classes
+apps\desktop\src\lib\utils\filters.test.ts:61: When provided an array of objects with no duplicate values, it returns the original array
+apps\desktop\src\lib\utils\filters.test.ts:76: When provided an array of objects with no duplicate values, it returns the original array - classes
+apps\desktop\src\lib\utils\unsubscribe.test.ts:5: When provided an undefined value, it resolves to undefined
+apps\desktop\src\lib\utils\unsubscribe.test.ts:9: When provided a function, it resolves to that functions return value
+apps\desktop\src\lib\utils\unsubscribe.test.ts:15: When provided a promise of a function, it resolves to that functions return value
+apps\desktop\src\lib\utils\unsubscribe.test.ts:20: When provided all three different combinations, each one resolves to the final value
+apps\desktop\src\lib\worktree\worktreeService.svelte.ts:113: 未找到 Redux 依赖 Backend！

@@ -1,0 +1,9 @@
+mod cherry_pick;
+mod conflictable_restriction;
+mod editor_creation;
+mod insert;
+mod multiple_operations;
+mod rebase_identities;
+mod replace;
+mod signing_preferences;
+mod workspace_commit_behaviour;

@@ -1,0 +1,125 @@
+apps\desktop\src\components\AiCredentialCheck.svelte:32: Hello World
+apps\desktop\src\components\AiCredentialCheck.svelte:78: 请登录以使用 GitButler 的 AI API
+apps\desktop\src\components\AiCredentialCheck.svelte:80: 请为所选 AI 服务提供有效的 API 密钥
+apps\desktop\src\components\AiCredentialCheck.svelte:99: AI 响应在 20 秒后超时
+apps\desktop\src\components\AiCredentialCheck.svelte:101: AI 响应在 20 秒后超时。请检查你的 AI 服务是否正常运行。
+apps\desktop\src\components\AiCredentialCheck.svelte:148: 从 AI 服务收到空响应
+apps\desktop\src\components\AiCredentialCheck.svelte:151: AI 凭据检查出错：
+apps\desktop\src\components\AiCredentialCheck.svelte:155: AI 请求已取消
+apps\desktop\src\components\AiCredentialCheck.svelte:253: AI 正在响应…
+apps\desktop\src\components\AiCredentialCheck.svelte:253: 正在测试 AI 连接…
+apps\desktop\src\components\AuthorizationBanner.svelte:12: 请授权 GitButler 使用此服务
+apps\desktop\src\components\BranchCommitList.svelte:166: 将仅本地的更改放在最上方，然后再应用上游更改。类似 git pull --rebase。
+apps\desktop\src\components\BranchesViewPR.svelte:113: 应用 {forge.reviewUnitName}
+apps\desktop\src\components\BranchExplorer.svelte:152: Azure DevOps
+apps\desktop\src\components\BranchHeaderContextMenu.svelte:311: 在浏览器中打开 {forge.reviewUnitAbbr}
+apps\desktop\src\components\BranchHeaderContextMenu.svelte:320: 复制 {forge.reviewUnitAbbr} 链接
+apps\desktop\src\components\BranchIntegrationModal.svelte:220: 堆叠 ID 未定义
+apps\desktop\src\components\BranchIntegrationModal.svelte:286: 提交 SHA 已复制
+apps\desktop\src\components\BranchIntegrationModal.svelte:291: 上游提交 SHA 已复制
+apps\desktop\src\components\BranchReview.svelte:52: 创建 {forge.reviewUnitName}
+apps\desktop\src\components\ChangedFilesContextMenu.svelte:198: 此项目未配置或未启用 GitButler AI。
+apps\desktop\src\components\ChangedFilesContextMenu.svelte:215: 此项目未配置或未启用 GitButler AI。
+apps\desktop\src\components\ChangedFilesContextMenu.svelte:232: 此项目未配置或未启用 GitButler AI。
+apps\desktop\src\components\ChangedFilesContextMenu.svelte:449: 在 {$userSettings.defaultCodeEditor.displayName} 中打开
+apps\desktop\src\components\ChangedFilesContextMenu.svelte:492: 实验性 AI
+apps\desktop\src\components\ChecksPolling.svelte:62: 无 PR 检查
+apps\desktop\src\components\ChecksPolling.svelte:103: 无 PR 检查
+apps\desktop\src\components\ChromeHeader.svelte:62: 分离的 HEAD
+apps\desktop\src\components\ChromeHeader.svelte:240: 切回 gitbutler/workspace
+apps\desktop\src\components\ChromeHeader.svelte:279: 新建 Codegen 会话
+apps\desktop\src\components\ChromeSidebar.svelte:108: rotate(90 15 1)
+apps\desktop\src\components\ChromeSidebar.svelte:118: rotate(90 15 9)
+apps\desktop\src\components\ChromeSidebar.svelte:128: rotate(90 5 1)
+apps\desktop\src\components\ChromeSidebar.svelte:268: 主题 (⌘T)
+apps\desktop\src\components\CloneForm.svelte:67: 必须填写仓库 URL 和目标目录。
+apps\desktop\src\components\CloneForm.svelte:117: 仓库 URL
+apps\desktop\src\components\CommitDetails.svelte:68: 复制提交 SHA
+apps\desktop\src\components\CommitDetails.svelte:74: 已复制提交 SHA
+apps\desktop\src\components\CommitRow.svelte:182: 打开 Gerrit 评审 #{reviewId}
+apps\desktop\src\components\DraftBranchHeader.svelte:55: AI 会话
+apps\desktop\src\components\ForgeForm.svelte:136: 你的派生项目 ID
+apps\desktop\src\components\ForgeForm.svelte:141: 上游项目 ID
+apps\desktop\src\components\ForgeForm.svelte:146: 实例 URL
+apps\desktop\src\components\ForgeForm.svelte:185: 此项目的 GitHub 账户
+apps\desktop\src\components\GeneralSettingsModalContent.svelte:48: Git 设置
+apps\desktop\src\components\GeneralSettingsModalContent.svelte:58: AI 选项
+apps\desktop\src\components\GerritPushModal.svelte:98: Gerrit 推送选项
+apps\desktop\src\components\GitHubAccountBadge.svelte:30: GitHub Enterprise
+apps\desktop\src\components\GithubIntegration.svelte:96: 已验证 GitHub 账户
+apps\desktop\src\components\GithubIntegration.svelte:99: 验证 GitHub 账户失败
+apps\desktop\src\components\GithubIntegration.svelte:124: 保存 GitHub PAT 失败：
+apps\desktop\src\components\GithubIntegration.svelte:143: 保存 GitHub Enterprise PAT 失败：
+apps\desktop\src\components\GithubIntegration.svelte:322: API 基础 URL
+apps\desktop\src\components\GithubIntegration.svelte:377: 授权 GitHub 账户
+apps\desktop\src\components\GithubIntegration.svelte:393: 添加 GitHub Enterprise 账户
+apps\desktop\src\components\HunkContextMenu.svelte:154: 在 {$userSettings.defaultCodeEditor.displayName} 中打开
+apps\desktop\src\components\ProjectSettingsModalContent.svelte:28: Git 设置
+apps\desktop\src\components\ProjectSettingsModalContent.svelte:33: AI 选项
+apps\desktop\src\components\PromptModal.svelte:58: Git 需要输入
+apps\desktop\src\components\PrTemplateSection.svelte:69: No PR templates found ¯\\_(ツ)_/¯
+apps\desktop\src\components\PullRequestCard.svelte:180: 复制 {abbr} 链接
+apps\desktop\src\components\PullRequestCard.svelte:189: 在浏览器中打开 {abbr}
+apps\desktop\src\components\ReduxResult.svelte:7: A, B extends string | undefined, C extends string | undefined
+apps\desktop\src\components\ReviewCreation.svelte:199: 在创建合并请求前，你必须先配置 GitLab 集成。
+apps\desktop\src\components\ReviewCreation.svelte:426: {forge.reviewUnitAbbr} 标题
+apps\desktop\src\components\ReviewCreation.svelte:442: {forge.reviewUnitAbbr} 描述
+apps\desktop\src\components\ReviewCreationControls.svelte:65: 创建 {unit} 草稿
+apps\desktop\src\components\ReviewCreationControls.svelte:74: 创建 {unit}
+apps\desktop\src\components\RuleFilterPathRegex.svelte:11: 路径：例如 src/components
+apps\desktop\src\components\RuleFiltersEditor.svelte:148: 路径，例如 src/components 或正则
+apps\desktop\src\components\RuleFiltersEditor.svelte:159: 字符串，例如 TODO 或正则
+apps\desktop\src\components\ShareIssueModal.svelte:74: GitButler 版本：
+apps\desktop\src\components\ShareIssueModal.svelte:153: 与 GitButler 团队分享调试数据以便审查
+apps\desktop\src\components\SnapshotCard.svelte:93: ${entry.details?.trailers.find((t) => t.key === 'name')?.value}
+apps\desktop\src\components\SnapshotCard.svelte:98: ${entry.details?.trailers.find((t) => t.key === 'name')?.value}
+apps\desktop\src\components\SnapshotCard.svelte:103: ${snapshotDetails.trailers.find((t) => t.key === 'name')?.value}
+apps\desktop\src\components\SnapshotCard.svelte:108: ${snapshotDetails.trailers.find((t) => t.key === 'before')?.value}
+apps\desktop\src\components\SnapshotCard.svelte:108: ${snapshotDetails.trailers.find((t) => t.key === 'after')?.value}
+apps\desktop\src\components\SnapshotCard.svelte:113: ${snapshotDetails.trailers.find((t) => t.key === 'name')?.value}
+apps\desktop\src\components\SnapshotCard.svelte:118: ${snapshotDetails.trailers.find((t) => t.key === 'before')?.value}
+apps\desktop\src\components\SnapshotCard.svelte:118: ${snapshotDetails.trailers.find((t) => t.key === 'after')?.value}
+apps\desktop\src\components\SnapshotCard.svelte:123: ${snapshotDetails.trailers.find((t) => t.key === 'after')?.value}
+apps\desktop\src\components\SnapshotCard.svelte:128: ${snapshotDetails.trailers.find((t) => t.key === 'before')?.value}
+apps\desktop\src\components\SnapshotCard.svelte:128: ${snapshotDetails.trailers.find((t) => t.key === 'after')?.value}
+apps\desktop\src\components\SnapshotCard.svelte:171: ${entry.details?.trailers.find((t) => t.key === 'name')?.value}
+apps\desktop\src\components\SnapshotCard.svelte:228: 将 GitButler 和你的文件恢复到此操作之前的状态。还原操作也可以撤销。
+apps\desktop\src\components\StackDraft.svelte:97: 创建 Codegen 会话失败
+apps\desktop\src\components\codegen\AttachmentList.svelte:116: 移除 {attachment}
+apps\desktop\src\components\codegen\ClaudeCheck.svelte:106: Claude Code 路径：
+apps\desktop\src\components\codegen\ClaudeCheck.svelte:108: Claude Code 可执行文件路径
+apps\desktop\src\components\codegen\ClaudeCheck.svelte:111: Claude 以非 0 退出码退出
+apps\desktop\src\components\codegen\CodegenApprovalToolCall.svelte:47: 权限将保存到 .claude/settings.local.json
+apps\desktop\src\components\codegen\CodegenApprovalToolCall.svelte:49: 权限将保存到 ~/.claude/settings.json
+apps\desktop\src\components\codegen\CodegenGitButlerMessage.svelte:24: 已创建新提交{message.commitIds.length > 1 ? '（多条）' : ''}
+apps\desktop\src\components\codegen\CodegenMessages.svelte:129: Sonnet 1m
+apps\desktop\src\components\codegen\CodegenMessages.svelte:131: Opus Planning
+apps\desktop\src\components\codegen\CodegenMessages.svelte:345: 令牌：{stats.tokens.toLocaleString()} / ${stats.cost.toFixed(2)}
+apps\desktop\src\components\codegen\CodegenMessages.svelte:351: 已使用 {contextUsage}% 上下文
+apps\desktop\src\components\codegen\CodegenToolCalls.svelte:59: {filteredCalls.length} 次工具调用
+apps\desktop\src\components\editor\MessageEditor.svelte:242: 需要在项目设置中启用 AI 才能使用此功能
+apps\desktop\src\components\profileSettings\AiSettings.svelte:86: 使用 GitButler API
+apps\desktop\src\components\profileSettings\AiSettings.svelte:97: GPT 5
+apps\desktop\src\components\profileSettings\AiSettings.svelte:101: GPT 5 Mini
+apps\desktop\src\components\profileSettings\AiSettings.svelte:105: o3 Mini
+apps\desktop\src\components\profileSettings\AiSettings.svelte:109: o1 Mini
+apps\desktop\src\components\profileSettings\AiSettings.svelte:113: GPT 4o mini
+apps\desktop\src\components\profileSettings\AiSettings.svelte:117: GPT 4.1
+apps\desktop\src\components\profileSettings\AiSettings.svelte:121: GPT 4.1 mini（推荐）
+apps\desktop\src\components\profileSettings\AiSettings.svelte:132: Sonnet 3.5
+apps\desktop\src\components\profileSettings\AiSettings.svelte:136: Sonnet 3.7（推荐）
+apps\desktop\src\components\profileSettings\AiSettings.svelte:140: Sonnet 4
+apps\desktop\src\components\profileSettings\AiSettings.svelte:144: Opus 4
+apps\desktop\src\components\profileSettings\AiSettings.svelte:241: 请登录以使用 GitButler API。
+apps\desktop\src\components\profileSettings\AiSettings.svelte:243: GitButler 使用 OpenAI API 生成提交信息和分支名。
+apps\desktop\src\components\profileSettings\AiSettings.svelte:249: API 密钥
+apps\desktop\src\components\profileSettings\AiSettings.svelte:309: 请登录以使用 GitButler API。
+apps\desktop\src\components\profileSettings\AiSettings.svelte:312: GitButler 使用 Anthropic API 生成提交信息和分支名。
+apps\desktop\src\components\profileSettings\AiSettings.svelte:319: API 密钥
+apps\desktop\src\components\profileSettings\CliSymLink.svelte:25: sudo ln -sf '
+apps\desktop\src\components\profileSettings\CliSymLink.svelte:25: ' /usr/local/bin/but
+apps\desktop\src\components\profileSettings\GeneralSettings.svelte:57: VSCode Insiders
+apps\desktop\src\routes\+layout.svelte:131: c o 3
+apps\desktop\src\routes\+layout.svelte:135: d o t
+apps\desktop\src\routes\+layout.svelte:140: e n v
+apps\desktop\src\routes\+layout.svelte:146: 已同时写入 window.tauriEnv
